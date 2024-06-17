@@ -1,4 +1,3 @@
-import React from "react";
 import "../assets/scss/LJG.scss";
 
 export default function PostTable() {

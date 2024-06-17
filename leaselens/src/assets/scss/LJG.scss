@@ -32,7 +32,7 @@
       text-align: center;
       font-size: 22px;
       font-weight: bolder;
-      text-shadow: 0px 4px 4px rgb(102, 102, 102);
+      text-shadow: 2px 4px 10px rgb(102, 102, 102);
     }
   }
 
@@ -62,7 +62,7 @@
 
 // 제품 카드 끝
 
-// 제품 테이블 시작
+// 게시글 테이블 시작
 .postTable {
   width: 80%;
 
@@ -132,3 +132,59 @@
     }
   }
 }
+// 게시글 테이블 끝
+
+// 제품 상세 카드 시작
+.proInfo {
+  width: 1700px;
+  height: 320px;
+  display: grid;
+  grid-template-columns: 1.4fr 2fr 0.3fr;
+  border-radius: 10px;
+  box-shadow: 0px 4px 45px 2px #ADADAD;
+
+  .proInfo_proImg_container {
+    max-height: 320px;
+    display: flex;
+    justify-content: center;
+    .proInfo_proImg {
+      height: 100%;
+    }
+  }
+
+  .proInfo_proInfo_des {
+    padding-left: 5%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .proInfo_proName {
+      font-size: 32px;
+      font-weight: 600;
+      text-shadow: 2px 4px 10px rgb(102, 102, 102);
+      margin: 10px 0;
+    }
+    .proInfo_proLease_price {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 10px 0 5px 0
+    }
+    .proInfo_proDes {
+      font-size: 18px;
+      margin-top: 0;
+    }
+  }
+
+  .proInfo_proLike_btn_box {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    .priInfo_proLike_btn {
+      background-color: transparent;
+      border: 0;
+      transform: scale(3);
+      translate: -100% -100%;
+    }
+  }
+}
+// 제품 상세 카드 끝
