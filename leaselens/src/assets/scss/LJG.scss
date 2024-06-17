@@ -64,14 +64,71 @@
 
 // 제품 테이블 시작
 .postTable {
-  .postTable_table {
-    .postTable_thead {
-      .postTable_head_tr {
+  width: 80%;
 
+  .postTable_table {
+    width: 100%;
+    border-spacing: 0 15px;
+    border-collapse: separate;
+
+    .postTable_thead {
+
+      .postTable_head_tr {
+        color: white;
+        background-color: black;
+        padding: 0px;
+
+        border: 1px solid green;
+
+        .postTable_head_th {
+          padding: 1rem;
+          font-size: 32px;
+          font-weight: bold;
+        }
+
+        :first-child {
+          border-radius: 8px 0 0 8px;
+        }
+
+        :last-child {
+          border-radius: 0 8px 8px 0;
+        }
       }
     }
-    .postTable_tbody {
 
+    .postTable_tbody {
+      .postTable_body_tr {
+        padding: 0px;
+
+        .postTable_body_th {
+          padding: 1rem;
+          font-size: 32px;
+          font-weight: 500;
+          border-top: 1px solid black;
+          border-bottom: 1px solid black;
+        }
+
+
+        :first-child {
+          border-left: 1px solid black;
+          border-top: 1px solid black;
+          border-bottom: 1px solid black;
+          border-radius: 8px 0 0 8px;
+        }
+
+        :last-child {
+          border-right: 1px solid black;
+          border-top: 1px solid black;
+          border-bottom: 1px solid black;
+          border-radius: 0 8px 8px 0;
+          padding: 0;
+
+          .postTable_body_input {
+            transform: scale(2);
+            margin: 0 0 20px 0;
+          }
+        }
+      }
     }
   }
 }
