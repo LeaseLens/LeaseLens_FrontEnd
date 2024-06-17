@@ -23,11 +23,9 @@ export default function PostTable() {
             <th className="postTable_body_th">렌탈 좋네요.</th>
             <th className="postTable_body_th">아이디</th>
             <th className="postTable_body_th">
-              <input type="checkbox" name="" id="" checked />
+              <input type="checkbox" name="" id="" checked readOnly className="postTable_body_input"/>
             </th>
           </tr>
-        </tbody>
-        <tbody className="postTable_tbody">
           <tr className="postTable_body_tr">
             <th className="postTable_body_th">2</th>
             <th className="postTable_body_th">2024-06-17</th>
@@ -35,7 +33,7 @@ export default function PostTable() {
             <th className="postTable_body_th">렌탈 안좋네요.</th>
             <th className="postTable_body_th">아이디</th>
             <th className="postTable_body_th">
-              <input type="checkbox" name="" id="" disabled/>
+              <input type="checkbox" disabled className="postTable_body_input"/>
             </th>
           </tr>
         </tbody>
