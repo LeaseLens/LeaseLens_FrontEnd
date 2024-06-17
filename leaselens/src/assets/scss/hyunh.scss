@@ -1,0 +1,110 @@
+// footer
+
+.foot_container {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #F4F4F4;
+
+    .foot_sns {
+        display: flex;
+        
+        img {
+            margin: 30px;
+        }
+
+        .foot_github {
+            width: 60px;
+        }
+
+        .foot_figma {
+            width: 43px;
+        }
+
+        .foot_notion {
+            width: 52px;
+        }
+    }
+}
+
+// header
+
+.head_container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    
+    .head_logo {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 200px;
+        }
+    }
+
+    .head_nav {
+        ul {
+            display: flex;
+            padding: 0;
+            li {
+                list-style: none;
+                margin: 20px;
+                font-size: 25px;
+            }
+        }
+    }
+
+    .head_loginUser {
+        display: flex;
+        align-items: center;
+
+        .head_profile {
+            width: 40px;
+        }
+
+        span {
+            font-size: 25px;
+        }
+    }
+}
+
+.head_profileTog {
+    background-color: #000;
+    opacity: 0.7;
+    width: 150px;
+    height: 130px;
+    position: absolute;
+    right: 10px;
+    top: 80px;
+
+    ul {
+        padding: 0;
+        height: 100%;
+        margin: 0;
+
+        li {
+            list-style: none;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+
+                &:hover {
+                    cursor: pointer;
+                    color: #FDDBDB;
+                }
+            }
+        }
+
+        hr {
+            margin: 0;
+        }
+    }
+}
