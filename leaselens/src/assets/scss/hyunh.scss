@@ -254,8 +254,8 @@
     position: relative;
     display: grid;
     place-items: center;
-    width: 300px;
-    height: 400px;
+    width: 350px;
+    height: 550px;
     padding: 25px;
     background-color: #FDDBDB;
     box-shadow: 0px 15px 60px #FDDBDB;
@@ -301,7 +301,7 @@
                     border: 1px solid #005477;
                 }
 
-                &:first-child {
+                &:not(last-child) {
                     margin-bottom: 15px;
                 }
 
@@ -366,5 +366,11 @@
             }
 
         }
+    }
+
+    #signup_body {
+        @extend #login_body ;
+        position: absolute;
+        top: 40%;
     }
 }
