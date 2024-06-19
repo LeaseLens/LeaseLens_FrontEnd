@@ -137,8 +137,8 @@
 
 // 제품 상세 카드 시작
 .proInfo {
-  width: 1700px;
-  height: 320px;
+  width: 90%;
+  min-height: 320px;
   display: grid;
   grid-template-columns: 1.4fr 2fr 0.3fr;
   border-radius: 10px;
@@ -177,15 +177,17 @@
     .proInfo_proDes {
       font-size: 18px;
       margin-top: 0;
+      overflow-y: auto;
     }
-  }
 
+  }
+  
   .proInfo_proLike_btn_box {
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
-
-    .priInfo_proLike_btn {
+    
+    .proInfo_proLike_btn {
       background-color: transparent;
       border: 0;
       transform: scale(3);
@@ -194,6 +196,20 @@
   }
 }
 
+@media screen and (max-width: 1250px) and (min-width: 431px) {
+  .proInfo {
+    display: grid;
+    grid-template-columns: auto;
+    .proInfo_proLike_btn_box {
+      .proInfo_proLike_btn {
+        translate: -100% -100%;
+      }
+    }
+    .proInfo_proInfo_des {
+      min-height: 141px;
+    }
+  }
+}
 // 제품 상세 카드 끝
 
 // 댓글창 시작
@@ -380,3 +396,105 @@
 // 글 작성 페이지 시작
 
 // 글 작성 페이지 끝
+
+// 로딩 페이지 시작
+body {
+  margin: 0;
+
+  .LodingPage_main {
+    width: 100vw;
+    height: 100vh;
+    background-color: #FDDBDB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .LodingPage_logo_box {
+      .LodingPage_logoImg_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10%;
+
+        .LodingPage_logoImg {
+          width: 9vw;
+          animation: rotate_img 6s linear infinite;
+
+          @keyframes rotate_img {
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+
+          @media screen and (max-width: 430px) {
+            width: 30vw;
+          }
+        }
+      }
+
+      .LodingPage_logoText_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .LodingPage_logoText {
+          width: 15vw;
+
+          @media screen and (max-width: 430px) {
+            width: 55vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 로딩 페이지 끝
+
+// 메인 페이지 시작
+body {
+  margin: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(253, 219, 219, 1) 74%);
+  background-repeat: no-repeat;
+
+  .mainPage_main {
+    width: 100vw;
+
+    .mainPage_leftBox {
+      border: 1px solid black;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+
+      .mainPage_proInfo_box {
+        border: 1px solid black;
+        font-size: 48px;
+        font-weight: 900;
+
+        .mainPage_proName {
+          text-shadow: 2px 4px 10px #ADADAD;
+        }
+      }
+
+      .mainPage_proInfo_btn {
+        .proInfo_btn {
+          background-color: white;
+          opacity: 0.7;
+          font-size: 24px;
+          border-radius: 10px;
+          width: 30%;
+          padding: 1rem;
+          border: 0;
+          outline: 0;
+        }
+      } 
+    }
+    
+    .mainPage_right_box {
+
+    }
+  }
+}
+
+// 메인 페이지 끝
