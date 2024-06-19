@@ -7,6 +7,7 @@
     justify-content: space-around;
     align-items: center;
     background-color: #F4F4F4;
+    margin-top: 20px;
 
     .foot_sns {
         display: flex;
@@ -36,6 +37,8 @@
     height: 100px;
     display: flex;
     justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
 
     .head_logo {
         display: flex;
@@ -113,74 +116,78 @@
 // review card
 
 .rev_container {
-    width: 500px;
-    height: 300px;
+    width: 35%;
+    height: 500px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border: 1px solid #f1f1f1;
     box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
     border-radius: 10px;
+    background-color: #fff;
 
     .rev_img {
-        width: 200px;
-        height: 250PX;
+        width: 40%;
+        height: 80%;
         border: 0.5px solid #ADADAD;
         display: flex;
         align-items: center;
         border-radius: 10px;
+        background-color: #fff;
 
         img {
-            width: 190px;
+            width: 100%;
         }
     }
 
     .rev_content {
-        width: 200px;
-        height: 250PX;
-        display: grid;
-        align-items: center;
+        width: 35%;
+        height: 80%;
         align-content: center;
+        overflow: auto;
+
 
         .rev_star {
             font-size: 20px;
         }
     }
 
-    .rev_nextBtn {
-        width: 30px;
-        height: 30px;
-        color: #ADADAD;
-        border: 0.5px solid #ADADAD;
-        border-radius: 50%;
-        font-size: 25px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-    }
+    // .rev_nextBtn {
+    //     width: 30px;
+    //     height: 30px;
+    //     color: #ADADAD;
+    //     border: 0.5px solid #ADADAD;
+    //     border-radius: 50%;
+    //     font-size: 25px;
+    //     display: flex;
+    //     align-items: flex-end;
+    //     justify-content: center;
+    // }
 }
 
 // side bar
 
 .side_container {
-    width: 150px;
-    height: 420px;
+    width: 100%;
+    height: 100%;
     border: 0.5px solid #ADADAD;
     border-radius: 10px;
     position: sticky;
     top: 100px;
+    margin-top: 20px;
 
     .side_all {
         font-size: 20px;
         font-weight: bold;
         padding: 20px;
+        margin-left: 10px;
     }
 
     .side_hr {
         border: 0.5px solid #ADADAD;
-        width: 135px;
+        width: 95%;
         height: 0;
-        margin-left: 7px;
+        margin-left: 5px;
     }
 
     .side_category {
@@ -189,7 +196,8 @@
 
         .side_item {
             list-style: none;
-            margin: 20px;
+            padding: 20px;
+            margin-left: 10px;
             font-size: 20px;
         }
     }
@@ -225,14 +233,15 @@
 // banner
 
 .banner_container {
-    width: 1080px;
-    height: 400px;
+    width: 97%;
+    height: 350px;
     position: relative;
-
+    margin-left: 20px;
+    margin-right: 20px;
 
     .banner_img {
-        width: 1080px;
-        height: 400px;
+        width: 100%;
+        height: 100%;
         border-radius: 10px;
         background-image: url('../images/Product/LG\ 코드제로\ R5\ 올인원타워\ 로봇청소기.png');
         filter: brightness(40%);
@@ -242,7 +251,7 @@
         position: absolute;
         top: 80px;
         left: 80px;
-        font-size: 50px;
+        font-size: 45px;
         color: #fff;
         font-weight: bold;
     }
@@ -357,7 +366,7 @@
                 color: #005477;
                 font-size: 12px;
                 text-decoration: underline;
-                
+
                 &:hover {
                     transition: all ease-in-out .3s;
                     color: #fff;
@@ -369,8 +378,143 @@
     }
 
     #signup_body {
-        @extend #login_body ;
+        @extend #login_body;
         position: absolute;
         top: 40%;
+    }
+}
+
+// product page
+
+.propg_main_container {
+    display: flex;
+    width: 100%;
+
+    .propg_side_container {
+        width: 10%;
+        height: 50%;
+        margin-left: 10px;
+    }
+
+    .propg_sec_container {
+        width: 90%;
+        margin-left: 10px;
+
+        .propg_product_container {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+}
+
+// product detail page
+
+.prodetpg_info_container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.prodetpg_rev_container {
+    padding: 20px;
+
+    .prodetpg_rev_txt {
+        // @extend .proInfo_proName;
+        font-size: 32px;
+        font-weight: 600;
+        text-shadow: 2px 4px 10px #ADADAD;
+        margin: 10px 0;
+        margin-left: 7%;
+
+        // animation: reviewTxt 2s linear;
+
+        // @keyframes reviewTxt {
+        //     0% {
+        //         font-size: 32px;
+        //     }
+
+        //     25% {
+        //         font-size: 40px;
+        //     }
+
+        //     50% {
+        //         font-size: 50px;
+        //     }
+
+        //     75% {
+        //         font-size: 40px;
+        //     }
+
+        //     100% {
+        //         font-size: 32px;
+        //     }
+        // }
+    }
+
+    .prodetpg_rev_cont {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        animation: slideUp 2s ease-out;
+
+        // animation: reviewTxt 2s linear;
+
+        // @keyframes reviewTxt {
+        //     0% {
+        //         width: 200%;
+
+        //     }
+
+        //     25% {
+        //         width: 180%;
+        //     }
+
+        //     50% {
+        //         width: 150%;
+        //     }
+
+        //     75% {
+        //         width: 120%;
+        //     }
+
+        //     100% {
+        //         width: 100%;
+        //     }
+        // }
+    }
+}
+
+// event page
+
+.eventpg_container {
+    p {
+        font-size: 32px;
+        font-weight: 600;
+        text-shadow: 2px 4px 10px #ADADAD;
+        margin: 20px 0;
+        text-align: end;
+        margin-right: 2%;
+    }
+
+    .eventpg_banner_container {
+        display: grid;
+        gap: 25px;
     }
 }

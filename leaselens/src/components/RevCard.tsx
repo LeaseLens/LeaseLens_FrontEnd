@@ -12,7 +12,6 @@ export default function RevCard() {
           <h3 className="rev_title">렌탈 좋네요.</h3>
           <div className="rev_text">리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰리뷰</div>
         </div>
-        <div className="rev_nextBtn">&gt;</div>
     </div>
   )
 }
