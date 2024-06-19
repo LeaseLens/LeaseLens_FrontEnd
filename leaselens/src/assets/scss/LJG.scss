@@ -505,6 +505,9 @@ body {
           font-size: 24px;
         }
       }
+      .mainPage_RevCard {
+        width: 90%;
+      }
     }
     
     .mainPage_rightBox {
@@ -527,6 +530,7 @@ body {
           height: 90%;
           width: 70%;
           border-radius: 10px;
+          box-shadow: 2px 4px 4px 1px #ADADAD;
         }
 
         .mainPage_img1 {
