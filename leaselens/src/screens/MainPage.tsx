@@ -1,5 +1,3 @@
-import "../assets/scss/LJG.scss";
-import "../assets/scss/hyunh.scss";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import RevCard from "../components/RevCard";
@@ -23,14 +21,19 @@ export default function MainPage() {
               렌탈하러 가기 <FaArrowRight />
             </a>
           </div>
+          <div className="mainPage_proInfo_proDes">
+            <p className="mainPage_proDes">
+              설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명
+            </p>
+          </div>
           <RevCard />
         </section>
         <section className="mainPage_rightBox">
-          <div className="mainPage_imgBox_1">
-            <img src={img1} alt="" />
+          <div className="mainPage_imgBox">
+            <img src={img1} alt="" className="mainPage_img mainPage_img1"/>
           </div>
-          <div className="mainPage_imgBox_2">
-            <img src={img2} alt="" />
+          <div className="mainPage_imgBox">
+            <img src={img2} alt="" className="mainPage_img mainPage_img2"/>
           </div>
         </section>
       </main>

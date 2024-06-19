@@ -454,22 +454,22 @@ body {
   background-repeat: no-repeat;
 
   .mainPage_main {
-    
     width: 100%;
     padding: 2% 0;
+    display: flex;
 
     .mainPage_leftBox {
-      border: 1px solid black;
-      width: 50%;
+      width: 40%;
       display: flex;
       flex-direction: column;
+      margin-left: 5%;
 
       .mainPage_proInfo_box {
-        border: 1px solid black;
         font-size: 48px;
         font-weight: 900;
 
         .mainPage_proName {
+          width: 80%;
           text-shadow: 2px 4px 10px #ADADAD;
         }
       }
@@ -490,20 +490,58 @@ body {
           box-shadow: 2px 4px 4px 1px #ADADAD;
           text-decoration: none;
         }
-        :hover {
+        :active {
           border: 2px #005477 solid;
-          -webkit-transition: 
-            border 0.7s
-            color 0.7s
+          transition: 
+            border 1s
           ;
         }
       } 
+      .mainPage_proInfo_proDes {
+        width: 60%;
+        margin: 4% 0;
+
+        .mainPage_proDes {
+          font-size: 24px;
+        }
+      }
     }
     
-    .mainPage_right_box {
-      width: 50%;
-      border: 1px solid black;
-      
+    .mainPage_rightBox {
+      width: 60%;
+      display: flex;
+      flex-direction: row;
+      justify-items: center;
+      align-items: center;
+
+      .mainPage_imgBox {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .mainPage_img {
+          object-fit: cover;
+          height: 90%;
+          width: 70%;
+          border-radius: 10px;
+        }
+
+        .mainPage_img1 {
+          height: 60%;
+          width: 55%;
+          position: relative;
+          top: 20%;
+          left: 20%;
+        }
+
+        .mainPage_img2 {
+          position: relative;
+          bottom: 5%;
+        }
+      }
     }
   }
 }
