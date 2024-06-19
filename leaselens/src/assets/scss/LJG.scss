@@ -1,6 +1,6 @@
 // 제품 카드 시작
 .proCard {
-  width: 392px;
+  width: 26%;
   height: 456px;
   border: 1px solid #F1F1F1;
   border-radius: 8.61px;
@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-evenly;
   padding: 0.5rem;
-  box-shadow: 0px 4px 45px 2px #ADADAD;
+  box-shadow: 0px 4px 25px 2px #ADADAD;
 
   .proCard_img_container {
     display: flex;
@@ -142,7 +142,7 @@
   display: grid;
   grid-template-columns: 1.4fr 2fr 0.3fr;
   border-radius: 10px;
-  box-shadow: 0px 4px 45px 2px #ADADAD;
+  box-shadow: 0px 4px 25px 2px #ADADAD;
 
   .proInfo_proImg_container {
     max-height: 320px;
@@ -339,7 +339,7 @@
 
 // 검색창 시작
 .search_inputBox {
-  width: 241px;
+  width: 100%;
   height: 52.57px;
   display: flex;
   flex-direction: row;
