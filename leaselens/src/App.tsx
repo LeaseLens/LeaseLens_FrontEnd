@@ -1,11 +1,11 @@
-// import Comment from "./components/Comment";
-// import Search from "./components/Search";
-import LodingPage from "./screens/LodingPage";
+// import ProInfo from "./components/ProInfo";
+import MainPage from "./screens/MainPage";
 
 function App() {
   return (
     <div className="App">
-      <LodingPage />
+      <MainPage />
+      {/* <ProInfo />  */}
     </div>
   );
 }
