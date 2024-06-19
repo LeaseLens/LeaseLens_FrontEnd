@@ -11,11 +11,14 @@ import Login from './components/Login';
 // import ProCard from './components/proCard';
 // import PostTable from './components/PostTable';
 import ProInfo from './components/ProInfo';
+// import Comment from "./components/Comment";
+// import Search from "./components/Search";
+import LodingPage from "./screens/LodingPage";
 
 function App() {
   return (
     <div className="App">
-      
+      <LodingPage />
     </div>
   );
 }
