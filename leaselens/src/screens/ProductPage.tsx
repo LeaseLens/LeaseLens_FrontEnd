@@ -11,7 +11,7 @@ export default function ProductPage() {
             <Header />
             <div className='propg_main_container'>
                 <div className='propg_side_container'>
-                    <Search />
+                    <Search searchOpt={"제품명을 입력해주세요."}/>
                     <SideBar />
                 </div>
                 <div className='propg_sec_container'>
