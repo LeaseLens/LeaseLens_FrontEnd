@@ -32,7 +32,7 @@
       text-align: center;
       font-size: 22px;
       font-weight: bolder;
-      text-shadow: 2px 4px 10px rgb(102, 102, 102);
+      text-shadow: 2px 4px 10px #ADADAD;
     }
   }
 
@@ -50,7 +50,7 @@
       background-color: black;
       color: white;
       border-radius: 5px;
-      box-shadow: 2px 2px 2px 2px black;
+      box-shadow: 2px 2px 2px 2px #ADADAD;
       font-size: 24px;
     }
 
@@ -164,7 +164,7 @@
     .proInfo_proName {
       font-size: 32px;
       font-weight: 600;
-      text-shadow: 2px 4px 10px rgb(102, 102, 102);
+      text-shadow: 2px 4px 10px #ADADAD;
       margin: 10px 0;
     }
 
@@ -324,7 +324,7 @@
         background-color: black;
         color: white;
         border-radius: 5px;
-        box-shadow: 2px 2px 2px 2px black;
+        box-shadow: 2px 2px 2px 2px #ADADAD;
         font-size: 24px;
       }
 
@@ -334,3 +334,49 @@
     }
   }
 }
+
+// 댓글창 끝
+
+// 검색창 시작
+.search_inputBox {
+  width: 241px;
+  height: 52.57px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  .search_input {
+    width: 99%;
+    height: 90%;
+    border-radius: 11px;
+    border: 0;
+    font-size: 14px;
+    padding-left: 2%;
+    outline: none;
+  }
+
+  .search_sendBtn {
+    padding: 0 10px;
+    height: 80%;
+    margin: 10px;
+    border: 0;
+    outline: none;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px #ADADAD;
+  }
+
+  .search_sendBtn:active {
+    box-shadow: none;
+  }
+}
+
+// 검색창 끝
+
+// 글 작성 페이지 시작
+
+// 글 작성 페이지 끝
