@@ -380,3 +380,58 @@
 // 글 작성 페이지 시작
 
 // 글 작성 페이지 끝
+
+// 로딩 스크린 시작
+body {
+  margin: 0;
+
+  .LodingPage_main {
+    width: 100vw;
+    height: 100vh;
+    background-color: #FDDBDB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .LodingPage_logo_box {
+      .LodingPage_logoImg_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10%;
+        
+        .LodingPage_logoImg {
+          width: 9vw;
+          animation: rotate_img 6s linear infinite;
+
+          @keyframes rotate_img {
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+
+          @media screen and (max-width: 430px){
+            width: 30vw;
+          }
+        }
+      }
+
+      .LodingPage_logoText_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .LodingPage_logoText {
+          width: 15vw;
+
+          @media screen and (max-width: 430px){
+            width: 55vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 로딩 스크린 끝
