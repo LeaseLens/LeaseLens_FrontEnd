@@ -1,3 +1,6 @@
+// import Comment from "./components/Comment";
+// import Search from "./components/Search";
+import PostPage from "./components/PostPage";
 import React from 'react';
 import Footer from './components/Footer';
 import './assets/scss/hyunh.scss';
@@ -12,6 +15,9 @@ import Login from './components/Login';
 function App() {
   return (
     <div className="App">
+      {/* <Comment /> */}
+      {/* <Search /> */}
+      <PostPage />
       <Header />
       <SideBar />
       <RevCard />
