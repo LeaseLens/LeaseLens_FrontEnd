@@ -16,7 +16,7 @@ export default function ProductDetailPage() {
                 <div className='prodetpg_rev_cont'>
                     <RevCard />
                     <RevCard />
-                    <BsArrowRightCircle style={{width: '3em', height: '3em'}}/>
+                    <BsArrowRightCircle style={{ width: '3em', height: '3em' }} />
                 </div>
             </div>
         </>
