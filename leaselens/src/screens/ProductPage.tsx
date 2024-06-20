@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import SideBar from '../components/SideBar'
 import Banner from '../components/Banner'
-import ProCard from '../components/ProCard'
+import ProCard from '../components/proCard'
 import Search from '../components/Search'
 
 export default function ProductPage() {

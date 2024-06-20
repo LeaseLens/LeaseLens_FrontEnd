@@ -26,7 +26,7 @@ export default function ReviewListPage() {
                 <GreenBtn />
               </div>
             </div>}
-            <PostTable isAdmin = {adminKey}/>
+            <PostTable isAdmin = {adminKey} fontSize="32px"/>
           </div>
         </section>
       </main>
