@@ -17,7 +17,8 @@ export interface PostTableProps {
     isAdmin?: boolean;
 }
 
-export interface RevProps {
+export interface GreenBtnProps {
+    greenBtn_txt: string;
     width?: string;
     height?: string;
 }

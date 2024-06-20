@@ -23,7 +23,7 @@ export default function ReviewListPage() {
                 <Search searchOpt={"검색할 제목을 입력하세요."}/>
               </div>
               <div>
-                <GreenBtn />
+                <GreenBtn greenBtn_txt="글쓰기" />
               </div>
             </div>}
             <PostTable isAdmin = {adminKey} fontSize="32px"/>

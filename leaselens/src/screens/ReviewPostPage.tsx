@@ -21,13 +21,13 @@ export default function ReviewPostPage() {
       <div className='revpg_post_selec'>
         <select name="" id="">
           <option value="">----- 카테고리 -----</option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
+          <option value="">냉장고</option>
+          <option value="">에어컨</option>
+          <option value="">세탁기</option>
+          <option value="">TV</option>
+          <option value="">정수기</option>
+          <option value="">공기청정기</option>
+          <option value="">청소기</option>
         </select>
         <select name="" id="">
           <option value="">----- 제품명 -----</option>
@@ -44,13 +44,17 @@ export default function ReviewPostPage() {
         <ReactQuill className='revpg_post_text' modules={modules} />
       </div>
 
-      <div className='foot_container'>
-        <div className="foot_info">
-          <input type="file" name="" id="" />
+      <div className='revpg_foot_container'>
+        <div className="revpg_foot_upload">
+          <label htmlFor="file-upload" className="revpg_foot_label">
+            파일 선택
+          </label>
+          <input id="file-upload" type="file" className="revpg_foot_file" />
+          <p className="description">
+            여기에 인증 사진을 올려주세요
+          </p>
         </div>
-        <div className="foot_sns">
-          <GreenBtn />
-        </div>
+        <GreenBtn greenBtn_txt='작성' width='150px' height='80px' />
       </div>
     </>
   )
