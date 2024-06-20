@@ -457,18 +457,17 @@ body {
 // 로딩 페이지 끝
 
 // 메인 페이지 시작
-body {
-  margin: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(253, 219, 219, 1) 74%);
-  background-repeat: no-repeat;
-
-  .mainPage_main {
+.mainPage_main {
+    margin: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(253, 219, 219, 1) 74%);
+    background-repeat: no-repeat;
     width: 100%;
-    height: calc(100vh - 100px);
+    height: 100vh;
     display: flex;
 
     .mainPage_leftBox {
       width: 40%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       margin-left: 5%;
@@ -484,7 +483,7 @@ body {
       }
 
       .mainPage_proInfo_link {
-        width: 30%;
+        width: 218px;
         height: 4rem;
         align-content: center;
 
@@ -514,11 +513,24 @@ body {
 
         .mainPage_proDes {
           font-size: 24px;
+          margin: 1%;
         }
       }
 
       .mainPage_RevCard {
         width: 90%;
+        height: 35%;
+      }
+
+      @media screen and (max-width: 1600px) {
+        .mainPage_proInfo_box {
+          .mainPage_proName {
+            width: 90%;
+          }
+        }
+        .mainPage_proInfo_proDes {
+          width: 90%;
+        }
       }
     }
 
@@ -548,19 +560,18 @@ body {
         .mainPage_img1 {
           height: 60%;
           width: 55%;
-          position: relative;
-          top: 20%;
-          left: 20%;
+          position: absolute;
+          top: 30%;
+          left: 45%;
         }
 
         .mainPage_img2 {
-          position: relative;
+          position: absolute;
           bottom: 5%;
         }
       }
     }
   }
-}
 
 // 메인 페이지 끝
 
