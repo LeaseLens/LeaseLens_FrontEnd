@@ -1,4 +1,3 @@
-import '../assets/scss/LJG.scss'
 import proImage from "../assets/images/Product/LG OLED 스마트 TV 55인치.png";
 import { ProProps } from '../types/types';
 

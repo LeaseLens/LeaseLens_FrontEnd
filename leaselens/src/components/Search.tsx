@@ -1,13 +1,13 @@
-import "../assets/scss/LJG.scss";
+import { SearchProps } from "../types/types";
 
-export default function Search() {
+export default function Search({searchOpt}: SearchProps) {
   return (
     <div className="search">
       <div className="search_inputBox">
         <input
           type="text"
           className="search_input"
-          placeholder="제품명을 입력해주세요."
+          placeholder={searchOpt}
         />
         <button className="search_sendBtn">
           <svg

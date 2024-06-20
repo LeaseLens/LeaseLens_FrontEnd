@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import SideBar from '../components/SideBar'
 import Banner from '../components/Banner'
-import ProCard from '../components/proCard'
+import ProCard from '../components/ProCard'
 import Search from '../components/Search'
 
 export default function ProductPage() {
@@ -11,7 +11,7 @@ export default function ProductPage() {
             <Header />
             <div className='propg_main_container'>
                 <div className='propg_side_container'>
-                    <Search />
+                    <Search searchOpt={"제품명을 입력해주세요."}/>
                     <SideBar />
                 </div>
                 <div className='propg_sec_container'>
