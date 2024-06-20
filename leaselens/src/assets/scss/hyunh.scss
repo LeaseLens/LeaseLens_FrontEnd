@@ -84,6 +84,7 @@
     position: absolute;
     right: 10px;
     top: 80px;
+    z-index: 100;
 
     ul {
         padding: 0;
@@ -109,6 +110,8 @@
 
         hr {
             margin: 0;
+            color: #fff;
+            opacity: 0.8;
         }
     }
 }
@@ -151,18 +154,6 @@
             font-size: 20px;
         }
     }
-
-    // .rev_nextBtn {
-    //     width: 30px;
-    //     height: 30px;
-    //     color: #ADADAD;
-    //     border: 0.5px solid #ADADAD;
-    //     border-radius: 50%;
-    //     font-size: 25px;
-    //     display: flex;
-    //     align-items: flex-end;
-    //     justify-content: center;
-    // }
 }
 
 // side bar
@@ -206,7 +197,7 @@
 // profile
 
 .profile_container {
-    width: 350px;
+    width: 20%;
     height: 850px;
     display: grid;
     justify-content: center;
@@ -216,6 +207,7 @@
     border-radius: 10px;
     background-color: #FFFCF6;
     text-align: center;
+    margin-left: 10px;
 
     .profile_content {
         height: 350px;
@@ -427,30 +419,6 @@
         text-shadow: 2px 4px 10px #ADADAD;
         margin: 10px 0;
         margin-left: 7%;
-
-        // animation: reviewTxt 2s linear;
-
-        // @keyframes reviewTxt {
-        //     0% {
-        //         font-size: 32px;
-        //     }
-
-        //     25% {
-        //         font-size: 40px;
-        //     }
-
-        //     50% {
-        //         font-size: 50px;
-        //     }
-
-        //     75% {
-        //         font-size: 40px;
-        //     }
-
-        //     100% {
-        //         font-size: 32px;
-        //     }
-        // }
     }
 
     .prodetpg_rev_cont {
@@ -473,31 +441,6 @@
         }
 
         animation: slideUp 2s ease-out;
-
-        // animation: reviewTxt 2s linear;
-
-        // @keyframes reviewTxt {
-        //     0% {
-        //         width: 200%;
-
-        //     }
-
-        //     25% {
-        //         width: 180%;
-        //     }
-
-        //     50% {
-        //         width: 150%;
-        //     }
-
-        //     75% {
-        //         width: 120%;
-        //     }
-
-        //     100% {
-        //         width: 100%;
-        //     }
-        // }
     }
 }
 
@@ -516,5 +459,77 @@
     .eventpg_banner_container {
         display: grid;
         gap: 25px;
+    }
+}
+
+// mypage
+
+.mypg_content_container {
+    display: flex;
+
+    .mypg_like_container {
+        border: 0.5px solid #000;
+        border-radius: 10px;
+        width: 40%;
+        margin: 0 20px;
+        padding: 20px;
+
+        .mypg_like_text {
+            display: flex;
+            margin-bottom: 20px;
+
+            p {
+                font-size: 25px;
+                font-weight: 600;
+                text-shadow: 2px 4px 10px #ADADAD;
+                margin: 0;
+                padding: 0 10px;
+            }
+        }
+
+        .mypg_like_content {
+            width: 100%;
+
+            .mypg_like_item {
+                display: flex;
+                justify-content: space-evenly;
+            }
+        }
+    }
+}
+
+// review post page
+
+.revpg_post_selec {
+    width: 100%;
+    height: 50px;
+
+    select {
+        width: 40%;
+        height: 100%;
+        margin-right: 20px;
+        margin-left: 10px;
+        border-radius: 10px;
+        padding-left: 20px;
+    }
+}
+
+.revpg_post_content {
+    width: 100%;
+    height: 700px;
+
+    .revpg_post_input {
+        width: 99%;
+        height: 50px;
+        margin: 10px;
+        padding: 20px;
+        outline: none;
+        border-width: 0 0 0.5px;
+    }
+
+    .revpg_post_text {
+        width: 99%;
+        height: 100%;
+        margin: auto;
     }
 }
