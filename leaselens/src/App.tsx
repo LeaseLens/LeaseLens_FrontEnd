@@ -1,20 +1,13 @@
-import './assets/scss/hyunh.scss';
-import './assets/scss/LJG.scss'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ProductPage from "./screens/ProductPage";
-import ProductDetailPage from './screens/ProductDetailPage';
-import EventPage from './screens/EventPage';
-import MyPage from './screens/MyPage';
-import ReviewPostPage from './screens/ReviewPostPage';
+import './assets/scss/LJG.scss';
+import './assets/scss/hyunh.scss'
+// import MainPage from "./screens/MainPage";
+import ReviewPage from './screens/ReviewPage';
 
 function App() {
   return (
     <div className="App">
-      {/* <ProductPage /> */}
-      {/* <ProductDetailPage /> */}
-      {/* <EventPage /> */}
-      {/* <MyPage /> */}
-      <ReviewPostPage />
+      {/* <MainPage /> */}
+      <ReviewPage />
     </div>
   );
 }

@@ -22,3 +22,8 @@ export interface GreenBtnProps {
     width?: string;
     height?: string;
 }
+
+export interface RevProps {
+    width?: string;
+    height?: string;
+}

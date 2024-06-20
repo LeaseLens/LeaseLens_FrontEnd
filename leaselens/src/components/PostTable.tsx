@@ -6,7 +6,7 @@ export default function PostTable({ fontSize, isAdmin }: PostTableProps) {
     <div className="postTable">
       <table className="postTable_table">
         <thead className="postTable_thead">
-          <tr className="postTable_head_tr" style={{ fontSize }}>
+          <tr className="postTable_head_tr" style={{fontSize}}>
             <th className="postTable_head_th">번호</th>
             <th className="postTable_head_th">작성일</th>
             <th className="postTable_head_th">제품명</th>
@@ -16,7 +16,7 @@ export default function PostTable({ fontSize, isAdmin }: PostTableProps) {
           </tr>
         </thead>
         <tbody className="postTable_tbody">
-          <tr className="postTable_body_tr" style={{ fontSize }}>
+          <tr className="postTable_body_tr" style={{fontSize}}>
             <th className="postTable_body_th">1</th>
             <th className="postTable_body_th">2024-06-17</th>
             <th className="postTable_body_th">TV</th>
@@ -39,7 +39,7 @@ export default function PostTable({ fontSize, isAdmin }: PostTableProps) {
               )}
             </th>
           </tr>
-          <tr className="postTable_body_tr" style={{ fontSize }}>
+          <tr className="postTable_body_tr" style={{fontSize}}>
             <th className="postTable_body_th">2</th>
             <th className="postTable_body_th">2024-06-17</th>
             <th className="postTable_body_th">TV</th>

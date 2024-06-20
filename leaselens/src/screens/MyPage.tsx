@@ -1,8 +1,7 @@
-import React from 'react'
 import { BsHeartFill } from "react-icons/bs";
 import Header from '../components/Header'
 import Profile from '../components/Profile'
-import ProCard from '../components/ProCard';
+import ProCard from "../components/ProCard";
 import PostTable from '../components/PostTable';
 import Footer from '../components/Footer';
 
