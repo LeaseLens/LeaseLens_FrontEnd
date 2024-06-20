@@ -1,4 +1,5 @@
 import './assets/scss/hyunh.scss';
+import './assets/scss/LJG.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductPage from "./screens/ProductPage";
 import ProductDetailPage from './screens/ProductDetailPage';

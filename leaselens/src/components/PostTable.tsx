@@ -1,13 +1,7 @@
 import "../assets/scss/LJG.scss";
-<<<<<<< HEAD
-import { PostProps } from "../types/types";
-
-export default function PostTable({ fontSize }: PostProps) {
-=======
 import type { PostTableProps } from "../types/types";
 
-export default function PostTable({isAdmin}: PostTableProps) {
->>>>>>> b20ea1291727ad42e03872bd73302fd872612cf3
+export default function PostTable({ fontSize, isAdmin }: PostTableProps) {
   return (
     <div className="postTable">
       <table className="postTable_table">
@@ -29,9 +23,6 @@ export default function PostTable({isAdmin}: PostTableProps) {
             <th className="postTable_body_th">렌탈 좋네요.</th>
             <th className="postTable_body_th">아이디</th>
             <th className="postTable_body_th">
-<<<<<<< HEAD
-              <input type="checkbox" name="" id="" checked readOnly className="postTable_body_input" />
-=======
               {isAdmin ? (
                 <section className="proCard_button_section postAuthBtn_box">
                   <button className="proCard_button postAuthBtn">인증</button>
@@ -46,7 +37,6 @@ export default function PostTable({isAdmin}: PostTableProps) {
                   className="postTable_body_input"
                 />
               )}
->>>>>>> b20ea1291727ad42e03872bd73302fd872612cf3
             </th>
           </tr>
           <tr className="postTable_body_tr" style={{ fontSize }}>
@@ -56,15 +46,11 @@ export default function PostTable({isAdmin}: PostTableProps) {
             <th className="postTable_body_th">렌탈 안좋네요.</th>
             <th className="postTable_body_th">아이디</th>
             <th className="postTable_body_th">
-<<<<<<< HEAD
-              <input type="checkbox" disabled className="postTable_body_input" />
-=======
               <input
                 type="checkbox"
                 disabled
                 className="postTable_body_input"
               />
->>>>>>> b20ea1291727ad42e03872bd73302fd872612cf3
             </th>
           </tr>
         </tbody>

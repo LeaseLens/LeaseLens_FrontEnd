@@ -79,6 +79,7 @@ body {
     border-collapse: separate;
 
     .postTable_thead {
+      text-align: center;
 
       .postTable_head_tr {
         color: white;
@@ -108,6 +109,8 @@ body {
     }
 
     .postTable_tbody {
+      text-align: center;
+      
       .postTable_body_tr {
         padding: 0px;
 
