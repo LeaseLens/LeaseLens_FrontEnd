@@ -1,12 +1,13 @@
-import './assets/scss/hyunh.scss';
-import './assets/scss/LJG.scss'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ReviewListPage from './screens/ReviewListPage';
+import './assets/scss/LJG.scss';
+import './assets/scss/hyunh.scss'
+// import MainPage from "./screens/MainPage";
+import ReviewPage from './screens/ReviewPage';
 
 function App() {
   return (
     <div className="App">
-      <ReviewListPage />
+      {/* <MainPage /> */}
+      <ReviewPage />
     </div>
   );
 }
