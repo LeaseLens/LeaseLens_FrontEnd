@@ -2,6 +2,7 @@ import React from 'react'
 import ReactQuill from "react-quill"
 import { Button } from 'react-bootstrap';
 import Header from '../components/Header'
+import GreenBtn from '../components/GreenBtn';
 
 export default function ReviewPostPage() {
   const modules = {
@@ -48,7 +49,7 @@ export default function ReviewPostPage() {
           <input type="file" name="" id="" />
         </div>
         <div className="foot_sns">
-          
+          <GreenBtn />
         </div>
       </div>
     </>

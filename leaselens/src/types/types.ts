@@ -13,6 +13,6 @@ export interface SearchProps {
 }
 
 export interface PostTableProps {
-    fontSize: string;
-    isAdmin ?: boolean;
+    fontSize?: string;
+    isAdmin?: boolean;
 }

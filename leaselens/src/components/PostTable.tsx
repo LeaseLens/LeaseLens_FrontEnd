@@ -1,6 +1,7 @@
-import { PostTableProps } from "../types/types";
+import "../assets/scss/LJG.scss";
+import type { PostTableProps } from "../types/types";
 
-export default function PostTable({ isAdmin, fontSize }: PostTableProps) {
+export default function PostTable({ fontSize, isAdmin }: PostTableProps) {
   return (
     <div className="postTable">
       <table className="postTable_table">
