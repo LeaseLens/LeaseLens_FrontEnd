@@ -2,7 +2,7 @@ body {
   overflow-x: hidden;
 }
 
-// 초록 버튼 시작
+// 검정 버튼 시작
 .proCard_button_section {
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ body {
   }
 }
 
-// 초록 버튼 끝
+// 검정 버튼 끝
 
 // 제품 카드 시작
 .proCard {
@@ -110,7 +110,7 @@ body {
 
     .postTable_tbody {
       text-align: center;
-      
+
       .postTable_body_tr {
         padding: 0px;
 
@@ -135,7 +135,7 @@ body {
           border-top: 1px solid black;
           border-bottom: 1px solid black;
           border-radius: 0 8px 8px 0;
-          padding: 0; 
+          padding: 0;
 
           .postTable_body_input {
             transform: scale(2);
@@ -144,7 +144,7 @@ body {
           }
         }
       }
-    } 
+    }
   }
 }
 
@@ -234,10 +234,11 @@ body {
 .comment {
   border: 1px solid black;
   border-radius: 10px;
-  width: 620px;
-  height: 880px;
+  width: 100%;
+  height: 100%;
   background-color: #FFFCF6;
   position: relative;
+  left: -3%;
 
   .comment_titleArea {
     .comment_title {
@@ -249,7 +250,7 @@ body {
 
   .comment_bodyArea {
     .comment_body {
-      width: 580px;
+      width: 90%;
       height: 98px;
       margin: 20px auto;
       padding: 0 10px;
@@ -472,7 +473,7 @@ body {
 
 // 메인 페이지 시작
 body {
-  
+
   .mainPage_main {
     margin: 0;
     background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(253, 219, 219, 1) 74%);
@@ -632,3 +633,29 @@ body {
 }
 
 // 리뷰 커뮤니티 페이지 끝
+
+// 리뷰 페이지 시작
+.reviewPage_main {
+  height: calc(100vh - 100px);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+
+  .reviewPage_revCard {
+    width: 95%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reviewPage_commentBox {
+    width: 95%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// 리뷰 페이지 끝

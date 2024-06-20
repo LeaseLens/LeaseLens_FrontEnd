@@ -16,3 +16,8 @@ export interface PostTableProps {
     fontSize?: string;
     isAdmin?: boolean;
 }
+
+export interface RevProps {
+    width?: string;
+    height?: string;
+}
