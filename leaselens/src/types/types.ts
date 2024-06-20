@@ -6,3 +6,7 @@ export interface BannerProps {
 export interface SearchProps {
     searchOpt: string;
 }
+
+export interface PostTableProps {
+    isAdmin: boolean;
+}

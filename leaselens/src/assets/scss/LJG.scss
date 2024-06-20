@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 // 초록 버튼 시작
 .proCard_button_section {
   display: flex;
@@ -128,15 +132,16 @@
           border-top: 1px solid black;
           border-bottom: 1px solid black;
           border-radius: 0 8px 8px 0;
-          padding: 0;
+          padding: 0; 
 
           .postTable_body_input {
             transform: scale(2);
-            margin: 0 0 20px 0;
+            width: 100%;
+            height: 100%;
           }
         }
       }
-    }
+    } 
   }
 }
 
@@ -586,7 +591,6 @@ body {
 .revPage {
   width: 100%;
   height: calc(100vh - 100px);
-  display: flex;
 
   .revPage_main {
     margin: 0 1%;
