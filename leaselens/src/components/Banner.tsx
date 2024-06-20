@@ -1,4 +1,3 @@
-import React from 'react'
 import { BannerProps } from '../types/types'
 
 export default function Banner({ bannerTxt, onClick }: BannerProps) {

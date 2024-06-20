@@ -1,6 +1,7 @@
 import "../assets/scss/LJG.scss";
+import type { PostTableProps } from "../types/types";
 
-export default function PostTable() {
+export default function PostTable({isAdmin}: PostTableProps) {
   return (
     <div className="postTable">
       <table className="postTable_table">
@@ -22,7 +23,20 @@ export default function PostTable() {
             <th className="postTable_body_th">렌탈 좋네요.</th>
             <th className="postTable_body_th">아이디</th>
             <th className="postTable_body_th">
-              <input type="checkbox" name="" id="" checked readOnly className="postTable_body_input"/>
+              {isAdmin ? (
+                <section className="proCard_button_section postAuthBtn_box">
+                  <button className="proCard_button postAuthBtn">인증</button>
+                </section>
+              ) : (
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  checked
+                  readOnly
+                  className="postTable_body_input"
+                />
+              )}
             </th>
           </tr>
           <tr className="postTable_body_tr">
@@ -32,7 +46,11 @@ export default function PostTable() {
             <th className="postTable_body_th">렌탈 안좋네요.</th>
             <th className="postTable_body_th">아이디</th>
             <th className="postTable_body_th">
-              <input type="checkbox" disabled className="postTable_body_input"/>
+              <input
+                type="checkbox"
+                disabled
+                className="postTable_body_input"
+              />
             </th>
           </tr>
         </tbody>

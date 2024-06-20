@@ -1,3 +1,33 @@
+body {
+  overflow-x: hidden;
+}
+
+// 초록 버튼 시작
+.proCard_button_section {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  height: 3.5rem;
+
+  .proCard_button {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: none;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px black;
+    font-size: 24px;
+  }
+
+  .proCard_button:active {
+    box-shadow: none;
+  }
+}
+
+// 초록 버튼 끝
+
 // 제품 카드 시작
 .proCard {
   width: 26%;
@@ -32,30 +62,7 @@
       text-align: center;
       font-size: 22px;
       font-weight: bolder;
-      text-shadow: 2px 4px 10px #ADADAD;
-    }
-  }
-
-  .proCard_button_section {
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-    height: 3.5rem;
-
-    .proCard_button {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      outline: none;
-      background-color: black;
-      color: white;
-      border-radius: 5px;
-      box-shadow: 2px 2px 2px 2px #ADADAD;
-      font-size: 24px;
-    }
-
-    .proCard_button:active {
-      box-shadow: none;
+      text-shadow: 2px 4px 10px rgb(102, 102, 102);
     }
   }
 }
@@ -64,7 +71,7 @@
 
 // 게시글 테이블 시작
 .postTable {
-  width: 80%;
+  width: 95%;
 
   .postTable_table {
     width: 100%;
@@ -78,12 +85,16 @@
         background-color: black;
         padding: 0px;
 
-        border: 1px solid green;
-
         .postTable_head_th {
           padding: 1rem;
           font-size: 32px;
           font-weight: bold;
+
+          .postAuthBtn_box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
 
         :first-child {
@@ -121,15 +132,16 @@
           border-top: 1px solid black;
           border-bottom: 1px solid black;
           border-radius: 0 8px 8px 0;
-          padding: 0;
+          padding: 0; 
 
           .postTable_body_input {
             transform: scale(2);
-            margin: 0 0 20px 0;
+            width: 100%;
+            height: 100%;
           }
         }
       }
-    }
+    } 
   }
 }
 
@@ -181,12 +193,12 @@
     }
 
   }
-  
+
   .proInfo_proLike_btn_box {
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
-    
+
     .proInfo_proLike_btn {
       background-color: transparent;
       border: 0;
@@ -200,16 +212,19 @@
   .proInfo {
     display: grid;
     grid-template-columns: auto;
+
     .proInfo_proLike_btn_box {
       .proInfo_proLike_btn {
         translate: -100% -100%;
       }
     }
+
     .proInfo_proInfo_des {
       min-height: 141px;
     }
   }
 }
+
 // 제품 상세 카드 끝
 
 // 댓글창 시작
@@ -453,48 +468,171 @@ body {
 // 로딩 페이지 끝
 
 // 메인 페이지 시작
-body {
+.mainPage_main {
   margin: 0;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(253, 219, 219, 1) 74%);
   background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
 
-  .mainPage_main {
-    width: 100vw;
+  .mainPage_leftBox {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
 
-    .mainPage_leftBox {
-      border: 1px solid black;
-      width: 50%;
-      display: flex;
-      flex-direction: column;
+    .mainPage_proInfo_box {
+      font-size: 48px;
+      font-weight: 900;
 
+      .mainPage_proName {
+        width: 80%;
+        text-shadow: 2px 4px 10px #ADADAD;
+      }
+    }
+
+    .mainPage_proInfo_link {
+      width: 218px;
+      height: 4rem;
+      align-content: center;
+
+      .proInfo_link {
+        background-color: white;
+        color: #005477;
+        opacity: 0.7;
+        font-size: 24px;
+        border-radius: 10px;
+        padding: 1rem;
+        border: 0;
+        outline: 0;
+        box-shadow: 2px 4px 4px 1px #ADADAD;
+        text-decoration: none;
+      }
+
+      :active {
+        border: 2px #005477 solid;
+        transition:
+          border 1s;
+      }
+    }
+
+    .mainPage_proInfo_proDes {
+      width: 60%;
+      margin: 4% 0;
+
+      .mainPage_proDes {
+        font-size: 24px;
+        margin: 1%;
+      }
+    }
+
+    .mainPage_RevCard {
+      width: 90%;
+      height: 35%;
+    }
+
+    @media screen and (max-width: 1600px) {
       .mainPage_proInfo_box {
-        border: 1px solid black;
-        font-size: 48px;
-        font-weight: 900;
-
         .mainPage_proName {
-          text-shadow: 2px 4px 10px #ADADAD;
+          width: 90%;
         }
       }
 
-      .mainPage_proInfo_btn {
-        .proInfo_btn {
-          background-color: white;
-          opacity: 0.7;
-          font-size: 24px;
-          border-radius: 10px;
-          width: 30%;
-          padding: 1rem;
-          border: 0;
-          outline: 0;
-        }
-      } 
+      .mainPage_proInfo_proDes {
+        width: 90%;
+      }
     }
-    
-    .mainPage_right_box {
+  }
 
+  .mainPage_rightBox {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+
+    .mainPage_imgBox {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      .mainPage_img {
+        object-fit: cover;
+        height: 90%;
+        width: 70%;
+        border-radius: 10px;
+        box-shadow: 2px 4px 4px 1px #ADADAD;
+      }
+
+      .mainPage_img1 {
+        height: 60%;
+        width: 55%;
+        position: absolute;
+        top: 30%;
+        left: 45%;
+      }
+
+      .mainPage_img2 {
+        position: absolute;
+        bottom: 5%;
+      }
     }
   }
 }
 
 // 메인 페이지 끝
+
+// 리뷰 커뮤니티 페이지 시작
+.revPage {
+  width: 100%;
+  height: calc(100vh - 100px);
+
+  .revPage_main {
+    margin: 0 1%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .revPage_banner {
+      width: 100%;
+    }
+
+    .revPage_table {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+
+      .revPage_table_header {
+        margin-top: 1%;
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.greenBtn {
+  height: 52.57px;
+  width: 100%;
+
+  .greenBtn_button {
+    width: 100%;
+    background-color: #005477;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+  }
+}
+
+// 리뷰 커뮤니티 페이지 끝

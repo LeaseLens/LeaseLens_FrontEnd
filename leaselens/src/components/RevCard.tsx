@@ -1,9 +1,8 @@
-import React from 'react'
 import product1 from '../assets/images/Product/LG 코드제로 R5 올인원타워 로봇청소기.png'
 
 export default function RevCard() {
   return (
-    <div className='rev_container'>
+    <div className='rev_container mainPage_RevCard'>
         <div className="rev_img">
           <img src={product1} alt="제품 리뷰 사진" />
         </div>
