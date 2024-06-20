@@ -16,3 +16,9 @@ export interface PostTableProps {
     fontSize?: string;
     isAdmin?: boolean;
 }
+
+export interface GreenBtnProps {
+    greenBtn_txt: string;
+    width?: string;
+    height?: string;
+}
