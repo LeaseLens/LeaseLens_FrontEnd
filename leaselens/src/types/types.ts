@@ -4,8 +4,8 @@ export interface BannerProps {
 }
 
 export interface ProProps {
-    width: string;
-    height: string;
+    width?: string;
+    height?: string;
 }
 
 export interface SearchProps {
