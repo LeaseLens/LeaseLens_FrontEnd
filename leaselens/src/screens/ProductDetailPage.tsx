@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import ProInfo from '../components/ProInfo'
 import RevCard from '../components/RevCard'
 import { BsArrowRightCircle } from "react-icons/bs";
+import Footer from '../components/Footer';
 
 export default function ProductDetailPage() {
     return (
@@ -19,6 +20,7 @@ export default function ProductDetailPage() {
                     <BsArrowRightCircle style={{ width: '3em', height: '3em' }} />
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
