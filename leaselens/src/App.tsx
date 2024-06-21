@@ -1,13 +1,11 @@
 import './assets/scss/LJG.scss';
 import './assets/scss/hyunh.scss'
-// import MainPage from "./screens/MainPage";
-import ReviewPage from './screens/ReviewPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
-      {/* <MainPage /> */}
-      <ReviewPage />
+      
     </div>
   );
 }
