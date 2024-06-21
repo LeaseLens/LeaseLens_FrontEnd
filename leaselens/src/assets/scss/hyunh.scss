@@ -524,10 +524,13 @@
         .propg_sec_container {
             .banner_container {
                 margin: 0;
+                display: none;
             }
             .propg_product_container {
                 flex-direction: column;
                 padding: 0;
+                justify-content: center;
+                align-items: center;
                     
                 .proCard {
                     width: 90%;
