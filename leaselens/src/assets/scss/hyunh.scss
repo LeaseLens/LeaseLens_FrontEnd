@@ -462,6 +462,13 @@
 @media screen and (max-width: 430px) {
     .propg_main_container {
         flex-direction: column;
+
+        .propg_side_container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
 

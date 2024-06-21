@@ -21,7 +21,6 @@ const MobileSideBar: React.FC = () => {
   return (
     <div className="mobileSideBar">
       <section className="mobileSide_searchBox">
-        <Search searchOpt="제품명을 입력해주세요." />
       </section>
       <section className="mobileSide_categoryBox">
         <ul className="mobileSide_category">
