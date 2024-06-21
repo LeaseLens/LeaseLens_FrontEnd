@@ -2,6 +2,7 @@ import './assets/scss/LJG.scss';
 import './assets/scss/hyunh.scss'
 import MobileSideBar from './components/MobileSideBar';
 import MainPage from "./screens/MainPage";
+import ProductPage from './screens/ProductPage';
 // import ReviewPage from './screens/ReviewPage';
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <div className="App">
       {/* <MainPage /> */}
       {/* <ReviewPage /> */}
-      <MobileSideBar />
+      {/* <MobileSideBar /> */}
+      <ProductPage />
     </div>
   );
 }

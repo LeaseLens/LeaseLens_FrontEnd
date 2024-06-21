@@ -401,6 +401,12 @@
     }
 }
 
+@media screen and (max-width: 430px) {
+    .propg_main_container {
+        flex-direction: column;
+    }
+}
+
 // product detail page
 
 .prodetpg_info_container {
