@@ -10,6 +10,9 @@ export default function MainPage() {
     <>
       <Header />
       <main className="mainPage_main">
+        <div className="mainPage_imgBox_min">
+          <img src={img1} alt="" className="mainPage_img_min mainPage_img1_min" />
+        </div>
         <section className="mainPage_leftBox">
           <div className="mainPage_proInfo_box">
             <p className="mainPage_proName">
@@ -30,10 +33,10 @@ export default function MainPage() {
         </section>
         <section className="mainPage_rightBox">
           <div className="mainPage_imgBox">
-            <img src={img1} alt="" className="mainPage_img mainPage_img1"/>
+            <img src={img1} alt="" className="mainPage_img mainPage_img1" />
           </div>
           <div className="mainPage_imgBox">
-            <img src={img2} alt="" className="mainPage_img mainPage_img2"/>
+            <img src={img2} alt="" className="mainPage_img mainPage_img2" />
           </div>
         </section>
       </main>
