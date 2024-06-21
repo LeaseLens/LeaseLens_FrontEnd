@@ -53,6 +53,7 @@
 
     @media (max-width: 950px) {
         border-bottom: 1px solid #000;
+        margin: 0 0 1rem 0;
     }
 
     .head_logo {
@@ -463,19 +464,53 @@
             justify-content: space-evenly;
             padding-top: 30px;
             padding-bottom: 30px;
+
+            .proCard {
+                width: 26%;
+                height: 456px;
+            }
         }
     }
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 950px) {
     .propg_main_container {
+        width: 100%;
         flex-direction: column;
+        justify-content: center;
+        align-items:center;
+
+        .propg_sec_container {
+            margin: 0;
+        }
 
         .propg_side_container {
-            width: 100%;
+            width: 95%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            margin: 0;
+        }
+
+        .propg_sec_container {
+            .banner_container {
+                margin: 0;
+            }
+            .propg_product_container {
+                flex-direction: column;
+                padding: 0;
+                    
+                .proCard {
+                    width: 90%;
+                    height: auto;
+                    margin: 1rem 0;
+                }
+            }
+        }
+        
+        .search {
+            width: 100%;
         }
     }
 }

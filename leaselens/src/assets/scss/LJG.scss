@@ -710,7 +710,7 @@ body {
   }
 }
 
-@media screen and (min-width: 431px) {
+@media screen and (min-width: 951px) {
   .mobileSideBar {
     display: none;
   }
@@ -719,11 +719,14 @@ body {
   }
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 950px) {
   .side_container {
     display: none;
   }
   .mobileSideBar {
+    .mobileSide_categoryBox {
+      width: 100vw;
+    }
     display: block;
   }
 }

@@ -19,17 +19,18 @@ export default function ProductPage() {
                 <div className='propg_sec_container'>
                     <Banner bannerTxt={'전체 상품'} />
                     <div className='propg_product_container'>
-                        <ProCard width='26%' height='456px' />
-                        <ProCard width='26%' height='456px' />
-                        <ProCard width='26%' height='456px' />
+                        <ProCard />
+                        <ProCard />
+                        <ProCard />
                     </div>
                     <div className='propg_product_container'>
-                        <ProCard width='26%' height='456px' />
-                        <ProCard width='26%' height='456px' />
-                        <ProCard width='26%' height='456px' />
+                        <ProCard />
+                        <ProCard />
+                        <ProCard />
                     </div>
                 </div>
             </div>
+
         </>
     )
 }
