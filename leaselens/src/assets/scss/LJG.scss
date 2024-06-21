@@ -472,13 +472,20 @@ body {
 // 로딩 페이지 끝
 
 // 메인 페이지 시작
-body {
+.mainPage_main {
+  margin: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(253, 219, 219, 1) 74%);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
 
-  .mainPage_main {
-    margin: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(253, 219, 219, 1) 74%);
-    background-repeat: no-repeat;
-    width: 100vw;
+  .mainPage_leftBox {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
 
     .mainPage_proInfo_box {
       font-size: 48px;
@@ -532,52 +539,50 @@ body {
 
     @media screen and (max-width: 1600px) {
       .mainPage_proInfo_box {
-        .mainPage_proName {
-          width: 90%;
-        }
-      }
-
-      .mainPage_proInfo_proDes {
         width: 90%;
       }
     }
+
+    .mainPage_proInfo_proDes {
+      width: 90%;
+    }
   }
+}
 
-  .mainPage_rightBox {
-    width: 60%;
+.mainPage_rightBox {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+
+  .mainPage_imgBox {
+    width: 50%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
+    position: relative;
 
-    .mainPage_imgBox {
-      width: 50%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
+    .mainPage_img {
+      object-fit: cover;
+      height: 90%;
+      width: 70%;
+      border-radius: 10px;
+      box-shadow: 2px 4px 4px 1px #ADADAD;
+    }
 
-      .mainPage_img {
-        object-fit: cover;
-        height: 90%;
-        width: 70%;
-        border-radius: 10px;
-        box-shadow: 2px 4px 4px 1px #ADADAD;
-      }
+    .mainPage_img1 {
+      height: 60%;
+      width: 55%;
+      position: absolute;
+      top: 30%;
+      left: 45%;
+    }
 
-      .mainPage_img1 {
-        height: 60%;
-        width: 55%;
-        position: absolute;
-        top: 30%;
-        left: 45%;
-      }
-
-      .mainPage_img2 {
-        position: absolute;
-        bottom: 5%;
-      }
+    .mainPage_img2 {
+      position: absolute;
+      bottom: 5%;
     }
   }
 }
@@ -659,3 +664,50 @@ body {
 }
 
 // 리뷰 페이지 끝
+
+// 모바일 사이드바 시작
+.mobileSideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .mobileSide_searchBox {
+    width: 90%;
+  }
+
+  .mobileSide_categoryBox {
+    width: 100%;
+
+    .mobileSide_category {
+      overflow-x: scroll;
+      white-space: nowrap;
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      
+      .side_item {
+        text-align: center;
+        align-items: center;
+        min-width: 88px;
+        height: 30px;
+        border: 1px solid #5565C6;
+        border-radius: 30px;
+        margin: 0.5rem 0.7rem;
+        padding: 0.5rem 0.7rem;
+      }
+
+      .selected {
+        background-color: #3A9AF9;
+      }
+    }
+    .mobileSide_category::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+// 모바일 사이드바 끝
