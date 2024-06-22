@@ -1,7 +1,9 @@
-export default function GreenBtn() {
+import { GreenBtnProps } from "../types/types";
+
+export default function GreenBtn({ greenBtn_txt, width, height }: GreenBtnProps) {
   return (
-    <section className="proCard_button_section greenBtn">
-      <button className='proCard_button greenBtn_button'>제품 보기</button>
+    <section className="proCard_button_section greenBtn" style={{ width, height }}>
+      <button className='proCard_button greenBtn_button'>{greenBtn_txt}</button>
     </section>
   )
 }

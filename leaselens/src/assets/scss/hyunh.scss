@@ -6,8 +6,8 @@
     justify-content: space-around;
     align-items: center;
     background-color: #F4F4F4;
-
     // margin-top: 20px;
+
     @media (max-width: 950px) {
         display: grid;
     }
@@ -203,6 +203,7 @@
         background-color: #fff;
 
         img {
+            border-radius: 10px;
             width: 100%;
             height: 100%;
         }
@@ -496,7 +497,7 @@
         width: 100%;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items:center;
 
         .propg_sec_container {
             margin: 0;
@@ -514,12 +515,14 @@
         .propg_sec_container {
             .banner_container {
                 margin: 0;
+                display: none;
             }
-
             .propg_product_container {
                 flex-direction: column;
                 padding: 0;
-
+                justify-content: center;
+                align-items: center;
+                    
                 .proCard {
                     width: 90%;
                     height: auto;
@@ -527,7 +530,7 @@
                 }
             }
         }
-
+        
         .search {
             width: 100%;
         }
@@ -576,6 +579,55 @@
     }
 }
 
+@media screen and (max-width: 950px){
+    .prodetpg_main {
+        display: flex;
+        flex-direction: column-reverse;
+
+        .prodetpg_info_container {
+            .proInfo {
+                display: grid;
+                grid-template-columns: auto;
+                width: auto;
+                .proInfo_proInfo_des {
+                    width: 90%;
+                    .proInfo_proName {
+                        display: none;
+                    }
+                    .proInfo_proLease_price {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .prodetpg_rev_container {
+            overflow-x: scroll;
+            display: flex;
+            flex-wrap: wrap;
+
+            .prodetpg_rev_txt {
+                display: none;
+            }
+
+            .prodetpg_rev_cont {
+                .rev_container {
+                    margin: 0 1rem;
+                    width: 90vw;
+                    height: 400px;
+                }
+
+                svg {
+                    display: none;
+                }
+            }
+        }
+        .prodetpg_mobileInfo_box {
+            padding-left: 20px;
+        }
+    }
+}
+
 // event page
 .eventpg_container {
     p {
@@ -594,6 +646,7 @@
 }
 
 // mypage
+
 .mypg_content_container {
     display: flex;
 
@@ -647,20 +700,22 @@
             }
         }
     }
-
+    
     .mypg_userDel {
         width: 150px;
         height: 50px;
         justify-self: center;
         margin-top: 10px;
-
+    
         @media (min-width: 951px) {
             display: none;
         }
     }
 }
 
+
 // review post page
+
 .revpg_post_selec {
     width: 100%;
     height: 50px;
@@ -735,4 +790,5 @@
             font-size: 25px;
         }
     }
+
 }
