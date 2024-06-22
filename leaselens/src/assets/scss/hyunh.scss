@@ -1,5 +1,4 @@
 // footer
-
 .foot_container {
     width: 100%;
     height: 350px;
@@ -42,7 +41,6 @@
 }
 
 // header
-
 .head_container {
     width: 99%;
     height: 100px;
@@ -184,7 +182,6 @@
 }
 
 // review card
-
 .rev_container {
     width: 35%;
     height: 500px;
@@ -218,7 +215,6 @@
         align-content: center;
         overflow: auto;
 
-
         .rev_star {
             font-size: 20px;
         }
@@ -226,7 +222,6 @@
 }
 
 // side bar
-
 .side_container {
     width: 100%;
     height: 100%;
@@ -262,7 +257,6 @@
 }
 
 // profile
-
 .profile_container {
     width: 20%;
     height: 850px;
@@ -317,7 +311,6 @@
 }
 
 // banner
-
 .banner_container {
     width: 97%;
     height: 350px;
@@ -344,7 +337,6 @@
 }
 
 // login
-
 #login_form {
     position: relative;
     display: grid;
@@ -459,7 +451,6 @@
                     cursor: pointer;
                 }
             }
-
         }
     }
 
@@ -471,7 +462,6 @@
 }
 
 // product page
-
 .propg_main_container {
     display: flex;
     width: 100%;
@@ -548,7 +538,6 @@
 }
 
 // product detail page
-
 .prodetpg_info_container {
     display: flex;
     justify-content: center;
@@ -590,7 +579,11 @@
     }
 }
 
-@media screen and (max-width: 950px){
+.prodetpg_mobileInfo_box {
+    display: none;
+}
+
+@media screen and (max-width: 950px) {
     .prodetpg_main {
         display: flex;
         flex-direction: column-reverse;
@@ -634,13 +627,13 @@
             }
         }
         .prodetpg_mobileInfo_box {
+            display: block;
             padding-left: 20px;
         }
     }
 }
 
 // event page
-
 .eventpg_container {
     p {
         font-size: 32px;
