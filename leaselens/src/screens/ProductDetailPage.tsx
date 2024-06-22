@@ -14,7 +14,7 @@ export default function ProductDetailPage() {
           <ProInfo />
         </div>
         <div className="prodetpg_rev_container">
-          <p className="prodetpg_rev_txt">제품 리뷰 모아보기</p>
+          <p className="prodetpg_rev_txt">제품 리뷰 모아보기 1</p>
           <div className="prodetpg_rev_cont">
             <RevCard />
             <RevCard />
