@@ -6,7 +6,7 @@ import PostTable from "../components/PostTable";
 import Search from "../components/Search";
 
 // 임시 어드민 / 일반 사용자 구분
-const adminKey = false;
+const adminKey = true;
 
 export default function ReviewListPage() {
   return (

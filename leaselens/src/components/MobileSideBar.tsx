@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Search from "./Search";
 
 const MobileSideBar: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<number | null>(null);

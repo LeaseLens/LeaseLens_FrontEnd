@@ -5,6 +5,7 @@ import Banner from '../components/Banner'
 import ProCard from '../components/ProCard'
 import Search from '../components/Search'
 import MobileSideBar from '../components/MobileSideBar'
+import Footer from '../components/Footer'
 
 export default function ProductPage() {
     return (
@@ -30,7 +31,7 @@ export default function ProductPage() {
                     </div>
                 </div>
             </div>
-
+            <Footer />
         </>
     )
 }

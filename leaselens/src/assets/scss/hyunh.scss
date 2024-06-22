@@ -206,6 +206,7 @@
         background-color: #fff;
 
         img {
+            border-radius: 10px;
             width: 100%;
             height: 100%;
         }
@@ -586,6 +587,55 @@
         }
 
         animation: slideUp 2s ease-out;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .prodetpg_main {
+        display: flex;
+        flex-direction: column-reverse;
+
+        .prodetpg_info_container {
+            .proInfo {
+                display: grid;
+                grid-template-columns: auto;
+                width: auto;
+                .proInfo_proInfo_des {
+                    width: 90%;
+                    .proInfo_proName {
+                        display: none;
+                    }
+                    .proInfo_proLease_price {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .prodetpg_rev_container {
+            overflow-x: scroll;
+            display: flex;
+            flex-wrap: wrap;
+
+            .prodetpg_rev_txt {
+                display: none;
+            }
+
+            .prodetpg_rev_cont {
+                .rev_container {
+                    margin: 0 1rem;
+                    width: 90vw;
+                    height: 400px;
+                }
+
+                svg {
+                    display: none;
+                }
+            }
+        }
+        .prodetpg_mobileInfo_box {
+            padding-left: 20px;
+        }
     }
 }
 
