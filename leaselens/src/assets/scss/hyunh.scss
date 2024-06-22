@@ -579,7 +579,11 @@
     }
 }
 
-@media screen and (max-width: 950px){
+.prodetpg_mobileInfo_box {
+    display: none;
+}
+
+@media screen and (max-width: 950px) {
     .prodetpg_main {
         display: flex;
         flex-direction: column-reverse;
@@ -623,6 +627,7 @@
             }
         }
         .prodetpg_mobileInfo_box {
+            display: block;
             padding-left: 20px;
         }
     }
