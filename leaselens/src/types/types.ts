@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface BannerProps {
     bannerTxt: string;
     onClick?: () => void;
@@ -15,6 +17,8 @@ export interface SearchProps {
 export interface PostTableProps {
     fontSize?: string;
     isAdmin?: boolean;
+    thTxt?: string;
+    thBtn?: ReactNode;
 }
 
 export interface GreenBtnProps {
