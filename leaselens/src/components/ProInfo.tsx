@@ -18,7 +18,7 @@ export default function ProInfo() {
         </p>
       </section>
       <section className="proInfo_proLike_btn_box">
-        <button className="priInfo_proLike_btn">
+        <button className="proInfo_proLike_btn">
           <BsHeart />
         </button>
       </section>
