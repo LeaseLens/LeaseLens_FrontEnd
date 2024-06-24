@@ -11,7 +11,6 @@ import ReviewListPage from "./screens/ReviewListPage";
 import ReviewPage from "./screens/ReviewPage";
 import ReviewPostPage from "./screens/ReviewPostPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 function App() {
   return (
     <div className="App">
@@ -30,5 +29,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

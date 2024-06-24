@@ -8,6 +8,7 @@ export interface BannerProps {
 export interface ProProps {
     width?: string;
     height?: string;
+    prod_idx?: number;
 }
 
 export interface SearchProps {
@@ -19,6 +20,7 @@ export interface PostTableProps {
     isAdmin?: boolean;
     thTxt?: string;
     thBtn?: ReactNode;
+    rev_idx?: number;
 }
 
 export interface GreenBtnProps {
@@ -30,6 +32,7 @@ export interface GreenBtnProps {
 export interface RevProps {
     width?: string;
     height?: string;
+    rev_idx?: number;
 }
 
 export interface LoginProps {
