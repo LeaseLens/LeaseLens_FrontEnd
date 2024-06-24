@@ -513,7 +513,12 @@
         margin-left: 10px;
         position: sticky;
         top: 100px;
+        @media screen and (max-width: 950px) {
+            position: relative;
+            top: 0px;
+        }
     }
+    
 
     .propg_sec_container {
         width: 90%;
@@ -562,6 +567,9 @@
             .propg_product_container {
                 flex-direction: column;
                 padding: 0;
+                justify-content: center;
+                align-items: center;
+                    
                 .proCard {
                     width: 90%;
                     height: auto;
@@ -635,11 +643,14 @@
                 display: grid;
                 grid-template-columns: auto;
                 width: auto;
+
                 .proInfo_proInfo_des {
                     width: 90%;
+
                     .proInfo_proName {
                         display: none;
                     }
+
                     .proInfo_proLease_price {
                         display: none;
                     }
@@ -668,6 +679,7 @@
                 }
             }
         }
+
         .prodetpg_mobileInfo_box {
             display: block;
             padding-left: 20px;
@@ -840,5 +852,4 @@
             font-size: 25px;
         }
     }
-
 }
