@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactQuill from "react-quill"
 import { Button } from 'react-bootstrap';
 import Header from '../components/Header'
@@ -14,6 +14,18 @@ export default function ReviewPostPage() {
       ],
     },
   };
+
+  const [fileName, setFileName] = useState('');
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      setFileName(files[0].name);
+    } else {
+      setFileName('');
+    }
+  };
+
 
   return (
     <>
@@ -49,10 +61,11 @@ export default function ReviewPostPage() {
           <label htmlFor="file-upload" className="revpg_foot_label">
             파일 선택
           </label>
-          <input id="file-upload" type="file" className="revpg_foot_file" />
-          <p className="description">
+          <input id="file-upload" type="file" className="revpg_foot_file" onChange={handleFileChange} />
+          
+          {fileName ? <p className="file-name">선택된 파일: {fileName}</p> : <p className="description">
             여기에 인증 사진을 올려주세요
-          </p>
+          </p>}
         </div>
         <GreenBtn greenBtn_txt='작성' width='150px' height='80px' />
       </div>
