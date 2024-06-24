@@ -4,6 +4,7 @@ import textLogo from '../assets/images/Logo/leaselens_text_logo.png'
 import imgLogo from '../assets/images/Logo/leaselens_img_logo.png'
 import profile from '../assets/images/etc/icon_profile.png'
 import Login from './Login';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     const [profileTog, setProfileTog] = useState(false);
@@ -30,7 +31,9 @@ export default function Header() {
         <>
             <div className='head_container'>
                 <div className="head_logo">
-                    <img src={textLogo} alt="리스렌즈 로고" />
+                    <Link to="/main">
+                        <img src={textLogo} alt="리스렌즈 로고" />
+                    </Link>
                 </div>
                 <div className="head_nav">
                     <ul>
@@ -43,7 +46,9 @@ export default function Header() {
                     <BsList style={{ height: '3em', width: '3em' }} onClick={menuBtn} />
                 </div>
                 <div className="head_logo_min">
-                    <img src={imgLogo} alt="리스렌즈 로고" />
+                    <Link to="/main" className='link'>
+                        <img src={imgLogo} alt="리스렌즈 로고" />
+                    </Link>
                 </div>
                 <div className="head_loginUser">
                     <img src={profile} alt="프로필 아이콘" className='head_profile' onClick={profileBtn} />
@@ -53,11 +58,13 @@ export default function Header() {
             {menuTog ?
                 <div className='head_navTog'>
                     <ul>
-                        <li>Products</li>
+                        <Link to="/mypage"><li>My Page</li></Link>
                         <hr />
-                        <li>Reviews</li>
+                        <Link to="/products"><li>Products</li></Link>
                         <hr />
-                        <li>Events</li>
+                        <Link to="/reviewlist"><li>Reviews</li></Link>
+                        <hr />
+                        <Link to="/events"><li>Events</li></Link>
                     </ul>
                 </div>
                 : ''
@@ -65,11 +72,11 @@ export default function Header() {
             {profileTog ?
                 <div className='head_profileTog'>
                     <ul>
-                        <li><a href="">My Page</a></li>
+                        <Link to="/mypage"><li>Contact Us</li></Link>
                         <hr />
-                        <li><a href="">Contact Us</a></li>
+                        <li>Contact Us</li>
                         <hr />
-                        <li><a href="">Logout</a></li>
+                        <Link to="/users/logout"><li>Logout</li></Link>
                     </ul>
                 </div>
                 : ''
