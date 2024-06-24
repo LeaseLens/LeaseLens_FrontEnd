@@ -1,3 +1,9 @@
+// font
+
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 // footer
 .foot_container {
     width: 100%;
@@ -6,7 +12,9 @@
     justify-content: space-around;
     align-items: center;
     background-color: #F4F4F4;
-    // margin-top: 20px;
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+    font-style: normal;
 
     @media (max-width: 950px) {
         display: grid;
@@ -48,6 +56,10 @@
     justify-content: space-between;
     margin-left: 0.5%;
     margin-right: 0.5%;
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
 
     @media (max-width: 950px) {
         border-bottom: 1px solid #000;
@@ -118,6 +130,7 @@
 
         span {
             font-size: 25px;
+            cursor: pointer;
         }
     }
 }
@@ -192,6 +205,9 @@
     box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
     border-radius: 10px;
     background-color: #fff;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
     .rev_img {
         width: 40%;
@@ -228,6 +244,9 @@
     border: 0.5px solid #ADADAD;
     border-radius: 10px;
     margin-top: 20px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
     .side_all {
         font-size: 20px;
@@ -332,13 +351,28 @@
         left: 80px;
         font-size: 45px;
         color: #fff;
-        font-weight: bold;
+        font-family: "Do Hyeon", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
 }
 
 // login
+
+.login_form_back {
+    position: fixed;
+    top: 0;
+    backdrop-filter: blur(20px);
+    width: 100%;
+    height: 100%;
+    z-index: 102;
+}
+
 #login_form {
-    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: grid;
     place-items: center;
     width: 350px;
@@ -348,6 +382,9 @@
     box-shadow: 0px 15px 60px #FDDBDB;
     outline: 1px solid #FDDBDB;
     border-radius: 10px;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
     #login_body {
         position: absolute;
@@ -453,6 +490,10 @@
             }
         }
     }
+}
+
+#signup_form {
+    @extend #login_form;
 
     #signup_body {
         @extend #login_body;
@@ -472,7 +513,12 @@
         margin-left: 10px;
         position: sticky;
         top: 100px;
+        @media screen and (max-width: 950px) {
+            position: relative;
+            top: 0px;
+        }
     }
+    
 
     .propg_sec_container {
         width: 90%;
@@ -523,7 +569,7 @@
                 padding: 0;
                 justify-content: center;
                 align-items: center;
-
+                    
                 .proCard {
                     width: 90%;
                     height: auto;
@@ -555,6 +601,9 @@
         text-shadow: 2px 4px 10px #ADADAD;
         margin: 10px 0;
         margin-left: 7%;
+        font-family: "Do Hyeon", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
 
     .prodetpg_rev_cont {
@@ -647,6 +696,9 @@
         margin: 20px 0;
         text-align: end;
         margin-right: 2%;
+        font-family: "Do Hyeon", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
 
     .eventpg_banner_container {
