@@ -17,8 +17,8 @@ export default function PostTable({ fontSize, isAdmin, thTxt, thBtn, rev_idx }: 
           </tr>
         </thead>
         <tbody className="postTable_tbody">
-          <Link to={`/reviews/${rev_idx}`}>
             <tr className="postTable_body_tr" style={{ fontSize }}>
+          <Link to={`/reviews/${rev_idx}`}>
               <th className="postTable_body_th">1</th>
               <th className="postTable_body_th">2024-06-17</th>
               <th className="postTable_body_th">TV</th>
@@ -27,10 +27,10 @@ export default function PostTable({ fontSize, isAdmin, thTxt, thBtn, rev_idx }: 
               <th className="postTable_body_th">
                 {thBtn}
               </th>
-            </tr>
           </Link>
-          <Link to={`/reviews/${rev_idx}`}>
+            </tr>
             <tr className="postTable_body_tr" style={{ fontSize }}>
+          <Link to={`/reviews/${rev_idx}`}>
               <th className="postTable_body_th">2</th>
               <th className="postTable_body_th">2024-06-17</th>
               <th className="postTable_body_th">TV</th>
@@ -43,8 +43,8 @@ export default function PostTable({ fontSize, isAdmin, thTxt, thBtn, rev_idx }: 
                   className="postTable_body_input"
                 />
               </th>
-            </tr>
           </Link>
+            </tr>
         </tbody>
       </table>
     </div>

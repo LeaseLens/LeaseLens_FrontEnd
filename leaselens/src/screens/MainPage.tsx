@@ -41,11 +41,9 @@ export default function MainPage() {
                 </p>
               </div>
               <div className="mainPage_proInfo_link">
-                <Link to={'/products'}>
-                  <a href="#" className="proInfo_link">
+                  <a href="/products" className="proInfo_link">
                     렌탈하러 가기 <FaArrowRight />
                   </a>
-                </Link>
               </div>
               <div className="mainPage_proInfo_proDes">
                 <p className="mainPage_proDes">
@@ -76,7 +74,7 @@ export default function MainPage() {
                 </p>
               </div>
               <div className="mainPage_proInfo_link">
-                <a href="#" className="proInfo_link">
+                <a href="/products" className="proInfo_link">
                   렌탈하러 가기 <FaArrowRight />
                 </a>
               </div>
