@@ -17,12 +17,12 @@ export default function MainPage() {
     <>
       <Header />
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+        modules={[Navigation, Pagination, A11y, Autoplay, Scrollbar]}
         spaceBetween={0}
         slidesPerView={1}
         navigation
         autoplay={{
-          delay: 5000,
+          delay: 10000,
           disableOnInteraction: false,
         }}
         pagination={{ clickable: true }}

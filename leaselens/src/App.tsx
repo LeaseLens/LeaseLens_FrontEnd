@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       {/* <EventPage /> */}
       {/* <LodingPage /> */}
-      {/* <MainPage /> */}
+      <MainPage />
       {/* <MyPage />  */}
       {/* <ProductDetailPage /> */}
       {/* <ProductPage /> */}
