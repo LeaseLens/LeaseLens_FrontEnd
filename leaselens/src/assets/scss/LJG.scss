@@ -736,7 +736,7 @@ body {
 // 리뷰 커뮤니티 페이지 시작
 .revPage {
   width: 100%;
-  height: calc(100vh - 100px);
+  height: 100%;
 
   .revPage_main {
     margin: 0 1%;
@@ -765,6 +765,12 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        div {
+          a {
+            text-decoration: none;
+          }
+        }
       }
     }
   }
