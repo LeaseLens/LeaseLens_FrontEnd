@@ -17,34 +17,30 @@ export default function PostTable({ fontSize, isAdmin, thTxt, thBtn, rev_idx }: 
           </tr>
         </thead>
         <tbody className="postTable_tbody">
-          <Link to={`/reviews/${rev_idx}`}>
-            <tr className="postTable_body_tr" style={{ fontSize }}>
-              <th className="postTable_body_th">1</th>
-              <th className="postTable_body_th">2024-06-17</th>
-              <th className="postTable_body_th">TV</th>
-              <th className="postTable_body_th">렌탈 좋네요.</th>
-              <th className="postTable_body_th">아이디</th>
-              <th className="postTable_body_th">
-                {thBtn}
-              </th>
-            </tr>
-          </Link>
-          <Link to={`/reviews/${rev_idx}`}>
-            <tr className="postTable_body_tr" style={{ fontSize }}>
-              <th className="postTable_body_th">2</th>
-              <th className="postTable_body_th">2024-06-17</th>
-              <th className="postTable_body_th">TV</th>
-              <th className="postTable_body_th">렌탈 안좋네요.</th>
-              <th className="postTable_body_th">아이디</th>
-              <th className="postTable_body_th">
-                <input
-                  type="checkbox"
-                  disabled
-                  className="postTable_body_input"
-                />
-              </th>
-            </tr>
-          </Link>
+          <tr className="postTable_body_tr" style={{ fontSize }}>
+            <th className="postTable_body_th">1</th>
+            <th className="postTable_body_th">2024-06-17</th>
+            <th className="postTable_body_th">TV</th>
+            <th className="postTable_body_th"><Link to={`/reviews/${rev_idx}`}>렌탈 좋네요.</Link></th>
+            <th className="postTable_body_th">아이디</th>
+            <th className="postTable_body_th">
+              {thBtn}
+            </th>
+          </tr>
+          <tr className="postTable_body_tr" style={{ fontSize }}>
+            <th className="postTable_body_th">2</th>
+            <th className="postTable_body_th">2024-06-17</th>
+            <th className="postTable_body_th">TV</th>
+            <th className="postTable_body_th"><Link to={`/reviews/${rev_idx}`}>렌탈 안좋네요.</Link></th>
+            <th className="postTable_body_th">아이디</th>
+            <th className="postTable_body_th">
+              <input
+                type="checkbox"
+                disabled
+                className="postTable_body_input"
+              />
+            </th>
+          </tr>
         </tbody>
       </table>
     </div>

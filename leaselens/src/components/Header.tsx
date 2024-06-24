@@ -5,7 +5,6 @@ import imgLogo from '../assets/images/Logo/leaselens_img_logo.png'
 import profile from '../assets/images/etc/icon_profile.png'
 import Login from './Login';
 import { Link } from 'react-router-dom';
-import { List } from 'react-bootstrap/lib/Media';
 
 export default function Header() {
     const [profileTog, setProfileTog] = useState(false);
@@ -26,6 +25,10 @@ export default function Header() {
 
     const handleCloseLogin = () => {
         setShowLogin(false);
+    };
+
+    const ContactClick = () => {
+        alert('준비 중 입니다.');
     };
 
     return (
@@ -73,10 +76,10 @@ export default function Header() {
             {profileTog ?
                 <div className='head_profileTog'>
                     <ul>
-                        <Link to="/mypage"><li>Contact Us</li></Link>
+                        <Link to="/mypage"><li>My Page</li></Link>
                         <hr />
-                        <li>Contact Us</li>
-                        <hr />
+                        <a href="#"><li onClick={ContactClick}>Contact Us</li>
+                        <hr /></a>
                         <Link to="/users/logout"><li>Logout</li></Link>
                     </ul>
                 </div>
