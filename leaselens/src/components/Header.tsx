@@ -3,10 +3,12 @@ import { BsList } from "react-icons/bs";
 import textLogo from '../assets/images/Logo/leaselens_text_logo.png'
 import imgLogo from '../assets/images/Logo/leaselens_img_logo.png'
 import profile from '../assets/images/etc/icon_profile.png'
+import Login from './Login';
 
 export default function Header() {
     const [profileTog, setProfileTog] = useState(false);
     const [menuTog, setMenuTog] = useState(false);
+    const [showLogin, setShowLogin] = useState(false);
 
     const profileBtn = () => {
         setProfileTog(!profileTog)
@@ -15,6 +17,14 @@ export default function Header() {
     const menuBtn = () => {
         setMenuTog(!menuTog)
     }
+
+    const handleLoginClick = () => {
+        setShowLogin(true);
+    };
+
+    const handleCloseLogin = () => {
+        setShowLogin(false);
+    };
 
     return (
         <>
@@ -37,7 +47,7 @@ export default function Header() {
                 </div>
                 <div className="head_loginUser">
                     <img src={profile} alt="프로필 아이콘" className='head_profile' onClick={profileBtn} />
-                    <span>Login</span>
+                    <span onClick={handleLoginClick}>Login</span>
                 </div>
             </div>
             {menuTog ?
@@ -64,6 +74,7 @@ export default function Header() {
                 </div>
                 : ''
             }
+            {showLogin && <Login onClose={handleCloseLogin} />}
         </>
     )
 }

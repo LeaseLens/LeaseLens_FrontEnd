@@ -1,3 +1,7 @@
+// font
+
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
 body {
   overflow-x: hidden;
 }
@@ -13,6 +17,9 @@ body {
   flex-direction: column;
   width: 85%;
   height: 3.5rem;
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
   .proCard_button {
     width: 100%;
@@ -70,6 +77,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
     .proCard_pro_name {
       text-align: center;
@@ -95,7 +105,9 @@ body {
 .postTable {
   width: 95%;
   height: 100%;
-  height: 100%;
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
   .postTable_table {
     width: 100%;
@@ -218,6 +230,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
     .proInfo_proDes {
       font-size: 18px;
@@ -287,7 +302,9 @@ body {
   background-color: #FFFCF6;
   position: relative;
   left: -3%;
-  left: -3%;
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
   .comment_titleArea {
     .comment_title {
@@ -515,6 +532,8 @@ body {
         }
       }
     }
+  }
+}
 
     // 로딩 페이지 끝
     // 메인 페이지 시작
@@ -742,8 +761,215 @@ body {
       }
     }
 
-    .greenBtn {
-      height: 52.57px;
+// 로딩 페이지 끝
+
+// 메인 페이지 시작
+.mainPage_main {
+  margin: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(253, 219, 219, 1) 74%);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  @media (max-width: 950px) {
+    display: block;
+    height: 90vh;
+  }
+
+  .mainPage_leftBox {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+
+    @media (max-width: 950px) {
+      width: 90%;
+    }
+
+    .mainPage_proInfo_box {
+      font-size: 48px;
+      font-weight: 900;
+
+      @media (max-width: 950px) {
+        font-size: 30px;
+      }
+
+      .mainPage_proName {
+        width: 80%;
+        text-shadow: 2px 4px 10px #ADADAD;
+      }
+    }
+
+    .mainPage_proInfo_link {
+      width: 218px;
+      height: 4rem;
+      align-content: center;
+
+      @media (max-width: 950px) {
+        width: 190px;
+        height: 2rem;
+      }
+
+      .proInfo_link {
+        background-color: white;
+        color: #005477;
+        opacity: 0.7;
+        font-size: 24px;
+        border-radius: 10px;
+        padding: 1rem;
+        border: 0;
+        outline: 0;
+        box-shadow: 2px 4px 4px 1px #ADADAD;
+        text-decoration: none;
+
+        @media (max-width: 950px) {
+          font-size: 15px;
+        }
+      }
+
+      :active {
+        border: 2px #005477 solid;
+        transition:
+          border 1s;
+      }
+    }
+
+    .mainPage_proInfo_proDes {
+      width: 60%;
+      margin: 4% 0;
+
+      .mainPage_proDes {
+        font-size: 24px;
+        margin: 1%;
+
+        @media (max-width: 950px) {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .mainPage_RevCard {
+      width: 90%;
+      height: 35%;
+
+      @media (max-width: 950px) {
+        height: 30%;
+      }
+    }
+
+    @media screen and (max-width: 1600px) {
+      .mainPage_proInfo_box {
+        width: 90%;
+      }
+    }
+
+    .mainPage_proInfo_proDes {
+      width: 90%;
+    }
+  }
+}
+
+.mainPage_rightBox {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+
+  @media (max-width: 950px) {
+    display: none;
+  }
+}
+
+.mainPage_rightBox {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+
+  .mainPage_imgBox {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @media (max-width: 950px) {
+      display: none;
+    }
+
+    .mainPage_img {
+      object-fit: cover;
+      height: 90%;
+      width: 70%;
+      border-radius: 10px;
+      box-shadow: 2px 4px 4px 1px #ADADAD;
+    }
+
+    .mainPage_img1 {
+      height: 60%;
+      width: 55%;
+      position: absolute;
+      top: 30%;
+      left: 45%;
+    }
+
+    .mainPage_img2 {
+      position: absolute;
+      bottom: 5%;
+    }
+  }
+
+}
+
+.mainPage_imgBox_min {
+  width: 100%;
+  height: 30%;
+  position: relative;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 951px) {
+    display: none;
+  }
+
+  .mainPage_img_min {
+    object-fit: cover;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px 1px #ADADAD;
+  }
+
+  .mainPage_img1_min {
+    height: 100%;
+  }
+}
+
+// 메인 페이지 끝
+
+// 리뷰 커뮤니티 페이지 시작
+.revPage {
+  width: 100%;
+  height: calc(100vh - 100px);
+
+  .revPage_main {
+    margin: 0 1%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .revPage_banner {
       width: 100%;
       width: 100%;
 
@@ -853,6 +1079,118 @@ body {
         display: block;
       }
     }
+  }
+}
+
+.greenBtn {
+  height: 52.57px;
+  width: 100%;
+
+  .greenBtn_button {
+    width: 100%;
+    background-color: #005477;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+  }
+}
+
+// 리뷰 커뮤니티 페이지 끝
+
+// 리뷰 페이지 시작
+.reviewPage_main {
+  height: calc(100vh - 100px);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+
+  .reviewPage_revCard {
+    width: 95%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reviewPage_commentBox {
+    width: 95%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// 리뷰 페이지 끝
+
+// 모바일 사이드바 시작
+.mobileSideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  .mobileSide_searchBox {
+    width: 90%;
+  }
+
+  .mobileSide_categoryBox {
+    width: 100%;
+
+    .mobileSide_category {
+      overflow-x: scroll;
+      white-space: nowrap;
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+
+      .side_item {
+        text-align: center;
+        align-items: center;
+        min-width: 88px;
+        height: 30px;
+        border: 1px solid #5565C6;
+        border-radius: 30px;
+        margin: 0.5rem 0.7rem;
+        padding: 0.5rem 0.7rem;
+      }
+
+      .selected {
+        background-color: #3A9AF9;
+      }
+    }
+
+    .mobileSide_category::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 951px) {
+  .mobileSideBar {
+    display: none;
+  }
+
+  .side_container {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .side_container {
+    display: none;
+  }
+
+  .mobileSideBar {
+    .mobileSide_categoryBox {
+      width: 100vw;
+    }
+
+    display: block;
   }
 }
 

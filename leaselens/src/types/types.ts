@@ -31,3 +31,7 @@ export interface RevProps {
     width?: string;
     height?: string;
 }
+
+export interface LoginProps {
+    onClose?: () => void;
+}
