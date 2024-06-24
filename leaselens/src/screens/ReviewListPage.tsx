@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import GreenBtn from "../components/GreenBtn";
@@ -20,26 +21,28 @@ export default function ReviewListPage() {
           <div className="revPage_table">
             {adminKey ? '' : <div className="revPage_table_header">
               <div>
-                <Search searchOpt={"검색할 제목을 입력하세요."}/>
+                <Search searchOpt={"검색할 제목을 입력하세요."} />
               </div>
               <div>
-                <GreenBtn greenBtn_txt="글쓰기" />
+                <Link to={'/reviews'}>
+                  <GreenBtn greenBtn_txt="글쓰기" />
+                </Link>
               </div>
             </div>}
-            <PostTable isAdmin = {adminKey} fontSize="32px" thTxt="인증" thBtn={adminKey ? (
-                <section className="proCard_button_section postAuthBtn_box">
-                  <button className="proCard_button postAuthBtn">인증</button>
-                </section>
-              ) : (
-                <input
-                  type="checkbox"
-                  name=""
-                  id=""
-                  checked
-                  readOnly
-                  className="postTable_body_input"
-                />
-              )} />
+            <PostTable isAdmin={adminKey} fontSize="32px" thTxt="인증" thBtn={adminKey ? (
+              <section className="proCard_button_section postAuthBtn_box">
+                <button className="proCard_button postAuthBtn">인증</button>
+              </section>
+            ) : (
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                checked
+                readOnly
+                className="postTable_body_input"
+              />
+            )} />
           </div>
         </section>
       </main>

@@ -4,13 +4,14 @@ import RevCard from "../components/RevCard";
 import { FaArrowRight } from "react-icons/fa6";
 import img1 from "../assets/images/Product/LG 코드제로 R5 올인원타워 로봇청소기.png";
 import img2 from "../assets/images/Product/LG 코드제로 R5 올인원타워 로봇청소기.png";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay} from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { Link } from "react-router-dom";
 
 export default function MainPage() {
   return (
@@ -40,9 +41,11 @@ export default function MainPage() {
                 </p>
               </div>
               <div className="mainPage_proInfo_link">
-                <a href="#" className="proInfo_link">
-                  렌탈하러 가기 <FaArrowRight />
-                </a>
+                <Link to={'/products'}>
+                  <a href="#" className="proInfo_link">
+                    렌탈하러 가기 <FaArrowRight />
+                  </a>
+                </Link>
               </div>
               <div className="mainPage_proInfo_proDes">
                 <p className="mainPage_proDes">

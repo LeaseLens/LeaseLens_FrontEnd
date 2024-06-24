@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import proImage from "../assets/images/Product/LG OLED 스마트 TV 55인치.png";
 import { ProProps } from '../types/types';
 
-export default function ProCard({ width, height }: ProProps) {
+export default function ProCard({ width, height, prod_idx }: ProProps) {
   return (
     <div className='proCard' style={{ width, height }}>
       <section className="proCard_img_container">
@@ -11,7 +12,9 @@ export default function ProCard({ width, height }: ProProps) {
         <p className='proCard_pro_name'>LG OLED 스마트 TV 55인치</p>
       </section>
       <section className="proCard_button_section">
-        <button className='proCard_button'>제품 보기</button>
+        <Link to={`/products/${prod_idx}`}>
+          <button className='proCard_button'>제품 보기</button>
+        </Link>
       </section>
     </div>
   )
