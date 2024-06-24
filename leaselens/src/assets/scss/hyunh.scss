@@ -146,6 +146,7 @@
 
         .head_profile {
             width: 40px;
+            cursor: pointer;
         }
 
         span {
@@ -790,6 +791,9 @@
                     height: 100%;
                 }
             }
+        }
+        .postDel {
+            border-radius: 8px !important;
         }
     }
 

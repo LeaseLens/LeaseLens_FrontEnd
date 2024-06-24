@@ -116,8 +116,6 @@ body {
 
     .postTable_thead {
       text-align: center;
-      text-align: center;
-      text-align: center;
 
       .postTable_head_tr {
         color: white;
@@ -126,7 +124,6 @@ body {
 
         .postTable_head_th {
           padding: 1rem;
-          // font-size: 32px;
           font-weight: bold;
 
           @media (max-width: 950px) {
@@ -998,3 +995,8 @@ body {
 
 
 // 모바일 사이드바 끝
+
+a {
+  text-decoration: none;
+  color: #000;
+}
