@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { Button } from 'react-bootstrap';
+import { ButtonProps } from 'react-bootstrap/Button';
 
 export default function Profile() {
   return (
