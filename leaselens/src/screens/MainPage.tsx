@@ -11,7 +11,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { Link } from "react-router-dom";
 
 export default function MainPage() {
   return (
@@ -41,9 +40,9 @@ export default function MainPage() {
                 </p>
               </div>
               <div className="mainPage_proInfo_link">
-                  <a href="/products" className="proInfo_link">
-                    렌탈하러 가기 <FaArrowRight />
-                  </a>
+                <a href="/products" className="proInfo_link">
+                  렌탈하러 가기 <FaArrowRight />
+                </a>
               </div>
               <div className="mainPage_proInfo_proDes">
                 <p className="mainPage_proDes">

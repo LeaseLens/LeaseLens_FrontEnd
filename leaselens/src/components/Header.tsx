@@ -27,6 +27,10 @@ export default function Header() {
         setShowLogin(false);
     };
 
+    const ContactClick = () => {
+        alert('준비 중 입니다.');
+    };
+
     return (
         <>
             <div className='head_container'>
@@ -72,10 +76,10 @@ export default function Header() {
             {profileTog ?
                 <div className='head_profileTog'>
                     <ul>
-                        <Link to="/mypage"><li>My page</li></Link>
+                        <Link to="/mypage"><li>My Page</li></Link>
                         <hr />
-                        <li>Contact Us</li>
-                        <hr />
+                        <a href="#"><li onClick={ContactClick}>Contact Us</li>
+                        <hr /></a>
                         <Link to="/users/logout"><li>Logout</li></Link>
                     </ul>
                 </div>
