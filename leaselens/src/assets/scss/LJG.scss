@@ -3,6 +3,11 @@ body {
 }
 
 // 검정 버튼 시작
+body {
+  overflow-x: hidden;
+}
+
+// 검정 버튼 시작
 .proCard_button_section {
   display: flex;
   flex-direction: column;
@@ -19,6 +24,10 @@ body {
     border-radius: 5px;
     box-shadow: 2px 2px 2px 2px black;
     font-size: 24px;
+
+    @media (max-width: 950px) {
+      font-size: 17px;
+    }
 
     @media (max-width: 950px) {
       font-size: 17px;
@@ -47,7 +56,7 @@ body {
 
   .proCard_img_container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 
     .proCard_img {
       border: 1px solid #ADADAD;
@@ -70,7 +79,7 @@ body {
 
       @media (max-width: 950px) {
         font-size: 17px;
-        margin: 0;
+        margin: 1rem;
       }
     }
   }
@@ -82,6 +91,7 @@ body {
 .postTable {
   width: 95%;
   height: 100%;
+  height: 100%;
 
   .postTable_table {
     width: 100%;
@@ -89,6 +99,7 @@ body {
     border-collapse: separate;
 
     .postTable_thead {
+      text-align: center;
       text-align: center;
 
       .postTable_head_tr {
@@ -100,6 +111,10 @@ body {
           padding: 1rem;
           // font-size: 32px;
           font-weight: bold;
+
+          @media (max-width: 950px) {
+            font-size: 15px;
+          }
 
           @media (max-width: 950px) {
             font-size: 15px;
@@ -118,6 +133,7 @@ body {
 
     .postTable_tbody {
       text-align: center;
+      text-align: center;
 
       .postTable_body_tr {
         padding: 0px;
@@ -132,18 +148,22 @@ body {
           @media (max-width: 950px) {
             font-size: 10px;
           }
+
           .postTable_body_input {
             transform: scale(2);
             width: 100%;
             height: 100%;
           }
+
           .postAuthBtn_box {
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 8px;
-            
+
             .postAuthBtn {
+              width: 80%;
               border-radius: 8px;
             }
           }
@@ -164,14 +184,13 @@ body {
           padding: 0;
 
         }
-        
+
       }
     }
   }
 }
 
 // 게시글 테이블 끝
-
 // 제품 상세 카드 시작
 .proInfo {
   width: 90%;
@@ -203,7 +222,6 @@ body {
       margin-top: 0;
       overflow-y: auto;
     }
-
   }
 
   .proInfo_proLike_btn_box {
@@ -233,7 +251,7 @@ body {
   margin: 10px 0 5px 0
 }
 
-@media screen and (max-width: 1250px) and (min-width: 431px) {
+@media screen and (max-width: 1250px) {
   .proInfo {
     display: grid;
     grid-template-columns: auto;
@@ -246,6 +264,13 @@ body {
 
     .proInfo_proInfo_des {
       min-height: 141px;
+      overflow-y: scroll;
+    }
+
+    .proInfo_proLike_btn_box {
+      .proInfo_proLike_btn {
+        transform: scale(2);
+      }
     }
   }
 }
@@ -260,6 +285,7 @@ body {
   height: 100%;
   background-color: #FFFCF6;
   position: relative;
+  left: -3%;
   left: -3%;
 
   .comment_titleArea {
@@ -332,7 +358,6 @@ body {
             p {
               margin: 0;
             }
-
           }
         }
       }
@@ -343,7 +368,6 @@ body {
           margin-top: 20px;
         }
       }
-
     }
   }
 
@@ -393,7 +417,6 @@ body {
 }
 
 // 댓글창 끝
-
 // 검색창 시작
 .search_inputBox {
   width: 100%;
@@ -433,11 +456,8 @@ body {
 }
 
 // 검색창 끝
-
 // 글 작성 페이지 시작
-
 // 글 작성 페이지 끝
-
 // 로딩 페이지 시작
 body {
   margin: 0;
@@ -469,21 +489,27 @@ body {
           }
 
           @media screen and (max-width: 431px) {
-            width: 30vw;
+
+            @media screen and (max-width: 431px) {
+              width: 30vw;
+            }
           }
         }
-      }
 
-      .LodingPage_logoText_box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        .LodingPage_logoText_box {
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
-        .LodingPage_logoText {
-          width: 15vw;
+          .LodingPage_logoText {
+            width: 15vw;
 
-          @media screen and (max-width: 431px) {
-            width: 55vw;
+            @media screen and (max-width: 431px) {
+
+              @media screen and (max-width: 431px) {
+                width: 55vw;
+              }
+            }
           }
         }
       }
@@ -722,6 +748,7 @@ body {
 .greenBtn {
   height: 52.57px;
   width: 100%;
+  width: 100%;
 
   .greenBtn_button {
     width: 100%;
@@ -782,7 +809,7 @@ body {
       align-items: center;
       padding: 1rem 0 0 0;
       width: 100%;
-      
+
       .side_item {
         text-align: center;
         align-items: center;
@@ -799,6 +826,7 @@ body {
         background-color: #3A9AF9;
       }
     }
+
     .mobileSide_category::-webkit-scrollbar {
       display: none;
     }
@@ -809,6 +837,7 @@ body {
   .mobileSideBar {
     display: none;
   }
+
   .side_container {
     display: block;
   }
@@ -818,11 +847,14 @@ body {
   .side_container {
     display: none;
   }
+
   .mobileSideBar {
     .mobileSide_categoryBox {
       width: 100vw;
     }
+
     display: block;
   }
 }
+
 // 모바일 사이드바 끝
