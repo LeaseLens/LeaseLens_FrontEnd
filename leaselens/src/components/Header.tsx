@@ -5,6 +5,7 @@ import imgLogo from '../assets/images/Logo/leaselens_img_logo.png'
 import profile from '../assets/images/etc/icon_profile.png'
 import Login from './Login';
 import { Link } from 'react-router-dom';
+import { List } from 'react-bootstrap/lib/Media';
 
 export default function Header() {
     const [profileTog, setProfileTog] = useState(false);
@@ -37,9 +38,9 @@ export default function Header() {
                 </div>
                 <div className="head_nav">
                     <ul>
-                        <li>Products</li>
-                        <li>Reviews</li>
-                        <li>Events</li>
+                        <Link to="/products"><li>Products</li></Link>
+                        <Link to="/reviewlist"><li>Reviews</li></Link>
+                        <Link to="/events"><li>Events</li></Link>
                     </ul>
                 </div>
                 <div className="head_nav_min">
