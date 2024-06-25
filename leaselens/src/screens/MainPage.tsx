@@ -2,8 +2,6 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import RevCard from "../components/RevCard";
 import { FaArrowRight } from "react-icons/fa6";
-import img1 from "../assets/images/Product/LG 코드제로 R5 올인원타워 로봇청소기.png";
-import img2 from "../assets/images/Product/LG 코드제로 R5 올인원타워 로봇청소기.png";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -11,8 +9,25 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { ProddbProps } from "../types/productstypes";
 
 export default function MainPage() {
+
+  const [products, setProducts] = useState<ProddbProps[]>([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/main')
+      .then(response => {
+        console.log(response.data.data.products)
+        setProducts(response.data.data.products);
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+      });
+  }, []);
+
   return (
     <>
       <Header />
@@ -31,12 +46,12 @@ export default function MainPage() {
         <SwiperSlide>
           <main className="mainPage_main">
             <div className="mainPage_imgBox_min">
-              <img src={img1} alt="" className="mainPage_img_min mainPage_img1_min" />
+              <img src={products[0]?.prod_img} alt="" className="mainPage_img_min mainPage_img1_min" />
             </div>
             <section className="mainPage_leftBox">
               <div className="mainPage_proInfo_box">
                 <p className="mainPage_proName">
-                  LG 코드제로 오브제컬랙션 R9 로봇청소기
+                  {products[0]?.prod_name}
                 </p>
               </div>
               <div className="mainPage_proInfo_link">
@@ -46,17 +61,17 @@ export default function MainPage() {
               </div>
               <div className="mainPage_proInfo_proDes">
                 <p className="mainPage_proDes">
-                  설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명
+                  {products[0]?.prod_text}
                 </p>
               </div>
               <RevCard />
             </section>
             <section className="mainPage_rightBox">
               <div className="mainPage_imgBox">
-                <img src={img1} alt="" className="mainPage_img mainPage_img1" />
+                <img src={products[0]?.prod_img} alt="" className="mainPage_img mainPage_img1" />
               </div>
               <div className="mainPage_imgBox">
-                <img src={img2} alt="" className="mainPage_img mainPage_img2" />
+                <img src={products[0]?.prod_img} alt="" className="mainPage_img mainPage_img2" />
               </div>
             </section>
           </main>
@@ -64,12 +79,12 @@ export default function MainPage() {
         <SwiperSlide>
           <main className="mainPage_main">
             <div className="mainPage_imgBox_min">
-              <img src={img1} alt="" className="mainPage_img_min mainPage_img1_min" />
+              <img src={products[1]?.prod_img} alt="" className="mainPage_img_min mainPage_img1_min" />
             </div>
             <section className="mainPage_leftBox">
               <div className="mainPage_proInfo_box">
                 <p className="mainPage_proName">
-                  LG 코드제로 오브제컬랙션 R9 로봇청소기
+                  {products[1]?.prod_name}
                 </p>
               </div>
               <div className="mainPage_proInfo_link">
@@ -79,17 +94,17 @@ export default function MainPage() {
               </div>
               <div className="mainPage_proInfo_proDes">
                 <p className="mainPage_proDes">
-                  설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명
+                  {products[1]?.prod_text}
                 </p>
               </div>
               <RevCard />
             </section>
             <section className="mainPage_rightBox">
               <div className="mainPage_imgBox">
-                <img src={img1} alt="" className="mainPage_img mainPage_img1" />
+                <img src={products[1]?.prod_img} alt="" className="mainPage_img mainPage_img1" />
               </div>
               <div className="mainPage_imgBox">
-                <img src={img2} alt="" className="mainPage_img mainPage_img2" />
+                <img src={products[1]?.prod_img} alt="" className="mainPage_img mainPage_img2" />
               </div>
             </section>
           </main>
