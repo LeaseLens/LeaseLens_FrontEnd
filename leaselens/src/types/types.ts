@@ -33,6 +33,7 @@ export interface RevProps {
     width?: string;
     height?: string;
     rev_idx?: number;
+    rev_img?: string;
 }
 
 export interface LoginProps {
