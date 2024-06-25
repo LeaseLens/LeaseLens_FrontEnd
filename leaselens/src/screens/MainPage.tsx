@@ -40,7 +40,7 @@ export default function MainPage() {
           delay: 10000,
           disableOnInteraction: false,
         }}
-        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
       >
         <SwiperSlide>
           <main className="mainPage_main">
