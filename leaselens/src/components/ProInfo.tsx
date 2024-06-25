@@ -21,6 +21,7 @@ export default function ProInfo() {
         <button className="proInfo_proLike_btn">
           <BsHeart />
         </button>
+        <div></div>
       </section>
     </div>
   );
