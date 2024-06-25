@@ -688,12 +688,13 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-
+    
     @media (max-width: 950px) {
       display: none;
     }
-
+    
     .mainPage_img {
+      background-color: white;
       object-fit: cover;
       height: 90%;
       width: 70%;
