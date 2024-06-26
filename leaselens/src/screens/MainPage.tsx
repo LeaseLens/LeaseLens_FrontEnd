@@ -54,7 +54,7 @@ export default function MainPage() {
                 </p>
               </div>
               <div className="mainPage_proInfo_link">
-                <a href="/products/:prod_idx" className="proInfo_link">
+                <a href={`/products/${products[0]?.prod_idx}`} className="proInfo_link">
                   렌탈하러 가기 <FaArrowRight />
                 </a>
               </div>
@@ -87,7 +87,7 @@ export default function MainPage() {
                 </p>
               </div>
               <div className="mainPage_proInfo_link">
-                <a href="/products/:prod_idx" className="proInfo_link">
+                <a href={`/products/${products[0]?.prod_idx}`} className="proInfo_link">
                   렌탈하러 가기 <FaArrowRight />
                 </a>
               </div>
