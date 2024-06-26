@@ -302,6 +302,9 @@
             margin-left: 10px;
             font-size: 20px;
         }
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
@@ -556,14 +559,19 @@
         margin-left: 10px;
 
         .propg_product_container {
-            display: flex;
-            justify-content: space-evenly;
-            padding-top: 30px;
-            padding-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 30px 0;
+            place-items: center;
+
+            @media screen and (max-width: 950px) {
+                grid-template-columns: auto;                
+            }
 
             .proCard {
-                width: 26%;
+                width: 90%;
                 height: 456px;
+                margin-bottom: 30px;
             }
         }
     }
