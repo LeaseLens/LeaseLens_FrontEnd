@@ -3,6 +3,8 @@ import { BsXLg } from "react-icons/bs";
 import type { LoginProps } from "../types/types";
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+
 export default function Login({ onClose }: LoginProps) {
   const [isLoginForm, setIsLoginForm] = useState(true);
   const [formData, setFormData] = useState({
