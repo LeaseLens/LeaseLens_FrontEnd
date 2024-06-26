@@ -889,6 +889,9 @@ body {
         padding: 0.5rem 0.7rem;
         font-size: 13px;
       }
+      &:hover {
+        cursor: pointer;
+      }
 
       .selected {
         background-color: #3A9AF9;
