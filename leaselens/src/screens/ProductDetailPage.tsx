@@ -1,17 +1,41 @@
-import React from "react";
 import Header from "../components/Header";
 import ProInfo from "../components/ProInfo";
 import RevCard from "../components/RevCard";
 import { BsArrowRightCircle } from "react-icons/bs";
 import Footer from "../components/Footer";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { RevdbProps } from "../types/reviewtypes";
 
 export default function ProductDetailPage() {
+  const productAPI = window.location.pathname;
+  const [productInfo, setProduct] = useState(Object);
+  const [review, setReview] = useState<RevdbProps[]>([]);
+
+  console.log(productAPI);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080${productAPI}`)
+      .then((response) => {
+        console.log(response.data.data);
+        setProduct(response.data.data.productDetail);
+        setReview(response.data.data.reviews);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+  }, []);
+
+  console.log(productInfo);
+  console.log(review);
+
   return (
     <>
       <Header />
       <main className="prodetpg_main">
         <div className="prodetpg_info_container">
-          <ProInfo />
+          <ProInfo product={productInfo}/>
         </div>
         <div className="prodetpg_rev_container">
           <p className="prodetpg_rev_txt">제품 리뷰 모아보기</p>
@@ -22,8 +46,8 @@ export default function ProductDetailPage() {
           </div>
         </div>
         <div className="prodetpg_mobileInfo_box">
-            <p className="proInfo_proName">로보락 Q Revo 로봇청소기</p>
-            <p className="proInfo_proLease_price">월 렌트 비용 : 100,000,000원</p>
+            <p className="proInfo_proName">{productInfo.prod_name}</p>
+            <p className="proInfo_proLease_price">월 렌트 비용 : {productInfo.prod_price}0원</p>
         </div>
       </main>
       <Footer />

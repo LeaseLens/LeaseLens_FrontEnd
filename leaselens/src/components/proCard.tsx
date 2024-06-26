@@ -3,6 +3,7 @@ import { ProProps } from '../types/types';
 import { ProddbProps } from "../types/productstypes";
 
 export default function ProCard({ width, height, product }: ProProps) {
+  console.log(product)
   return (
     <div className='proCard' style={{ width, height }}>
       <section className="proCard_img_container">
