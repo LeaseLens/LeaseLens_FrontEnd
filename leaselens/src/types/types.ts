@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { ProddbProps } from "./productstypes";
+import { RevdbProps } from "./reviewtypes";
 
 export interface BannerProps {
     bannerTxt: string;
@@ -10,6 +11,7 @@ export interface ProProps {
     width?: string;
     height?: string;
     prod_idx?: number;
+    prod_name?: string;
     product: ProddbProps;
 }
 
@@ -29,6 +31,8 @@ export interface GreenBtnProps {
     greenBtn_txt: string;
     width?: string;
     height?: string;
+    onClick?: () => void;
+    rev_props?: RevdbProps;
 }
 
 export interface RevProps {
