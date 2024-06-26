@@ -5,6 +5,9 @@ import imgLogo from '../assets/images/Logo/leaselens_img_logo.png'
 import profile from '../assets/images/etc/icon_profile.png'
 import Login from './Login';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 
 export default function Header() {
     const [profileTog, setProfileTog] = useState(false);
@@ -29,6 +32,16 @@ export default function Header() {
 
     const ContactClick = () => {
         alert('준비 중 입니다.');
+    };
+
+    const handleLogoutClick = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/users/logout');
+            alert(response.data.message)
+        } catch (error) {
+            console.error('로그아웃 실패:', error);
+            alert('로그아웃에 실패했습니다.');
+        }
     };
 
     return (
@@ -80,7 +93,7 @@ export default function Header() {
                         <hr />
                         <a href="#"><li onClick={ContactClick}>Contact Us</li>
                         <hr /></a>
-                        <Link to="/users/logout"><li>Logout</li></Link>
+                        <li onClick={handleLogoutClick}>Logout</li>
                     </ul>
                 </div>
                 : ''
