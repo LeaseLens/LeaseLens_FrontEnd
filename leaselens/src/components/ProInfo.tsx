@@ -1,9 +1,11 @@
 import "../assets/scss/LJG.scss";
-import proInfoImg from "../assets/images/Product/로보락 Q Revo 로봇청소기.png";
 import { BsHeart } from "react-icons/bs";
 import { ProProps } from "../types/types";
+import axios from "axios";
 
 export default function ProInfo({ product }:ProProps) {
+  const prod_idx = window.location.pathname;
+  console.log(`http://localhost:8080${prod_idx}/likes`);
   return (
     <div className="proInfo">
       <section className="proInfo_proImg_container">
@@ -20,7 +22,7 @@ export default function ProInfo({ product }:ProProps) {
       </section>
       <section className="proInfo_proLike_btn_box">
         <div className="proInfo_proLike_num">like : {product.prod_likes?.toString()}</div>
-        <button className="proInfo_proLike_btn">
+        <button className="proInfo_proLike_btn" onClick={() => {axios.post(`http://localhost:8080${prod_idx}/like`)}}>
           <BsHeart />
         </button>
       </section>
