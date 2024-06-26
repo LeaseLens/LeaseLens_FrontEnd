@@ -6,9 +6,6 @@ import Header from "../components/Header";
 import PostTable from "../components/PostTable";
 import Search from "../components/Search";
 
-// 임시 어드민 / 일반 사용자 구분
-const adminKey = false;
-
 export default function ReviewListPage() {
   return (
     <>
@@ -19,7 +16,7 @@ export default function ReviewListPage() {
             <Banner bannerTxt={"리뷰 커뮤니티"} />
           </div>
           <div className="revPage_table">
-            {adminKey ? '' : <div className="revPage_table_header">
+            <div className="revPage_table_header">
               <div>
                 <Search searchOpt={"검색할 제목을 입력하세요."} />
               </div>
@@ -28,12 +25,8 @@ export default function ReviewListPage() {
                   <GreenBtn greenBtn_txt="글쓰기" />
                 </Link>
               </div>
-            </div>}
-            <PostTable isAdmin={adminKey} fontSize="32px" thTxt="인증" thBtn={adminKey ? (
-              <section className="proCard_button_section postAuthBtn_box">
-                <button className="proCard_button postAuthBtn">인증</button>
-              </section>
-            ) : (
+            </div>
+            <PostTable fontSize="32px" thTxt="인증" thBtn={
               <input
                 type="checkbox"
                 name=""
@@ -42,7 +35,8 @@ export default function ReviewListPage() {
                 readOnly
                 className="postTable_body_input"
               />
-            )} />
+            }
+            />
           </div>
         </section>
       </main>

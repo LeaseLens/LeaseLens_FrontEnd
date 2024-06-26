@@ -688,11 +688,11 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    
+
     @media (max-width: 950px) {
       display: none;
     }
-    
+
     .mainPage_img {
       background-color: white;
       object-fit: cover;
@@ -813,6 +813,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
   }
 
   .reviewPage_commentBox {
@@ -821,6 +822,32 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+.reviewPage_Info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin-left: 50px;
+
+  .reviewPage_proname {
+    font-size: 32px;
+    font-weight: 600;
+    text-shadow: 2px 4px 10px #ADADAD;
+    margin: 20px 0;
+    text-align: end;
+    margin-right: 2%;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .reviewPage_Id {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
 }
 
