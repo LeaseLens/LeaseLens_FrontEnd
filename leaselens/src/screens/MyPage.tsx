@@ -5,8 +5,21 @@ import Profile from '../components/Profile'
 import PostTable from '../components/PostTable';
 import Footer from '../components/Footer';
 import ProCard from "../components/ProCard";
+import { useEffect } from "react";
+import axios from "axios";
 
 export default function MyPage() {
+    useEffect(() => {
+        axios
+          .get(`http://localhost:8080/mypage`)
+          .then((response) => {
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.error("Error fetching products:", error);
+          });
+      }, []);
+
     return (
         <>
             <Header />
@@ -19,8 +32,8 @@ export default function MyPage() {
                     </div>
                     <div className="mypg_like_content">
                         <div className="mypg_like_item">
-                            <ProCard width='45%' height='100%' />
-                            <ProCard width='45%' height='100%' />
+                            {/* <ProCard width='45%' height='100%' />
+                            <ProCard width='45%' height='100%' /> */}
                         </div>
                     </div>
                 </div>

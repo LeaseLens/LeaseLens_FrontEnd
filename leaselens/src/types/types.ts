@@ -10,7 +10,7 @@ export interface ProProps {
     width?: string;
     height?: string;
     prod_idx?: number;
-    product?: ProddbProps;
+    product: ProddbProps;
 }
 
 export interface SearchProps {

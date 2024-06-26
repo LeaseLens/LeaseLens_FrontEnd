@@ -252,7 +252,8 @@ body {
 
     .proInfo_proLike_num {
       width: 100%;
-      text-align: center;
+      text-align: end;
+      padding-right : 3%;
       font-size: 20px;
       font-family: "Do Hyeon", sans-serif;
       font-weight: 400;
@@ -293,8 +294,7 @@ body {
     }
 
     .proInfo_proInfo_des {
-      min-height: 141px;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
 
     .proInfo_proLike_btn_box {

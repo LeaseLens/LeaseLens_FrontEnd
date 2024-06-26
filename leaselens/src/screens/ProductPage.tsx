@@ -7,7 +7,6 @@ import Search from "../components/Search";
 import MobileSideBar from "../components/MobileSideBar";
 import Footer from "../components/Footer";
 import axios from "axios";
-import { ProddbProps } from "../types/productstypes";
 import { ProProps } from "../types/types";
 
 export default function ProductPage() {
@@ -16,8 +15,8 @@ export default function ProductPage() {
   const [bannertxt, setBannerTxt] = useState(String);
   const Prods = (category: String) => {
     setCategory(category);
-};
-
+  };
+  
   useEffect(() => {
     axios
       .get(`http://localhost:8080/products${categorySelect}`)
@@ -48,7 +47,7 @@ export default function ProductPage() {
         <div className="propg_sec_container">
           <Banner bannerTxt={bannertxt} />
           <div className="propg_product_container">
-          {products.map((product) => {
+            {products.map((product) => {
               return <ProCard key={product.prod_idx} product={product} />;
             })}
           </div>
