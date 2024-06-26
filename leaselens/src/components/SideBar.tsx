@@ -6,7 +6,7 @@ export default function SideBar( { getProds }: SidebarProps ) {
 
   useEffect(() => {
     getProds(category);
-  }, [category, getProds])
+  }, [category])
 
   return (
     <div className="side_container">

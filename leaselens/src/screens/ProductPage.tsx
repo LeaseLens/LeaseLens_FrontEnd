@@ -8,14 +8,15 @@ import MobileSideBar from "../components/MobileSideBar";
 import Footer from "../components/Footer";
 import axios from "axios";
 import { ProddbProps } from "../types/productstypes";
+import { ProProps } from "../types/types";
 
 export default function ProductPage() {
-  const [products, setProducts] = useState<ProddbProps[]>([]);
+  const [products, setProducts] = useState<ProProps[]>([]);
   const [categorySelect, setCategory] = useState<String>("");
-
+  const [bannertxt, setBannerTxt] = useState(String);
   const Prods = (category: String) => {
     setCategory(category);
-  };
+};
 
   useEffect(() => {
     axios
@@ -29,14 +30,11 @@ export default function ProductPage() {
       });
   }, [categorySelect]);
 
-  const [bannertxt, setBannerTxt] = useState(String);
-
+  let Text = categorySelect.split("=");
   useEffect(() => {
-    const Text = categorySelect.split("=");
+    Text = categorySelect.split("=");
     setBannerTxt(Text[1]);
   }, [categorySelect]);
-
-  console.log("banner", bannertxt);
 
   return (
     <>
@@ -45,13 +43,13 @@ export default function ProductPage() {
         <div className="propg_side_container">
           <Search searchOpt={"제품명을 입력해주세요."} />
           <SideBar getProds={Prods} />
-          <MobileSideBar />
+          <MobileSideBar getProds={Prods} />
         </div>
         <div className="propg_sec_container">
           <Banner bannerTxt={bannertxt} />
           <div className="propg_product_container">
           {products.map((product) => {
-              return <ProCard product={product} />;
+              return <ProCard key={product.prod_idx} product={product} />;
             })}
           </div>
         </div>
