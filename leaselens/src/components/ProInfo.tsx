@@ -1,11 +1,18 @@
 import "../assets/scss/LJG.scss";
-import { BsHeart } from "react-icons/bs";
+import { useState } from "react";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
 import { ProProps } from "../types/types";
 import axios from "axios";
 
-export default function ProInfo({ product }:ProProps) {
-  const prod_idx = window.location.pathname;
-  console.log(`http://localhost:8080${prod_idx}/likes`);
+export default function ProInfo({ product }: ProProps) {
+  const prod_idx = window.location.pathname
+  const [liked, setLiked] = useState(false);
+
+  const handleLikeClick = () => {
+    axios.post(`http://localhost:8080${prod_idx}/like`);
+    setLiked(!liked);
+  };
+
   return (
     <div className="proInfo">
       <section className="proInfo_proImg_container">
@@ -22,8 +29,8 @@ export default function ProInfo({ product }:ProProps) {
       </section>
       <section className="proInfo_proLike_btn_box">
         <div className="proInfo_proLike_num">like : {product.prod_likes?.toString()}</div>
-        <button className="proInfo_proLike_btn" onClick={() => {axios.post(`http://localhost:8080${prod_idx}/like`)}}>
-          <BsHeart />
+        <button className="proInfo_proLike_btn" onClick={handleLikeClick} >
+          <BsHeartFill fill={liked ? 'red' : 'transperant'} />
         </button>
       </section>
     </div>

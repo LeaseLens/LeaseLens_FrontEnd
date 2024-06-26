@@ -5,15 +5,28 @@ import Profile from '../components/Profile'
 import PostTable from '../components/PostTable';
 import Footer from '../components/Footer';
 import ProCard from "../components/ProCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { ProProps } from "../types/types";
+import { RevdbProps } from "../types/reviewtypes";
+import { UserdbProps } from "../types/logintypes";
 
 export default function MyPage() {
+    const [favProds, setFavProd] = useState<ProProps[]>([]);
+    const [userRev, setUserRev] = useState<RevdbProps[]>([]);
+    const [userInfo, setUserInfo] = useState<UserdbProps>({});
+
+    console.log(userRev)
+    console.log(userInfo)
+
     useEffect(() => {
         axios
           .get(`http://localhost:8080/mypage`)
           .then((response) => {
             console.log(response.data);
+            setFavProd(response.data.data.favoriteProducts);
+            setUserRev(response.data.data.userReviews);
+            setUserInfo(response.data.data.userInfo);
           })
           .catch((error) => {
             console.error("Error fetching products:", error);
@@ -24,16 +37,17 @@ export default function MyPage() {
         <>
             <Header />
             <div className='mypg_content_container'>
-                <Profile />
+                <Profile user_name={userInfo.user_name} user_ID={userInfo.user_ID} user_points={userInfo.user_points}/>
                 <div className='mypg_like_container'>
                     <div className="mypg_like_text">
-                        <BsHeartFill style={{ color: 'red', width: '2em', height: '2em', paddingTop: '5px' }} />
+                        <BsHeartFill style={{ color: 'red', width: '2em', height: '2em', paddingTop: '5px' }} className="likeBtn"/>
                         <p>찜 목록</p>
                     </div>
                     <div className="mypg_like_content">
                         <div className="mypg_like_item">
-                            {/* <ProCard width='45%' height='100%' />
-                            <ProCard width='45%' height='100%' /> */}
+                            {favProds.map((product) => (
+                                <ProCard key={product.prod_idx} width="45%" height="100%" product={product} />
+                            ))}
                         </div>
                     </div>
                 </div>
