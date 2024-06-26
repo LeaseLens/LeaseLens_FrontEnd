@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ProddbProps } from "./productstypes";
 
 export interface BannerProps {
     bannerTxt: string;
@@ -9,6 +10,7 @@ export interface ProProps {
     width?: string;
     height?: string;
     prod_idx?: number;
+    product?: ProddbProps;
 }
 
 export interface SearchProps {
@@ -38,4 +40,8 @@ export interface RevProps {
 
 export interface LoginProps {
     onClose?: () => void;
+}
+
+export interface SidebarProps {
+    getProds: (category: String) => void;
 }
