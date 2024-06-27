@@ -1,3 +1,6 @@
+import { UserdbProps } from "./logintypes";
+import { ProddbProps } from "./productstypes";
+
 export interface RevdbProps {
     rev_idx?: number;
     user_idx?: number;
@@ -9,4 +12,7 @@ export interface RevdbProps {
     rev_authImg?: string;
     rev_title?: string;
     rev_rating?: number;
+    User?: UserdbProps;
+    Product?: ProddbProps;
 }
+

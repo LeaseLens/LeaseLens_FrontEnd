@@ -5,8 +5,27 @@ import GreenBtn from "../components/GreenBtn";
 import Header from "../components/Header";
 import PostTable from "../components/PostTable";
 import Search from "../components/Search";
+import { useEffect, useState } from "react";
+import { RevdbProps } from "../types/reviewtypes";
+import axios from "axios";
+import { PostTableProps } from "../types/types";
 
 export default function ReviewListPage() {
+  const [reviews, setReviews] = useState<PostTableProps[]>([]);
+
+  useEffect(() => {
+    async function fetchReviews() {
+      try {
+        const response = await axios.get('http://localhost:8080/reviews');
+        setReviews(response.data.data.reviews);
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    fetchReviews();
+  }, []);
+
   return (
     <>
       <Header />
@@ -26,16 +45,18 @@ export default function ReviewListPage() {
                 </Link>
               </div>
             </div>
-            <PostTable fontSize="32px" thTxt="인증" thBtn={
-              <input
-                type="checkbox"
-                name=""
-                id=""
-                checked
-                readOnly
-                className="postTable_body_input"
-              />
-            }
+            <PostTable fontSize="32px" thTxt="인증"
+              reviews={reviews}
+              thBtn={
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  checked
+                  readOnly
+                  className="postTable_body_input"
+                />
+              }
             />
           </div>
         </section>
