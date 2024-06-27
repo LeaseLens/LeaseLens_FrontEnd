@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import ProCard from "../components/ProCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ProProps } from "../types/types";
+import { PostTableProps, ProProps } from "../types/types";
 import { RevdbProps } from "../types/reviewtypes";
 import { UserdbProps } from "../types/logintypes";
 import { Route } from "react-router-dom";
@@ -23,31 +23,46 @@ export default function MyPage() {
 
     useEffect(() => {
         axios
-          .get(`http://localhost:8080/mypage`)
-          .then((response) => {
-            console.log(response.data);
-            setFavProd(response.data.data.favoriteProducts);
-            setUserRev(response.data.data.userReviews);
-            setUserInfo(response.data.data.userInfo);
-          })
-          .catch((error) => {
-            console.error("Error fetching userInfo:", error);
-            if (!alertShown) {
-                setAlertShown(true);
-                alert("로그인 후 이용해주세요.");
-                window.location.pathname = "/main";
+            .get(`http://localhost:8080/mypage`)
+            .then((response) => {
+                console.log(response.data);
+                setFavProd(response.data.data.favoriteProducts);
+                setUserRev(response.data.data.userReviews);
+                setUserInfo(response.data.data.userInfo);
+            })
+            .catch((error) => {
+                console.error("Error fetching userInfo:", error);
+                if (!alertShown) {
+                    setAlertShown(true);
+                    alert("로그인 후 이용해주세요.");
+                    window.location.pathname = "/main";
+                }
+            });
+    }, []);
+
+    const [reviews, setReviews] = useState<PostTableProps[]>([]);
+
+    useEffect(() => {
+        async function fetchReviews() {
+            try {
+                const response = await axios.get('http://localhost:8080/reviews');
+                setReviews(response.data.data.reviews);
+            } catch (err) {
+                console.log(err)
             }
-          });
-      }, []);
+        }
+
+        fetchReviews();
+    }, []);
 
     return (
         <>
             <Header />
             <div className='mypg_content_container'>
-                <Profile user_name={userInfo.user_name} user_ID={userInfo.user_ID} user_points={userInfo.user_points}/>
+                <Profile user_name={userInfo.user_name} user_ID={userInfo.user_ID} user_points={userInfo.user_points} />
                 <div className='mypg_like_container'>
                     <div className="mypg_like_text">
-                        <BsHeartFill style={{ color: 'red', width: '2em', height: '2em', paddingTop: '5px' }} className="likeBtn"/>
+                        <BsHeartFill style={{ color: 'red', width: '2em', height: '2em', paddingTop: '5px' }} className="likeBtn" />
                         <p>찜 목록</p>
                     </div>
                     <div className="mypg_like_content">
@@ -60,7 +75,9 @@ export default function MyPage() {
                 </div>
 
                 <div className='mypg_like_container'>
-                    <PostTable fontSize='20px' thTxt="삭제" thBtn={<Button variant="outline-danger" className="postDel">삭제</Button>} />
+                    <PostTable fontSize='20px' thTxt="삭제"
+                        reviews={reviews}
+                        thBtn={<Button variant="outline-danger" className="postDel">삭제</Button>} />
                 </div>
                 <Button variant="outline-danger" className='mypg_userDel'>회원 탈퇴</Button>
             </div>

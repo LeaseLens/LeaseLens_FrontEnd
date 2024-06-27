@@ -26,6 +26,7 @@ export interface PostTableProps {
     thTxt?: string;
     thBtn?: ReactNode;
     rev_idx?: number;
+    reviews: RevdbProps[];
 }
 
 export interface GreenBtnProps {
