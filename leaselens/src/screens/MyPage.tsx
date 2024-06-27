@@ -10,11 +10,13 @@ import axios from "axios";
 import { ProProps } from "../types/types";
 import { RevdbProps } from "../types/reviewtypes";
 import { UserdbProps } from "../types/logintypes";
+import { Route } from "react-router-dom";
 
 export default function MyPage() {
     const [favProds, setFavProd] = useState<ProProps[]>([]);
     const [userRev, setUserRev] = useState<RevdbProps[]>([]);
     const [userInfo, setUserInfo] = useState<UserdbProps>({});
+    const [alertShown, setAlertShown] = useState(false);
 
     console.log(userRev)
     console.log(userInfo)
@@ -29,7 +31,12 @@ export default function MyPage() {
             setUserInfo(response.data.data.userInfo);
           })
           .catch((error) => {
-            console.error("Error fetching products:", error);
+            console.error("Error fetching userInfo:", error);
+            if (!alertShown) {
+                setAlertShown(true);
+                alert("로그인 후 이용해주세요.");
+                window.location.pathname = "/main";
+            }
           });
       }, []);
 
