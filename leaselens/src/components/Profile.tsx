@@ -8,6 +8,8 @@ export default function Profile({ user_name, user_ID, user_points, }: UserdbProp
       .delete(`http://localhost:8080/users/quit`)
       .then((response) => {
         console.log(response.data);
+        alert("성공적으로 탈퇴되었습니다.");
+        window.location.pathname = "/main";
       })
       .catch((error) => {
         console.error("Error Deleting User:", error);
