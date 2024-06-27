@@ -260,7 +260,7 @@ body {
     .proInfo_proLike_num {
       width: 100%;
       text-align: end;
-      padding-right : 3%;
+      padding-right: 3%;
       font-size: 20px;
       font-family: "Do Hyeon", sans-serif;
       font-weight: 400;
@@ -636,11 +636,14 @@ body {
 
     .mainPage_proInfo_proDes {
       width: 60%;
+      height: 30%;
       margin: 4% 0;
 
       .mainPage_proDes {
+        height: 100%;
         font-size: 24px;
         margin: 1%;
+        overflow-y: auto;
 
         @media (max-width: 950px) {
           font-size: 15px;
@@ -896,6 +899,7 @@ body {
         padding: 0.5rem 0.7rem;
         font-size: 13px;
       }
+
       &:hover {
         cursor: pointer;
       }
