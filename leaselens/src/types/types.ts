@@ -13,6 +13,7 @@ export interface ProProps {
     prod_idx?: number;
     prod_name?: string;
     product: ProddbProps;
+    isLiked?: Boolean;
 }
 
 export interface SearchProps {

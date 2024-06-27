@@ -14,15 +14,15 @@ export default function ProductDetailPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080${productAPI}`)
-      .then((response) => {
-        console.log(response.data.data);
-        setProduct(response.data.data.productDetail);
-        setReview(response.data.data.reviews);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-      });
+    .get(`http://localhost:8080${productAPI}`)
+    .then((response) => {
+      console.log(response.data.data);
+      setProduct(response.data.data.productDetail)
+      setReview(response.data.data.reviews);
+    })
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+    });
   }, []);
 
   console.log(productInfo);
@@ -33,7 +33,7 @@ export default function ProductDetailPage() {
       <Header />
       <main className="prodetpg_main">
         <div className="prodetpg_info_container">
-          <ProInfo product={productInfo}/>
+          <ProInfo product={productInfo} />
         </div>
         <div className="prodetpg_rev_container">
           <p className="prodetpg_rev_txt">제품 리뷰 모아보기</p>
@@ -44,8 +44,10 @@ export default function ProductDetailPage() {
           </div>
         </div>
         <div className="prodetpg_mobileInfo_box">
-            <p className="proInfo_proName">{productInfo.prod_name}</p>
-            <p className="proInfo_proLease_price">월 렌트 비용 : {productInfo.prod_price}원</p>
+          <p className="proInfo_proName">{productInfo.prod_name}</p>
+          <p className="proInfo_proLease_price">
+            월 렌트 비용 : {productInfo.prod_price}원
+          </p>
         </div>
       </main>
       <Footer />
