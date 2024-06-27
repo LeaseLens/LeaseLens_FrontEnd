@@ -1,21 +1,64 @@
-import React, { useEffect, useState } from 'react'
-import ReactQuill from "react-quill"
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import ReactQuill, { Quill } from "react-quill"
+import { ImageResize } from "quill-image-resize-module-ts";
 import { Button } from 'react-bootstrap';
 import Header from '../components/Header'
 import GreenBtn from '../components/GreenBtn';
 import axios from 'axios';
 import { ProProps } from '../types/types';
+import { useNavigate } from 'react-router-dom';
+
+Quill.register("modules/ImageResize", ImageResize);
 
 export default function ReviewPostPage() {
-  const modules = {
-    toolbar: {
-      container: [
-        ["image"],
-        [{ header: [1, 2, 3, 4, 5, false] }],
-        ["bold", "underline"],
-      ],
-    },
+  const navigate = useNavigate();
+  const quillRef = useRef<ReactQuill | null>(null);
+
+  const ImageHandler = () => {
+    const input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/*');
+    input.click();
+    input.onchange = async () => {
+      const file = input.files ? input.files[0] : null;
+      if (!file) return;
+      const formData = new FormData();
+      formData.append('rev_img', file);
+      let quillObj = quillRef.current?.getEditor();
+      const range = quillObj?.getSelection();
+      if (!range) return;
+      try {
+        const res = await axios.post('http://localhost:8080/reviews/img', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        const imgUrl = res.data;
+        quillObj?.insertEmbed(range.index, 'image', imgUrl);
+      } catch (error) {
+        console.log(error);
+      }
+    };
   };
+
+  const modules = useMemo(() => {
+    return {
+      toolbar: {
+        container: [
+          ["image"],
+          [{ header: [1, 2, 3, 4, 5, false] }],
+          ["bold", "underline"],
+        ],
+        handlers: {
+          image: ImageHandler,
+        },
+      },
+      ImageResize: {
+        parchment: Quill.import("parchment"),
+        modules: ["Resize", "DisplaySize"],
+      },
+    };
+  }, []);
 
   const [fileName, setFileName] = useState('');
 
@@ -89,9 +132,12 @@ export default function ReviewPostPage() {
       })
       .then((response) => {
         console.log('Review submitted successfully:', response.data);
+        alert(response.data.message)
+        navigate('/reviewlist');
       })
       .catch((error) => {
         console.error('Error submitting review:', error);
+        alert(error)
       });
   };
 
@@ -126,9 +172,12 @@ export default function ReviewPostPage() {
       </div>
       <div className="revpg_post_content">
         <input type="text" className='revpg_post_input' placeholder='제목을 입력해주세요.'
-        onChange={handleTitleChange} />
-        <ReactQuill className='revpg_post_text' modules={modules}
-        onChange={handleContentChange} />
+          onChange={handleTitleChange} />
+        <ReactQuill
+          ref={quillRef}
+          className='revpg_post_text'
+          modules={modules}
+          onChange={handleContentChange} />
       </div>
 
       <div className='revpg_foot_container'>
