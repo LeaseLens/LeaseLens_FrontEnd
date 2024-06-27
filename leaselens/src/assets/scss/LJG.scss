@@ -215,7 +215,7 @@ body {
 // 제품 상세 카드 시작
 .proInfo {
   width: 90%;
-  min-height: 320px;
+  height: 500px;
   display: grid;
   grid-template-columns: 1.4fr 2fr 0.3fr;
   border-radius: 10px;
@@ -235,6 +235,7 @@ body {
   .proInfo_proInfo_des {
     padding-left: 5%;
     width: 60%;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -246,6 +247,7 @@ body {
       font-size: 18px;
       margin-top: 0;
       overflow-y: auto;
+      height: 100%;
     }
   }
 
@@ -253,6 +255,7 @@ body {
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
+    height: 100%;
 
     .proInfo_proLike_num {
       width: 100%;
