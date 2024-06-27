@@ -12,8 +12,6 @@ export default function ProductDetailPage() {
   const [productInfo, setProduct] = useState(Object);
   const [review, setReview] = useState<RevdbProps[]>([]);
 
-  console.log(productAPI);
-
   useEffect(() => {
     axios
       .get(`http://localhost:8080${productAPI}`)
@@ -47,7 +45,7 @@ export default function ProductDetailPage() {
         </div>
         <div className="prodetpg_mobileInfo_box">
             <p className="proInfo_proName">{productInfo.prod_name}</p>
-            <p className="proInfo_proLease_price">월 렌트 비용 : {productInfo.prod_price}0원</p>
+            <p className="proInfo_proLease_price">월 렌트 비용 : {productInfo.prod_price}원</p>
         </div>
       </main>
       <Footer />
