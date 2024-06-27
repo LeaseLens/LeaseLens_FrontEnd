@@ -64,16 +64,19 @@ body {
   .proCard_img_container {
     display: flex;
     justify-content: space-evenly;
+    height: 171px;
 
     .proCard_img {
       border: 1px solid #ADADAD;
       border-radius: 10px;
-      width: 70%;
+      width: auto;
+      height: 100%;
     }
   }
 
   .proCard_name_section {
     height: 20%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
