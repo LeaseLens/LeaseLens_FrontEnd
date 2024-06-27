@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import { UserdbProps } from "../types/logintypes";
 import axios from "axios";
 
-export default function Profile({ user_name, user_ID, user_points, }: UserdbProps) {
+export default function Profile({ user_name, user_ID, user_points }: UserdbProps) {
   const userDel = () => {
     axios
       .delete(`http://localhost:8080/users/quit`)
