@@ -10,6 +10,7 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 export default function Header() {
+    const currentLocation = window.location.pathname;
     const [profileTog, setProfileTog] = useState(false);
     const [menuTog, setMenuTog] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
@@ -27,9 +28,8 @@ export default function Header() {
                 console.error('로그인 상태 확인 실패:', error);
             }
         };
-
         checkLoginStatus();
-    }, []);
+    }, [isLoggedIn]);
 
     const profileBtn = () => {
         setProfileTog(!profileTog)
@@ -55,6 +55,7 @@ export default function Header() {
         try {
             const response = await axios.get('http://localhost:8080/users/logout');
             alert(response.data.message)
+            window.location.replace(currentLocation);
         } catch (error) {
             console.error('로그아웃 실패:', error);
             alert('로그아웃에 실패했습니다.');

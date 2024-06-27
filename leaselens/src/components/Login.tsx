@@ -6,6 +6,7 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 export default function Login({ onClose }: LoginProps) {
+  const currentLocation = window.location.pathname;
   const [isLoginForm, setIsLoginForm] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
@@ -38,6 +39,7 @@ export default function Login({ onClose }: LoginProps) {
         user_pw: formData.password
       });
       alert(response.data.message);
+      window.location.replace(currentLocation);
       if (onClose) {
         onClose();
       }
