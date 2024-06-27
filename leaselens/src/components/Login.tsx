@@ -18,6 +18,12 @@ export default function Login({ onClose }: LoginProps) {
 
   const toggleForm = () => {
     setIsLoginForm(!isLoginForm);
+    setFormData({
+      name: '',
+      id: '',
+      password: '',
+      confirmPassword: ''
+    });
   };
 
   useEffect(() => {
