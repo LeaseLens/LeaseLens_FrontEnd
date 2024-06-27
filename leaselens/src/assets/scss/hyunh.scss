@@ -249,9 +249,10 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        width: 90%;
 
         .rev_img {
-            width: 40%;
+            width: 50%;
             height: 80%;
             border: 0.5px solid #ADADAD;
             display: flex;
@@ -267,10 +268,11 @@
         }
 
         .rev_content {
-            width: 35%;
+            width: 45%;
             height: 80%;
             align-content: center;
             overflow: auto;
+            margin-left: 10px;
 
             .rev_star {
                 font-size: 20px;
