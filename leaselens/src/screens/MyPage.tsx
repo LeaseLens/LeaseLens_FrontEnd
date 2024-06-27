@@ -68,7 +68,7 @@ export default function MyPage() {
                     <div className="mypg_like_content">
                         <div className="mypg_like_item">
                             {favProds.map((product) => (
-                                <ProCard key={product.prod_idx} width="45%" height="100%" product={product} />
+                                <ProCard key={product.prod_idx} width="90%" height="100%" product={product} />
                             ))}
                         </div>
                     </div>

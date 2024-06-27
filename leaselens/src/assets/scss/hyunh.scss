@@ -803,8 +803,18 @@
             }
 
             .mypg_like_item {
-                display: flex;
-                justify-content: space-evenly;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                place-items: center;
+
+                .proCard {
+                    .proCard_img_container {
+                        .proCard_img {
+                            width: 70%;
+                            height: auto;
+                        }
+                    }
+                }
 
                 @media (max-width: 950px) {
                     width: 100%;
