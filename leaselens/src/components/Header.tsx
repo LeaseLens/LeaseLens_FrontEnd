@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsList } from "react-icons/bs";
 import textLogo from '../assets/images/Logo/leaselens_text_logo.png'
 import imgLogo from '../assets/images/Logo/leaselens_img_logo.png'
@@ -13,6 +13,23 @@ export default function Header() {
     const [profileTog, setProfileTog] = useState(false);
     const [menuTog, setMenuTog] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const checkLoginStatus = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/auth/check');
+                if (response.data.data.isAuthenticated) {
+                    console.log(response.data.isAuthenticated)
+                    setIsLoggedIn(true);
+                }
+            } catch (error) {
+                console.error('로그인 상태 확인 실패:', error);
+            }
+        };
+
+        checkLoginStatus();
+    }, []);
 
     const profileBtn = () => {
         setProfileTog(!profileTog)
@@ -68,8 +85,11 @@ export default function Header() {
                     </Link>
                 </div>
                 <div className="head_loginUser">
-                    <img src={profile} alt="프로필 아이콘" className='head_profile' onClick={profileBtn} />
-                    <span onClick={handleLoginClick}>Login</span>
+                    {isLoggedIn ? (
+                        <img src={profile} alt="프로필 아이콘" className='head_profile' onClick={profileBtn} />
+                    ) : (
+                        <span onClick={handleLoginClick}>Login</span>
+                    )}
                 </div>
             </div>
             {menuTog ?
@@ -92,7 +112,7 @@ export default function Header() {
                         <Link to="/mypage"><li>My Page</li></Link>
                         <hr />
                         <a href="#"><li onClick={ContactClick}>Contact Us</li>
-                        <hr /></a>
+                            <hr /></a>
                         <li onClick={handleLogoutClick}>Logout</li>
                     </ul>
                 </div>
