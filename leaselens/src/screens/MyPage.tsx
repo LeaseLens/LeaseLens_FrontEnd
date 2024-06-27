@@ -40,21 +40,6 @@ export default function MyPage() {
             });
     }, []);
 
-    const [reviews, setReviews] = useState<PostTableProps[]>([]);
-
-    useEffect(() => {
-        async function fetchReviews() {
-            try {
-                const response = await axios.get('http://localhost:8080/reviews');
-                setReviews(response.data.data.reviews);
-            } catch (err) {
-                console.log(err)
-            }
-        }
-
-        fetchReviews();
-    }, []);
-
     return (
         <>
             <Header />
@@ -76,7 +61,7 @@ export default function MyPage() {
 
                 <div className='mypg_like_container'>
                     <PostTable fontSize='20px' thTxt="삭제"
-                        reviews={reviews}
+                        reviews={userRev}
                         thBtn={<Button variant="outline-danger" className="postDel">삭제</Button>} />
                 </div>
                 <Button variant="outline-danger" className='mypg_userDel'>회원 탈퇴</Button>

@@ -21,8 +21,8 @@ export default function Profile({ user_name, user_ID, user_points }: UserdbProps
       <h3>{user_name}님의 회원 정보</h3>
       <div className="profile_content">
         <div className="profile_user">
-          <h4>{user_ID}님</h4>
-          <div>아이디</div>
+          <h4>{user_name}님</h4>
+          <div>아이디 : {user_ID}</div>
         </div>
         <div className="profile_point">
           <h4>{user_ID}님의 잔여 포인트</h4>
