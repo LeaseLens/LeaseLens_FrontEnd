@@ -4,7 +4,7 @@ import logoText from '../assets/images/Logo/leaselens_text_logo.png'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export default function LodingPage() {
+export default function LoadingPage() {
 
   const navigate = useNavigate();
 

@@ -2,7 +2,7 @@ import "./assets/scss/LJG.scss";
 import "./assets/scss/hyunh.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import EventPage from "./screens/EventPage";
-import LodingPage from "./screens/LodingPage";
+import LoadingPage from "./screens/LoadingPage";
 import MainPage from "./screens/MainPage";
 import MyPage from "./screens/MyPage";
 import ProductDetailPage from "./screens/ProductDetailPage";
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LodingPage />} />
+          <Route path="/" element={<LoadingPage />} />
           <Route path="/main" element={<MainPage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/products" element={<ProductPage />} />
