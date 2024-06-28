@@ -51,8 +51,6 @@ export default function ReviewListPage() {
               thBtn={
                 <input
                   type="checkbox"
-                  name=""
-                  id=""
                   checked
                   readOnly
                   className="postTable_body_input"

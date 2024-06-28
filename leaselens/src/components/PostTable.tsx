@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../assets/scss/LJG.scss";
 import type { PostTableProps } from "../types/types";
 
-export default function PostTable({ fontSize, thTxt, thBtn, reviewArr }: PostTableProps) {
+export default function PostTable({ fontSize, thTxt, reviewArr }: PostTableProps) {
   return (
     <div className="postTable">
       <table className="postTable_table">
@@ -26,9 +26,7 @@ export default function PostTable({ fontSize, thTxt, thBtn, reviewArr }: PostTab
                 <th className="postTable_body_th">{review.Product?.prod_name}</th>
                 <th className="postTable_body_th"><Link to={`/reviews/${review.rev_idx}`}>{review.rev_title}</Link></th>
                 <th className="postTable_body_th">{review.User?.user_ID}</th>
-                <th className="postTable_body_th">
-                  {thBtn}
-                </th>
+                <th className="postTable_body_th">{review.rev_isAuth ? <input type="checkbox" checked={true} readOnly={true} className="postTable_body_input"/> : <input type="checkbox" checked={false} readOnly={true} className="postTable_body_input"/>}</th>
               </tr>
             )
           })}
