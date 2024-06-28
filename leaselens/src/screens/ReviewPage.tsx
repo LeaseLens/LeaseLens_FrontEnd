@@ -40,7 +40,7 @@ export default function ReviewPage() {
           <RevCard width="90%" height="100%" review={review}/>
         </div>
         <div className="reviewPage_commentBox">
-          <Comment isAdmin={isAdmin}/>
+          <Comment isAdmin={isAdmin} rev_idx={review.rev_idx}/>
         </div>
       </main>
       <Footer />
