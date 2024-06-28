@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ProProps } from '../types/types';
-import { ProddbProps } from "../types/productstypes";
 
 export default function ProCard({ width, height, product }: ProProps) {
   console.log(product)
