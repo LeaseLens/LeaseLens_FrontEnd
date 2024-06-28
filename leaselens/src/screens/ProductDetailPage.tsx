@@ -38,8 +38,8 @@ export default function ProductDetailPage() {
         <div className="prodetpg_rev_container">
           <p className="prodetpg_rev_txt">제품 리뷰 모아보기</p>
           <div className="prodetpg_rev_cont">
-            <RevCard />
-            <RevCard />
+            {/* <RevCard review={review}/>
+            <RevCard review={review}/> */}
             <BsArrowRightCircle style={{ width: "3em", height: "3em" }} />
           </div>
         </div>

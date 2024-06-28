@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { ProddbProps } from "./productstypes";
-import { RevdbProps } from "./reviewtypes";
+import { RevTabledbProps, RevdbProps } from "./reviewtypes";
 
 export interface BannerProps {
     bannerTxt: string;
@@ -26,7 +26,7 @@ export interface PostTableProps {
     thTxt?: string;
     thBtn?: ReactNode;
     rev_idx?: number;
-    reviews: RevdbProps[];
+    reviewArr?: RevdbProps[];
 }
 
 export interface GreenBtnProps {
@@ -42,6 +42,7 @@ export interface RevProps {
     height?: string;
     rev_idx?: number;
     rev_img?: string;
+    review: RevdbProps;
 }
 
 export interface LoginProps {
