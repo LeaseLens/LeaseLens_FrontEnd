@@ -9,12 +9,15 @@ import { RevdbProps } from '../types/reviewtypes';
 export default function ReviewPage() {
   const revIndex = window.location.pathname;
   const [review, setReview] = useState<RevdbProps>(Object);
+  const [isAdmin, setAdmin] = useState(Boolean);
 
   useEffect(() => {
     async function fetchReviews() {
       try {
         const response = await axios.get(`http://localhost:8080${revIndex}`);
         setReview(response.data.data.review);
+        const adminRes = await axios.get('http://localhost:8080/auth/adminCheck');
+        setAdmin(adminRes.data.data.isAdmin);
       } catch (err) {
         console.log(err)
       }
@@ -37,7 +40,7 @@ export default function ReviewPage() {
           <RevCard width="90%" height="100%" review={review}/>
         </div>
         <div className="reviewPage_commentBox">
-          <Comment />
+          <Comment isAdmin={isAdmin}/>
         </div>
       </main>
       <Footer />

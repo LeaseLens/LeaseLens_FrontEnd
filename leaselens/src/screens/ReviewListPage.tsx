@@ -11,15 +11,29 @@ import { PostTableProps } from "../types/types";
 
 export default function ReviewListPage() {
   const [reviewArr, setReviews] = useState<PostTableProps[]>([]);
+  const [isAdmin, setAdmin] = useState(Boolean);
 
   useEffect(() => {
     async function fetchReviews() {
-      try {
-        const response = await axios.get('http://localhost:8080/reviews');
-        setReviews(response.data.data.reviews);
-        console.log(response.data.data.reviews)
-      } catch (err) {
-        console.log(err)
+      const adminRes = await axios.get('http://localhost:8080/auth/adminCheck');
+      setAdmin(adminRes.data.data.isAdmin);
+      if(!isAdmin) {
+        try {
+          const response = await axios.get('http://localhost:8080/reviews');
+          setReviews(response.data.data.reviews);
+          console.log(response.data.data.reviews)
+        } catch (err) {
+          console.log(err)
+        }
+      }
+      else {
+        try {
+          const response = await axios.get('http://localhost:8080/admin');
+          setReviews(response.data.data);
+          console.log(response.data.data)
+        } catch (err) {
+          console.log(err)
+        }
       }
     }
 
