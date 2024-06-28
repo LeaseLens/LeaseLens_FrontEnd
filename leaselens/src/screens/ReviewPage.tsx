@@ -22,6 +22,7 @@ export default function ReviewPage() {
     
     fetchReviews();
   }, []);
+  
   console.log(review);
   
   return (

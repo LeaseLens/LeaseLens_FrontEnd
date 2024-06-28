@@ -653,7 +653,7 @@ body {
 
     .mainPage_RevCard {
       width: 90%;
-      height: 35%;
+      height: 90%;
 
       @media (max-width: 950px) {
         height: 30%;
@@ -668,6 +668,11 @@ body {
 
     .mainPage_proInfo_proDes {
       width: 90%;
+    }
+    
+    .mainPage_swiper {
+      width: 100%;
+      height: 100%;
     }
   }
 }
