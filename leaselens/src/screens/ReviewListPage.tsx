@@ -11,13 +11,14 @@ import axios from "axios";
 import { PostTableProps } from "../types/types";
 
 export default function ReviewListPage() {
-  const [reviews, setReviews] = useState<PostTableProps[]>([]);
+  const [reviewArr, setReviews] = useState<PostTableProps[]>([]);
 
   useEffect(() => {
     async function fetchReviews() {
       try {
         const response = await axios.get('http://localhost:8080/reviews');
         setReviews(response.data.data.reviews);
+        console.log(response.data.data.reviews)
       } catch (err) {
         console.log(err)
       }
@@ -46,7 +47,7 @@ export default function ReviewListPage() {
               </div>
             </div>
             <PostTable fontSize="32px" thTxt="인증"
-              reviews={reviews}
+              reviewArr={reviewArr}
               thBtn={
                 <input
                   type="checkbox"

@@ -61,7 +61,7 @@ export default function MyPage() {
 
                 <div className='mypg_like_container'>
                     <PostTable fontSize='20px' thTxt="삭제"
-                        reviews={userRev}
+                        reviewArr={userRev}
                         thBtn={<Button variant="outline-danger" className="postDel">삭제</Button>} />
                 </div>
                 <Button variant="outline-danger" className='mypg_userDel'>회원 탈퇴</Button>

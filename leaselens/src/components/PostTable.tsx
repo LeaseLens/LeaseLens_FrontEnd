@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
 import "../assets/scss/LJG.scss";
 import type { PostTableProps } from "../types/types";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { RevdbProps } from "../types/reviewtypes";
 
-export default function PostTable({ fontSize, isAdmin, thTxt, thBtn, rev_idx, reviews }: PostTableProps) {
+export default function PostTable({ fontSize, thTxt, thBtn, reviewArr }: PostTableProps) {
   return (
     <div className="postTable">
       <table className="postTable_table">
@@ -20,13 +17,14 @@ export default function PostTable({ fontSize, isAdmin, thTxt, thBtn, rev_idx, re
           </tr>
         </thead>
         <tbody className="postTable_tbody">
-          {reviews.map((review) => {
+
+          { reviewArr && reviewArr.map((review) => {
             return (
               <tr className="postTable_body_tr" style={{ fontSize }}>
                 <th className="postTable_body_th">{review.rev_idx}</th>
                 <th className="postTable_body_th">{review.rev_createdAt?.split("T")[0]}</th>
                 <th className="postTable_body_th">{review.Product?.prod_name}</th>
-                <th className="postTable_body_th"><Link to={`/reviews/${rev_idx}`}>{review.rev_title}</Link></th>
+                <th className="postTable_body_th"><Link to={`/reviews/${review.rev_idx}`}>{review.rev_title}</Link></th>
                 <th className="postTable_body_th">{review.User?.user_ID}</th>
                 <th className="postTable_body_th">
                   {thBtn}

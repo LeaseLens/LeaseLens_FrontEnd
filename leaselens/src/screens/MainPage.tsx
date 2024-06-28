@@ -63,7 +63,7 @@ export default function MainPage() {
                   {products[0]?.prod_text}
                 </p>
               </div>
-              <RevCard rev_img={products[0]?.prod_img}/>
+              {/* <RevCard rev_img={products[0]?.prod_img}/> */}
             </section>
             <section className="mainPage_rightBox">
               <div className="mainPage_imgBox">
@@ -87,7 +87,7 @@ export default function MainPage() {
                 </p>
               </div>
               <div className="mainPage_proInfo_link">
-                <a href={`/products/${products[0]?.prod_idx}`} className="proInfo_link">
+                <a href={`/products/${products[1]?.prod_idx}`} className="proInfo_link">
                   렌탈하러 가기 <FaArrowRight />
                 </a>
               </div>
@@ -96,7 +96,7 @@ export default function MainPage() {
                   {products[1]?.prod_text}
                 </p>
               </div>
-              <RevCard rev_img={products[1]?.prod_img}/>
+              {/* <RevCard rev_img={products[1]?.prod_img}/> */}
             </section>
             <section className="mainPage_rightBox">
               <div className="mainPage_imgBox">
