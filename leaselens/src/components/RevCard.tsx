@@ -3,13 +3,20 @@ import { RevProps } from '../types/types'
 
 export default function RevCard({ width, height, rev_idx, rev_img, review }: RevProps) {
   const rev_rat = review.rev_rating;
+  const innerText = review?.rev_text !== undefined ? review?.rev_text : "본문내용이 없습니다.";
+
   const rating = () => {
-    if(rev_rat !== undefined) {
-      for(let i=0;i<rev_rat;i++) {
-        return "⭐";
-      }
+    if (rev_rat !== undefined) {
+      return (
+        <>
+          {[...Array(rev_rat)].map((_, i) => (
+            <span key={i}>⭐</span>
+          ))}
+        </>
+      );
     }
-  }
+    return null;
+  };
 
   return (
     <div className='rev_container mainPage_RevCard' style={{ width, height }}>
@@ -19,8 +26,8 @@ export default function RevCard({ width, height, rev_idx, rev_img, review }: Rev
         </div>
         <div className="rev_content">
           <div className="rev_star">{rating()}</div>
-          <h3 className="rev_title">{review?.rev_title}</h3>
-          <div className="rev_text">{review?.rev_text?.toString()}</div>
+          <h3 className="rev_title">{review.rev_title}</h3>
+          <div className="rev_text" dangerouslySetInnerHTML={{__html: innerText}}></div>
         </div>
       </Link>
     </div>

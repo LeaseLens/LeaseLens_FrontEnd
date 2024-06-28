@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import ReactQuill, { Quill } from "react-quill"
-import { ImageResize } from "quill-image-resize-module-ts";
-import { Button } from 'react-bootstrap';
+import { ImageResize } from 'quill-image-resize-module-ts';
 import Header from '../components/Header'
 import GreenBtn from '../components/GreenBtn';
 import axios from 'axios';
