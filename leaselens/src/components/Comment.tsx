@@ -76,6 +76,14 @@ export default function Comment({isAdmin}: CommentdbProps) {
     }
   }, [editingCommentIdx]);
 
+  function handleReviewAuth() {
+    const rev_idx = revIndex.split("/")[2];
+    axios
+      .post(`http://localhost:8080/admin/${rev_idx}/auth`)
+      .then((response) => {
+        alert(response.data.message);
+      })
+  }
   return (
     <div className="comment">
       <section className="comment_titleArea">
@@ -159,7 +167,7 @@ export default function Comment({isAdmin}: CommentdbProps) {
             onChange={handleCommentChange}
           />
           {isAdmin ? (
-            <button className="comment_sendBtn">인증</button>
+            <button className="comment_sendBtn" onClick={handleReviewAuth}>인증</button>
           ) : (
             <button className="comment_sendBtn"
               onClick={handleCommentSubmit}>작성</button>

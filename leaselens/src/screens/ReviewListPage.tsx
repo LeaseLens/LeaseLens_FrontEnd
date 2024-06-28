@@ -14,14 +14,22 @@ export default function ReviewListPage() {
   const [isAdmin, setAdmin] = useState(Boolean);
 
   useEffect(() => {
-    async function fetchReviews() {
+    async function getAdmin() {
       const adminRes = await axios.get('http://localhost:8080/auth/adminCheck');
+      console.log(adminRes.data)
       setAdmin(adminRes.data.data.isAdmin);
-      if(!isAdmin) {
+      console.log(isAdmin)
+    }
+    getAdmin();
+  }, [reviewArr]);
+
+  useEffect(() => {
+    async function fetchReviews() {
+      if(isAdmin === false) {
         try {
           const response = await axios.get('http://localhost:8080/reviews');
           setReviews(response.data.data.reviews);
-          console.log(response.data.data.reviews)
+          console.log("notAdmin",response.data.data.reviews)
         } catch (err) {
           console.log(err)
         }
@@ -30,7 +38,7 @@ export default function ReviewListPage() {
         try {
           const response = await axios.get('http://localhost:8080/admin');
           setReviews(response.data.data);
-          console.log(response.data.data)
+          console.log("Admin",response.data.data)
         } catch (err) {
           console.log(err)
         }
@@ -38,7 +46,7 @@ export default function ReviewListPage() {
     }
 
     fetchReviews();
-  }, []);
+  }, [isAdmin]);
 
   return (
     <>
