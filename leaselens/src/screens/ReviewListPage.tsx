@@ -6,7 +6,6 @@ import Header from "../components/Header";
 import PostTable from "../components/PostTable";
 import Search from "../components/Search";
 import { useEffect, useState } from "react";
-import { RevdbProps } from "../types/reviewtypes";
 import axios from "axios";
 import { PostTableProps } from "../types/types";
 
@@ -51,8 +50,6 @@ export default function ReviewListPage() {
               thBtn={
                 <input
                   type="checkbox"
-                  name=""
-                  id=""
                   checked
                   readOnly
                   className="postTable_body_input"

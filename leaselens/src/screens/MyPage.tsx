@@ -7,10 +7,9 @@ import Footer from '../components/Footer';
 import ProCard from "../components/ProCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { PostTableProps, ProProps } from "../types/types";
+import { ProProps } from "../types/types";
 import { RevdbProps } from "../types/reviewtypes";
 import { UserdbProps } from "../types/logintypes";
-import { Route } from "react-router-dom";
 
 export default function MyPage() {
     const [favProds, setFavProd] = useState<ProProps[]>([]);

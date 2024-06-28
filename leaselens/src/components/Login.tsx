@@ -55,6 +55,7 @@ export default function Login({ onClose }: LoginProps) {
         password: '',
         confirmPassword: ''
       });
+      console.log(response.data);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         alert('로그인 실패: ' + error.response?.data.message);
