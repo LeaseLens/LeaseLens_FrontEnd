@@ -1,3 +1,4 @@
+import { CommentdbProps } from "./commenttypes";
 import { UserdbProps } from "./logintypes";
 import { ProddbProps } from "./productstypes";
 
@@ -14,6 +15,7 @@ export interface RevdbProps {
     rev_rating?: number;
     User?: UserdbProps;
     Product?: ProddbProps;
+    Comments?: CommentdbProps;
 }
 
 export interface RevTabledbProps {
