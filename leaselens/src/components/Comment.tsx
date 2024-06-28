@@ -3,10 +3,7 @@ import "../assets/scss/LJG.scss";
 import { CommentdbProps } from "../types/commenttypes";
 import axios from "axios";
 
-// 임시 어드민 / 일반 사용자 구분
-const adminKey = false;
-
-export default function Comment() {
+export default function Comment({isAdmin}: CommentdbProps) {
   const [isOptBoxVisible, setIsOptBoxVisible] = useState<number | null>(null);
 
   const toggleOptBox = (commentIdx: number) => {
@@ -82,10 +79,10 @@ export default function Comment() {
   return (
     <div className="comment">
       <section className="comment_titleArea">
-        {adminKey ? ('') : (<p className="comment_title">Comments</p>)}
+        {isAdmin ? ('') : (<p className="comment_title">Comments</p>)}
       </section>
       <div className="comment_scrollArea">
-      {adminKey ? ('') : (
+      {isAdmin ? ('') : (
         RevComments.map((comment) => (
           <section className="comment_bodyArea">
             <div className="comment_body">
@@ -161,7 +158,7 @@ export default function Comment() {
             value={commentText}
             onChange={handleCommentChange}
           />
-          {adminKey ? (
+          {isAdmin ? (
             <button className="comment_sendBtn">인증</button>
           ) : (
             <button className="comment_sendBtn"
