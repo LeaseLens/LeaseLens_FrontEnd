@@ -712,8 +712,9 @@
         }
 
         .prodetpg_rev_container {
-            overflow-x: scroll;
+            overflow-x: auto;
             display: flex;
+            align-items: center;
             flex-wrap: wrap;
 
             .prodetpg_rev_txt {
