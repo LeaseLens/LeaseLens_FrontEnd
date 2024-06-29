@@ -19,10 +19,14 @@ export default function ReviewPostPage() {
     input.setAttribute('accept', 'image/*');
     input.click();
     input.onchange = async () => {
-      const file = input.files ? input.files[0] : null;
-      if (!file) return;
+      const selectedFiles = input.files;
+      if (!selectedFiles) return;
+      let filesArray = Array.from(selectedFiles);
+      setFiles((prevFiles) => [...prevFiles, ...filesArray]);
       const formData = new FormData();
-      formData.append('rev_img', file);
+      filesArray.forEach((file, i) => {
+        formData.append('rev_img', file);
+      });
       let quillObj = quillRef.current?.getEditor();
       const range = quillObj?.getSelection();
       if (!range) return;
@@ -32,8 +36,14 @@ export default function ReviewPostPage() {
             'Content-Type': 'multipart/form-data',
           },
         });
-        const imgUrl = res.data;
-        quillObj?.insertEmbed(range.index, 'image', imgUrl);
+        let imgUrl = res.data.urls;
+        if (Array.isArray(imgUrl)) {
+          imgUrl.forEach((url) => {
+            quillObj?.insertEmbed(range.index, 'image', url);
+          });
+        } else {
+          quillObj?.insertEmbed(range.index, 'image', imgUrl);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -60,6 +70,7 @@ export default function ReviewPostPage() {
   }, []);
 
   const [fileName, setFileName] = useState('');
+  const [files, setFiles] = useState<File[]>([]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -110,7 +121,14 @@ export default function ReviewPostPage() {
   };
 
   const handleContentChange = (value: string) => {
-    setContent(value);
+    const div = document.createElement('div');
+    div.innerHTML = value;
+    const images = div.getElementsByTagName('img');
+
+    while (images.length > 0) {
+      images[0].parentNode?.removeChild(images[0]);
+    }
+    setContent(div.innerHTML);
   };
 
   const handleSubmit = () => {
@@ -119,6 +137,15 @@ export default function ReviewPostPage() {
     formData.append('rev_text', content as string);
     formData.append('rev_rating', rating as string);
     formData.append('prod_idx', selectedProduct);
+
+    if (files && files.length > 0) {
+      console.log(files)
+      for (let i = 0; i < files.length; i++) {
+        formData.append('rev_img', files[i]);
+        console.log(files[i])
+      }
+    }
+
     if (file) {
       formData.append('rev_authImg', file);
     }
