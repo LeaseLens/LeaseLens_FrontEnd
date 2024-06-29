@@ -3,7 +3,7 @@ import "../assets/scss/LJG.scss";
 import { CommentdbProps } from "../types/commenttypes";
 import axios from "axios";
 
-export default function Comment({isAdmin}: CommentdbProps) {
+export default function Comment({isAdmin, rev_authImg}: CommentdbProps) {
   const [isOptBoxVisible, setIsOptBoxVisible] = useState<number | null>(null);
 
   const toggleOptBox = (commentIdx: number) => {
@@ -84,13 +84,24 @@ export default function Comment({isAdmin}: CommentdbProps) {
         alert(response.data.message);
       })
   }
+
+  async function handleDeleteComment(com_idx: number) {
+    try{
+      await axios.delete(`http://localhost:8080${revIndex}/comments/${com_idx}`);
+      showComments();
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <div className="comment">
       <section className="comment_titleArea">
         {isAdmin ? ('') : (<p className="comment_title">Comments</p>)}
       </section>
       <div className="comment_scrollArea">
-      {isAdmin ? ('') : (
+      {isAdmin ? (<img src={rev_authImg} className="rev_authImg"></img>) : (
         RevComments.map((comment) => (
           <section className="comment_bodyArea">
             <div className="comment_body">
@@ -116,7 +127,7 @@ export default function Comment({isAdmin}: CommentdbProps) {
                         <p onClick={() => handleEditComment(comment.com_idx!, comment.com_text!)}>수정</p>
                       </div>
                       <div className="comment_opt_del comment_opt">
-                        <p>삭제</p>
+                        <p onClick={() => handleDeleteComment(comment.com_idx!)}>삭제</p>
                       </div>
                     </div>
                   )}
