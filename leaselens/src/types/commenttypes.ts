@@ -7,5 +7,6 @@ export interface CommentdbProps {
   com_text?: string;
   createdAt?: string;
   User?: UserdbProps;
-  isAdmin?: Boolean;
+  isAdmin?: Boolean | null;
+  rev_authImg?: string;
 }

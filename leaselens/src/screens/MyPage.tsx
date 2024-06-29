@@ -17,14 +17,10 @@ export default function MyPage() {
     const [userInfo, setUserInfo] = useState<UserdbProps>({});
     const [alertShown, setAlertShown] = useState(false);
 
-    console.log(userRev)
-    console.log(userInfo)
-
     useEffect(() => {
         axios
             .get(`http://localhost:8080/mypage`)
             .then((response) => {
-                console.log(response.data);
                 setFavProd(response.data.data.favoriteProducts);
                 setUserRev(response.data.data.userReviews);
                 setUserInfo(response.data.data.userInfo);
@@ -37,7 +33,7 @@ export default function MyPage() {
                     window.location.pathname = "/main";
                 }
             });
-    }, []);
+    }, [userRev]);
 
     return (
         <>
