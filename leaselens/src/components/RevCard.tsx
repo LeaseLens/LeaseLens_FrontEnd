@@ -35,20 +35,22 @@ export default function RevCard({ width, height, rev_idx, review }: RevProps) {
         <div className="rev_img" key={review.rev_idx}>
           <Swiper
             modules={[Autoplay, Pagination]}
-            spaceBetween={0}
+            spaceBetween={30}
             slidesPerView={1}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
+            className='rev_card_swiper'
           >
-            {imgSrc && imgSrc!.map((imgsrc) => {
+            {imgSrc && imgSrc!.map((imgsrc, index) => {
               return (
                 <SwiperSlide
-                  key={imgsrc}
+                  key={index}
+                  className='rev_card_swiper_item'
                 >
-                  <img src={imgsrc} alt="제품 리뷰 사진" key={imgsrc} />
+                  <img src={imgsrc} alt="제품 리뷰 사진" />
                 </SwiperSlide>
               );
             })}

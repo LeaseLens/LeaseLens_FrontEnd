@@ -252,31 +252,41 @@
         width: 90%;
 
         .rev_img {
-            width: 50%;
-            height: 80%;
+            width: 33%;
+            height: 4%;
             border: 0.5px solid #ADADAD;
             display: flex;
             align-items: center;
             border-radius: 10px;
             background-color: #fff;
 
-            img {
-                border-radius: 10px;
+            .rev_card_swiper {
                 width: 100%;
                 height: 100%;
+
+                .rev_card_swiper_item {
+                    width: 100%;
+                    height: 100%;
+
+                    img {
+                        border-radius: 10px;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
             }
         }
+    }
 
-        .rev_content {
-            width: 45%;
-            height: 80%;
-            align-content: center;
-            overflow: auto;
-            margin-left: 10px;
+    .rev_content {
+        width: 45%;
+        height: 80%;
+        align-content: center;
+        overflow: auto;
+        margin-left: 10px;
 
-            .rev_star {
-                font-size: 20px;
-            }
+        .rev_star {
+            font-size: 20px;
         }
     }
 }
@@ -316,6 +326,7 @@
             margin-left: 10px;
             font-size: 20px;
         }
+
         &:hover {
             cursor: pointer;
         }
@@ -579,7 +590,7 @@
             place-items: center;
 
             @media screen and (max-width: 950px) {
-                grid-template-columns: auto;                
+                grid-template-columns: auto;
             }
 
             .proCard {
@@ -825,6 +836,7 @@
                 }
             }
         }
+
         .postDel {
             border-radius: 8px !important;
         }
