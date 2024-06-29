@@ -14,7 +14,7 @@ import { UserdbProps } from "../types/logintypes";
 export default function MyPage() {
     const [favProds, setFavProd] = useState<ProProps[]>([]);
     const [userRev, setUserRev] = useState<RevdbProps[]>([]);
-    const [userInfo, setUserInfo] = useState<UserdbProps>({});
+    const [userInfo, setUserInfo] = useState<UserdbProps>(Object);
     const [alertShown, setAlertShown] = useState(false);
 
     useEffect(() => {

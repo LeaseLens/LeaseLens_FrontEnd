@@ -3,11 +3,35 @@ import "../assets/scss/LJG.scss";
 import { CommentdbProps } from "../types/commenttypes";
 import axios from "axios";
 
-export default function Comment({isAdmin, rev_authImg}: CommentdbProps) {
+export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
   const [isOptBoxVisible, setIsOptBoxVisible] = useState<number | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState<string>("");
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/auth/check");
+        if (response.data.data.isAuthenticated) {
+          console.log(response.data);
+          setIsLoggedIn(true);
+          setCurrentUser(response.data.data.currentUserId.user_ID);
+        }
+      } catch (error) {
+        console.error("로그인 상태 확인 실패:", error);
+      }
+    };
+    checkLoginStatus();
+  }, [isLoggedIn]);
 
   const toggleOptBox = (commentIdx: number) => {
-    setIsOptBoxVisible(prevState => (prevState === commentIdx ? null : commentIdx));
+    if (isLoggedIn === true) {
+      setIsOptBoxVisible((prevState) =>
+        prevState === commentIdx ? null : commentIdx
+      );
+    } else {
+      alert("로그인 후 이용해주세요");
+    }
   };
 
   const revIndex = window.location.pathname;
@@ -36,7 +60,7 @@ export default function Comment({isAdmin, rev_authImg}: CommentdbProps) {
         com_text: commentText,
       });
       setCommentText("");
-      showComments()
+      showComments();
     } catch (err) {
       console.log(err);
     }
@@ -46,23 +70,38 @@ export default function Comment({isAdmin, rev_authImg}: CommentdbProps) {
     showComments();
   }, []);
 
-  const [editingCommentIdx, setEditingCommentIdx] = useState<number | null>(null);
+  const [editingCommentIdx, setEditingCommentIdx] = useState<number | null>(
+    null
+  );
   const [editedCommentText, setEditedCommentText] = useState("");
 
-  const handleEditedCommentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEditedCommentChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setEditedCommentText(e.target.value);
   };
 
-  const handleEditComment = (commentIdx: number, currentText: string) => {
-    setEditingCommentIdx(commentIdx);
-    setEditedCommentText(currentText);
+  const handleEditComment = (
+    commentIdx: number,
+    currentText: string,
+    user_ID: String | undefined
+  ) => {
+    if (user_ID === currentUser) {
+      setEditingCommentIdx(commentIdx);
+      setEditedCommentText(currentText);
+    } else {
+      alert("자신의 댓글만 수정할 수 있습니다.");
+    }
   };
 
   const handleSaveEditedComment = async (com_idx: number) => {
     try {
-      await axios.patch(`http://localhost:8080${revIndex}/comments/${com_idx}`, {
-        com_text: editedCommentText,
-      });
+      await axios.patch(
+        `http://localhost:8080${revIndex}/comments/${com_idx}`,
+        {
+          com_text: editedCommentText,
+        }
+      );
       setEditingCommentIdx(null);
       showComments();
     } catch (err) {
@@ -82,81 +121,118 @@ export default function Comment({isAdmin, rev_authImg}: CommentdbProps) {
       .post(`http://localhost:8080/admin/${rev_idx}/auth`)
       .then((response) => {
         alert(response.data.message);
-      })
+      });
   }
 
-  async function handleDeleteComment(com_idx: number) {
-    try{
-      await axios.delete(`http://localhost:8080${revIndex}/comments/${com_idx}`);
-      showComments();
+  async function handleDeleteComment(com_idx: number, user_ID: String | undefined) {
+    if (user_ID === currentUser) {
+      try {
+        await axios.delete(
+          `http://localhost:8080${revIndex}/comments/${com_idx}`
+        );
+        showComments();
+      } catch (err) {
+        console.log(err);
+      }
     }
-    catch (err) {
-      console.log(err);
+    else {
+      alert("자신의 댓글만 삭제할 수 있습니다.")
     }
   }
 
   return (
     <div className="comment">
       <section className="comment_titleArea">
-        {isAdmin ? ('') : (<p className="comment_title">Comments</p>)}
+        {isAdmin ? "" : <p className="comment_title">Comments</p>}
       </section>
       <div className="comment_scrollArea">
-      {isAdmin ? (<img src={rev_authImg} className="rev_authImg"></img>) : (
-        RevComments.map((comment) => (
-          <section className="comment_bodyArea">
-            <div className="comment_body">
-              <section className="comment_commentInfo">
-                <div className="comment_userId">{comment.User?.user_ID}</div>
-                <div className="comment_date_opt">
-                  <p className="comment_date">{comment.createdAt?.split('T')[0]}</p>
-                  <button className="comment_opt_btn" onClick={() => toggleOptBox(comment.com_idx!)}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="23"
-                      height="23"
-                      fill="currentColor"
-                      className="bi bi-three-dots"
-                      viewBox="0 0 16 16"
+        {isAdmin ? (
+          <img src={rev_authImg} className="rev_authImg"></img>
+        ) : (
+          RevComments.map((comment) => (
+            <section className="comment_bodyArea">
+              <div className="comment_body">
+                <section className="comment_commentInfo">
+                  <div className="comment_userId">{comment.User?.user_ID}</div>
+                  <div className="comment_date_opt">
+                    <p className="comment_date">
+                      {comment.createdAt?.split("T")[0]}
+                    </p>
+                    <button
+                      className="comment_opt_btn"
+                      onClick={() => toggleOptBox(comment.com_idx!)}
                     >
-                      <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                    </svg>
-                  </button>
-                  {isOptBoxVisible === comment.com_idx! && (
-                    <div className="comment_opt_box">
-                      <div className="comment_opt_edit comment_opt">
-                        <p onClick={() => handleEditComment(comment.com_idx!, comment.com_text!)}>수정</p>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="23"
+                        height="23"
+                        fill="currentColor"
+                        className="bi bi-three-dots"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+                      </svg>
+                    </button>
+                    {isOptBoxVisible === comment.com_idx! && (
+                      <div className="comment_opt_box">
+                        <div className="comment_opt_edit comment_opt">
+                          <p
+                            onClick={() =>
+                              handleEditComment(
+                                comment.com_idx!,
+                                comment.com_text!,
+                                comment.User?.user_ID
+                              )
+                            }
+                          >
+                            수정
+                          </p>
+                        </div>
+                        <div className="comment_opt_del comment_opt">
+                          <p
+                            onClick={() =>
+                              handleDeleteComment(
+                                comment.com_idx!,
+                                comment.User?.user_ID
+                              )
+                            }
+                          >
+                            삭제
+                          </p>
+                        </div>
                       </div>
-                      <div className="comment_opt_del comment_opt">
-                        <p onClick={() => handleDeleteComment(comment.com_idx!)}>삭제</p>
-                      </div>
-                    </div>
+                    )}
+                  </div>
+                </section>
+                <section className="comment_comment">
+                  {editingCommentIdx === comment.com_idx ? (
+                    <>
+                      <input
+                        type="text"
+                        value={editedCommentText}
+                        onChange={handleEditedCommentChange}
+                      />
+                      <button
+                        style={{
+                          backgroundColor: "black",
+                          borderRadius: "5px",
+                          color: "white",
+                        }}
+                        onClick={() =>
+                          handleSaveEditedComment(comment.com_idx!)
+                        }
+                      >
+                        수정
+                      </button>
+                    </>
+                  ) : (
+                    <p className="comment_content">{comment.com_text}</p>
                   )}
-                </div>
-              </section>
-              <section className="comment_comment">
-              {editingCommentIdx === comment.com_idx ? (
-                <>
-                  <input
-                    type="text"
-                    value={editedCommentText}
-                    onChange={handleEditedCommentChange}
-                  />
-                  <button
-                  style={{
-                    backgroundColor: 'black',
-                    borderRadius: '5px',
-                    color: 'white'
-                  }}
-                  onClick={() => handleSaveEditedComment(comment.com_idx!)}>수정</button>
-                  </>
-                ) : (
-                  <p className="comment_content">{comment.com_text}</p>
-                )}
-              </section>
-            </div>
-          </section>
-        ))
-      )}
+                </section>
+              </div>
+            </section>
+          ))
+        )}
       </div>
       <section className="comment_inputArea">
         <div className="comment_inputBox">
@@ -173,15 +249,20 @@ export default function Comment({isAdmin, rev_authImg}: CommentdbProps) {
               d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
             />
           </svg>
-          <input type="text" className="comment_input"
+          <input
+            type="text"
+            className="comment_input"
             value={commentText}
             onChange={handleCommentChange}
           />
           {isAdmin ? (
-            <button className="comment_sendBtn" onClick={handleReviewAuth}>인증</button>
+            <button className="comment_sendBtn" onClick={handleReviewAuth}>
+              인증
+            </button>
           ) : (
-            <button className="comment_sendBtn"
-              onClick={handleCommentSubmit}>작성</button>
+            <button className="comment_sendBtn" onClick={handleCommentSubmit}>
+              작성
+            </button>
           )}
         </div>
       </section>
