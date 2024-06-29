@@ -335,17 +335,18 @@ body {
   }
 
   .comment_scrollArea {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 69%;
     .rev_authImg {
       height: auto;
       width: 100%;
+      margin-top: 40%;
     }
 
     .comment_bodyArea {
       .comment_body {
         width: 90%;
-        height: 98px;
+        height: auto;
         margin: 20px auto;
         padding: 0 10px;
         border: 1px solid black;
