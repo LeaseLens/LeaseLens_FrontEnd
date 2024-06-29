@@ -321,7 +321,6 @@ body {
   height: 100%;
   background-color: #FFFCF6;
   position: relative;
-  left: -3%;
   font-family: "Do Hyeon", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -337,6 +336,7 @@ body {
   .comment_scrollArea {
     overflow-y: auto;
     height: 69%;
+
     .rev_authImg {
       height: auto;
       width: 100%;
@@ -352,44 +352,44 @@ body {
         border: 1px solid black;
         border-radius: 8px;
         background-color: white;
-  
+
         .comment_commentInfo {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-  
+
           .comment_userId {
             font-size: 20px;
           }
         }
-  
+
         .comment_date_opt {
           display: flex;
           justify-content: center;
           align-items: center;
           position: relative;
-  
+
           .comment_date {
             font-size: 11px;
             text-align: center;
             margin: 0;
           }
-  
+
           .comment_opt_btn {
             background-color: transparent;
             border: 0;
           }
-  
+
           .comment_opt_box {
             position: absolute;
             top: 25px;
             left: 35px;
-  
+
             :first-child {
               margin-bottom: 2px;
             }
-  
+
             .comment_opt {
               background-color: #000;
               opacity: 0.7;
@@ -401,7 +401,7 @@ body {
               display: flex;
               justify-content: center;
               align-items: center;
-  
+
               p {
                 margin: 0;
                 cursor: pointer;
@@ -409,7 +409,7 @@ body {
             }
           }
         }
-  
+
         .comment_comment {
           .comment_content {
             font-size: 24px;
@@ -680,7 +680,7 @@ body {
     .mainPage_proInfo_proDes {
       width: 90%;
     }
-    
+
     .mainPage_swiper {
       width: 100%;
       height: 100%;
@@ -833,6 +833,10 @@ body {
   grid-template-columns: 2fr 1fr;
   align-items: center;
 
+  @media screen and (max-width: 950px) {
+    display: block !important;
+  }
+
   .reviewPage_revCard {
     width: 95%;
     height: 90%;
@@ -840,6 +844,10 @@ body {
     justify-content: center;
     align-items: center;
 
+    @media screen and (max-width: 950px) {
+      height: 48% !important;
+      margin: 20px auto;
+    }
   }
 
   .reviewPage_commentBox {
@@ -848,6 +856,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 950px) {
+      height: 48% !important;
+      margin: 20px auto;
+    }
   }
 }
 
