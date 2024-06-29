@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Modal, Button } from "react-bootstrap";
 import "../assets/scss/LJG.scss";
 import { CommentdbProps } from "../types/commenttypes";
 import axios from "axios";
@@ -7,6 +8,8 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
   const [isOptBoxVisible, setIsOptBoxVisible] = useState<number | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState<string>("");
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [commentToDelete, setCommentToDelete] = useState<number | null>(null);
 
   useEffect(() => {
     const checkLoginStatus = async () => {
@@ -84,7 +87,7 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
   const handleEditComment = (
     commentIdx: number,
     currentText: string,
-    user_ID: String | undefined
+    user_ID: string | undefined
   ) => {
     if (user_ID === currentUser) {
       setEditingCommentIdx(commentIdx);
@@ -124,21 +127,24 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
       });
   }
 
-  async function handleDeleteComment(com_idx: number, user_ID: String | undefined) {
-    if (user_ID === currentUser) {
+  const handleDeleteConfirmation = (com_idx: number) => {
+    setCommentToDelete(com_idx);
+    setShowDeleteModal(true);
+  };
+
+  const handleDeleteComment = async () => {
+    if (commentToDelete !== null) {
       try {
         await axios.delete(
-          `http://localhost:8080${revIndex}/comments/${com_idx}`
+          `http://localhost:8080${revIndex}/comments/${commentToDelete}`
         );
+        setShowDeleteModal(false);
         showComments();
       } catch (err) {
         console.log(err);
       }
     }
-    else {
-      alert("자신의 댓글만 삭제할 수 있습니다.")
-    }
-  }
+  };
 
   return (
     <div className="comment">
@@ -151,7 +157,7 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
         ) : (
           RevComments.map((comment) => (
             <section className="comment_bodyArea">
-              <div className="comment_body">
+              <div className="comment_body" key={comment.com_idx}>
                 <section className="comment_commentInfo">
                   <div className="comment_userId">{comment.User?.user_ID}</div>
                   <div className="comment_date_opt">
@@ -191,10 +197,7 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
                         <div className="comment_opt_del comment_opt">
                           <p
                             onClick={() =>
-                              handleDeleteComment(
-                                comment.com_idx!,
-                                comment.User?.user_ID
-                              )
+                              handleDeleteConfirmation(comment.com_idx!)
                             }
                           >
                             삭제
@@ -266,6 +269,21 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
           )}
         </div>
       </section>
+
+      <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>댓글 삭제</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>정말 삭제하시겠습니까?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+            취소
+          </Button>
+          <Button variant="danger" onClick={handleDeleteComment}>
+            삭제
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

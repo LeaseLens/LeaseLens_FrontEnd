@@ -1,8 +1,14 @@
-import { Button } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
 import { UserdbProps } from "../types/logintypes";
 import axios from "axios";
 
 export default function Profile({ user_name, user_ID, user_points }: UserdbProps) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const userDel = () => {
     axios
       .delete(`http://localhost:8080/users/quit`)
@@ -29,13 +35,24 @@ export default function Profile({ user_name, user_ID, user_points }: UserdbProps
           <div>{user_points}point</div>
         </div>
       </div>
-      <Button
-        variant="outline-danger"
-        className="profile_userDel"
-        onClick={userDel}
-      >
+      <Button variant="outline-danger" className="profile_userDel" onClick={handleShow}>
         회원 탈퇴
       </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>회원 탈퇴</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>정말 탈퇴 하시겠습니까?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            취소
+          </Button>
+          <Button variant="danger" onClick={userDel}>
+            탈퇴
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
