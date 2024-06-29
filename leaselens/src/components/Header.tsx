@@ -95,8 +95,6 @@ export default function Header() {
             {menuTog ?
                 <div className='head_navTog'>
                     <ul>
-                        <Link to="/mypage"><li>My Page</li></Link>
-                        <hr />
                         <Link to="/products"><li>Products</li></Link>
                         <hr />
                         <Link to="/reviewlist"><li>Reviews</li></Link>
