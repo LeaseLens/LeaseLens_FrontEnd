@@ -33,10 +33,10 @@ export default function PostTable({
         </thead>
         <tbody className="postTable_tbody">
           {reviewArr &&
-            reviewArr.map((review) => {
+            reviewArr.map((review, idx) => {
               return (
                 <tr className="postTable_body_tr" style={{ fontSize }}>
-                  <th className="postTable_body_th">{review.rev_idx}</th>
+                  <th className="postTable_body_th">{idx+1}</th>
                   <th className="postTable_body_th">
                     {review.rev_createdAt?.split("T")[0]}
                   </th>
