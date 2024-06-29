@@ -337,6 +337,10 @@ body {
     overflow-y: auto;
     height: 69%;
 
+    @media screen and (max-width: 950px) {
+      height: 55%;
+    }
+
     .rev_authImg {
       height: auto;
       width: 100%;
