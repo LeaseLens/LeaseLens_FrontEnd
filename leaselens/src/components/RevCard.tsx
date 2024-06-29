@@ -46,11 +46,12 @@ export default function RevCard({ width, height, rev_idx, review }: RevProps) {
               delay: 5000,
               disableOnInteraction: false,
             }}
-            className="mainPage_swiper"
           >
             {imgSrc && imgSrc!.map((imgsrc) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide
+                  key={imgsrc}
+                >
                   <img src={imgsrc} alt="제품 리뷰 사진" key={imgsrc} />
                 </SwiperSlide>
               );
