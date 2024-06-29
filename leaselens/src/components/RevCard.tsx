@@ -37,15 +37,14 @@ export default function RevCard({ width, height, rev_idx, review }: RevProps) {
       <Link to={`/reviews/${review.rev_idx}`}>
         <div className="rev_img">
           <Swiper
-            modules={[
-              Autoplay,
-            ]}
+            modules={[Autoplay, Pagination]}
             spaceBetween={0}
             slidesPerView={1}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
             }}
+            pagination={{ clickable: true }}
           >
             {imgSrc && imgSrc!.map((imgsrc) => {
               return (
