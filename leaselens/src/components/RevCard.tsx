@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom'
 import { RevProps } from '../types/types'
 import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
   Autoplay,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -35,7 +31,7 @@ export default function RevCard({ width, height, rev_idx, review }: RevProps) {
   return (
     <div className='rev_container mainPage_RevCard' style={{ width, height }}>
       <Link to={`/reviews/${review.rev_idx}`}>
-        <div className="rev_img">
+        <div className="rev_img" key={review.rev_idx}>
           <Swiper
             modules={[Autoplay, Pagination]}
             spaceBetween={0}
