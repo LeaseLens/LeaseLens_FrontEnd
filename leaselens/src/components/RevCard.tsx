@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { RevProps } from '../types/types'
 import {
   Autoplay,
+  Pagination
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
