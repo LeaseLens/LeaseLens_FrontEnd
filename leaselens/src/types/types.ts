@@ -18,6 +18,7 @@ export interface ProProps {
 
 export interface SearchProps {
     searchOpt: string;
+    search: (val: string) => void;
 }
 
 export interface PostTableProps {

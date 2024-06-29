@@ -13,6 +13,7 @@ export default function ProductPage() {
   const [products, setProducts] = useState<ProProps[]>([]);
   const [categorySelect, setCategory] = useState<String>("");
   const [bannertxt, setBannerTxt] = useState(String);
+
   const Prods = (category: String) => {
     setCategory(category);
   };
@@ -28,6 +29,10 @@ export default function ProductPage() {
         console.error("Error fetching products:", error);
       });
   }, [categorySelect]);
+  
+  const Search1 = (val: string) => {
+    products.filter((e) => e.product.prod_name?.includes(val));
+  }
 
   let Text = categorySelect.split("=");
   useEffect(() => {
@@ -40,7 +45,7 @@ export default function ProductPage() {
       <Header />
       <div className="propg_main_container">
         <div className="propg_side_container">
-          <Search searchOpt={"제품명을 입력해주세요."} />
+          <Search searchOpt={"제품명을 입력해주세요."} search={Search1}/>
           <SideBar getProds={Prods} />
           <MobileSideBar getProds={Prods} />
         </div>
