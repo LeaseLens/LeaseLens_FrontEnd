@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BsList } from "react-icons/bs";
 import textLogo from '../assets/images/Logo/leaselens_text_logo.png'
 import imgLogo from '../assets/images/Logo/leaselens_img_logo.png'
