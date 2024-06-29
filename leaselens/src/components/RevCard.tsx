@@ -20,7 +20,7 @@ export default function RevCard({ width, height, rev_idx, rev_img, review }: Rev
 
   return (
     <div className='rev_container mainPage_RevCard' style={{ width, height }}>
-      <Link to={`/reviews/${rev_idx}`}>
+      <Link to={`/reviews/${review.rev_idx}`}>
         <div className="rev_img">
           <img src={rev_img} alt="제품 리뷰 사진" />
         </div>

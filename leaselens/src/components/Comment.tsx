@@ -3,7 +3,7 @@ import "../assets/scss/LJG.scss";
 import { CommentdbProps } from "../types/commenttypes";
 import axios from "axios";
 
-export default function Comment({isAdmin}: CommentdbProps) {
+export default function Comment({isAdmin, rev_authImg}: CommentdbProps) {
   const [isOptBoxVisible, setIsOptBoxVisible] = useState<number | null>(null);
 
   const toggleOptBox = (commentIdx: number) => {
@@ -90,7 +90,7 @@ export default function Comment({isAdmin}: CommentdbProps) {
         {isAdmin ? ('') : (<p className="comment_title">Comments</p>)}
       </section>
       <div className="comment_scrollArea">
-      {isAdmin ? ('') : (
+      {isAdmin ? (<img src={rev_authImg} className="rev_authImg"></img>) : (
         RevComments.map((comment) => (
           <section className="comment_bodyArea">
             <div className="comment_body">

@@ -21,7 +21,6 @@ export default function Header() {
             try {
                 const response = await axios.get('http://localhost:8080/auth/check');
                 if (response.data.data.isAuthenticated) {
-                    console.log(response.data.isAuthenticated)
                     setIsLoggedIn(true);
                 }
             } catch (error) {

@@ -7,27 +7,50 @@ import axios from 'axios';
 import { RevdbProps } from '../types/reviewtypes';
 
 export default function ReviewPage() {
-  const revIndex = window.location.pathname;
+  const revIndex = window.location.pathname.split('/')[2];
   const [review, setReview] = useState<RevdbProps>(Object);
-  const [isAdmin, setAdmin] = useState(Boolean);
+  const [isAdmin, setAdmin] = useState<Boolean | null>(null);
+
+  useEffect(() => {
+    async function getAdmin() {
+      try {
+        const admin = await axios.get('http://localhost:8080/auth/adminCheck');
+        setAdmin(admin.data.data.isAdmin);
+        console.log(admin.data.data.isAdmin);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    getAdmin();
+  }, []);
 
   useEffect(() => {
     async function fetchReviews() {
+      if (isAdmin === null) {
+        // isAdmin 상태가 설정되지 않았을 때는 아무것도 하지 않음
+        return;
+      }
+
       try {
-        const response = await axios.get(`http://localhost:8080${revIndex}`);
-        setReview(response.data.data.review);
-        const adminRes = await axios.get('http://localhost:8080/auth/adminCheck');
-        setAdmin(adminRes.data.data.isAdmin);
+        let response;
+        if (isAdmin) {
+          response = await axios.get(`http://localhost:8080/admin/${revIndex}`);
+          setReview(response.data.data);
+          console.log("admin", response.data.data);
+        } else {
+          response = await axios.get(`http://localhost:8080/reviews/${revIndex}`);
+          setReview(response.data.data.review);
+          console.log("user", response.data.data.review);
+        }
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     }
-    
+
     fetchReviews();
-  }, []);
-  
-  console.log(review);
-  
+  }, [revIndex, isAdmin]);
+
   return (
     <>
       <Header />
@@ -40,10 +63,10 @@ export default function ReviewPage() {
           <RevCard width="90%" height="100%" review={review}/>
         </div>
         <div className="reviewPage_commentBox">
-          <Comment isAdmin={isAdmin} rev_idx={review.rev_idx}/>
+          <Comment isAdmin={isAdmin} rev_idx={review.rev_idx} rev_authImg={review.rev_authImg}/>
         </div>
       </main>
       <Footer />
     </>
-  )
+  );
 }
