@@ -35,12 +35,16 @@ export default function ProductPage() {
     setBannerTxt(Text[1]);
   }, [categorySelect]);
 
+  const Search1 = () => {
+    
+  }
+
   return (
     <>
       <Header />
       <div className="propg_main_container">
         <div className="propg_side_container">
-          <Search searchOpt={"제품명을 입력해주세요."} />
+          <Search searchOpt={"제품명을 입력해주세요."} search={Search1} />
           <SideBar getProds={Prods} />
           <MobileSideBar getProds={Prods} />
         </div>
