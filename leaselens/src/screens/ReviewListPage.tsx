@@ -54,7 +54,13 @@ export default function ReviewListPage() {
     const filtered = reviewArr.filter(review => 
       review.rev_title?.toLowerCase().includes(value.toLowerCase())
     );
-    setFilteredReviews(filtered);
+    if (filtered.length === 0) {
+      setFilteredReviews([{
+        rev_title: '검색 결과가 없습니다'
+      }]);
+    } else {
+      setFilteredReviews(filtered);
+    }
   }
 
   return (
