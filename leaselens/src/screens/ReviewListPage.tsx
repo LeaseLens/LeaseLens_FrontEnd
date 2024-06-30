@@ -12,6 +12,7 @@ import { RevdbProps } from "../types/reviewtypes";
 
 export default function ReviewListPage() {
   const [reviewArr, setReviews] = useState<RevdbProps[]>([]);
+  const [filteredReviews, setFilteredReviews] = useState<RevdbProps[]>([]);
   const [isAdmin, setAdmin] = useState(Boolean);
 
   useEffect(() => {
@@ -53,7 +54,7 @@ export default function ReviewListPage() {
     const filtered = reviewArr.filter(review => 
       review.rev_title?.toLowerCase().includes(value.toLowerCase())
     );
-    setReviews(filtered);
+    setFilteredReviews(filtered);
   }
 
   return (
@@ -77,6 +78,7 @@ export default function ReviewListPage() {
             </div>
             <PostTable fontSize="32px" thTxt="인증"
               reviewArr={reviewArr}
+              filteredRevArr = {filteredReviews}
               thBtn={
                 <input
                   type="checkbox"

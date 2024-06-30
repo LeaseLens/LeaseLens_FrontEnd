@@ -28,6 +28,7 @@ export interface PostTableProps {
     thBtn?: ReactNode;
     rev_idx?: number;
     reviewArr?: RevdbProps[];
+    filteredRevArr?: RevdbProps[];
 }
 
 export interface GreenBtnProps {
