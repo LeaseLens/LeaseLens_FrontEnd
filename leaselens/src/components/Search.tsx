@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SearchProps } from "../types/types";
 
 export default function Search({searchOpt, search}: SearchProps) {
-  const [searchVal, setSearchVal] = useState('');
+  const [searchVal, setSearchVal] = useState<string>('');
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchVal(e.target.value);
