@@ -15,6 +15,7 @@ export default function PostTable({
   function deleteReview(rev_idx: number | undefined) {
     if(rev_idx !== undefined) {
       axios.delete(`${BACKHOST}/reviews/${rev_idx}`);
+      alert("정상적으로 삭제 되었습니다.");
     }
     else {
       alert("존재하지 않는 리뷰 입니다.");
