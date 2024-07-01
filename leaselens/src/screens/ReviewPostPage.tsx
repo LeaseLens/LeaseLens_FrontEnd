@@ -161,7 +161,7 @@ export default function ReviewPostPage() {
       })
       .catch((error) => {
         console.error('Error submitting review:', error);
-        alert(error)
+        alert("리뷰 인증 이미지를 함께 올려주세요!")
       });
   };
 
