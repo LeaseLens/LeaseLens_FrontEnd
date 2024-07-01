@@ -4,6 +4,8 @@ import "../assets/scss/LJG.scss";
 import { CommentdbProps } from "../types/commenttypes";
 import axios from "axios";
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
   const [isOptBoxVisible, setIsOptBoxVisible] = useState<number | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -14,7 +16,7 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/auth/check");
+        const response = await axios.get(`${BACKHOST}/auth/check`);
         if (response.data.data.isAuthenticated) {
           console.log(response.data);
           setIsLoggedIn(true);
@@ -42,7 +44,7 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
 
   const showComments = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080${revIndex}`);
+      const response = await axios.get(`${BACKHOST}${revIndex}`);
       setRevComments(response.data.data.review.Comments);
       console.log(response.data.data.review.Comments);
     } catch (err) {
@@ -59,7 +61,7 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
   const handleCommentSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:8080${revIndex}/comments`, {
+      await axios.post(`${BACKHOST}${revIndex}/comments`, {
         com_text: commentText,
       });
       setCommentText("");
@@ -100,7 +102,7 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
   const handleSaveEditedComment = async (com_idx: number) => {
     try {
       await axios.patch(
-        `http://localhost:8080${revIndex}/comments/${com_idx}`,
+        `${BACKHOST}${revIndex}/comments/${com_idx}`,
         {
           com_text: editedCommentText,
         }
@@ -121,7 +123,7 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
   function handleReviewAuth() {
     const rev_idx = revIndex.split("/")[2];
     axios
-      .post(`http://localhost:8080/admin/${rev_idx}/auth`)
+      .post(`${BACKHOST}/admin/${rev_idx}/auth`)
       .then((response) => {
         alert(response.data.message);
       });
@@ -136,7 +138,7 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
     if (commentToDelete !== null) {
       try {
         await axios.delete(
-          `http://localhost:8080${revIndex}/comments/${commentToDelete}`
+          `${BACKHOST}${revIndex}/comments/${commentToDelete}`
         );
         setShowDeleteModal(false);
         showComments();

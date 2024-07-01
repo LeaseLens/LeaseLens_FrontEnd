@@ -11,6 +11,8 @@ import { ProProps } from "../types/types";
 import { RevdbProps } from "../types/reviewtypes";
 import { UserdbProps } from "../types/logintypes";
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 export default function MyPage() {
   const [favProds, setFavProd] = useState<ProProps[]>([]);
   const [userRev, setUserRev] = useState<RevdbProps[]>([]);
@@ -18,13 +20,12 @@ export default function MyPage() {
   const [alertShown, setAlertShown] = useState(false);
 
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/mypage`)
+      .get(`${BACKHOST}/mypage`)
       .then((response) => {
         setFavProd(response.data.data.favoriteProducts);
         setUserRev(response.data.data.userReviews);
@@ -38,11 +39,11 @@ export default function MyPage() {
           window.location.pathname = "/main";
         }
       });
-  }, [userRev]);
+  }, [userInfo]);
 
   const userDel = () => {
     axios
-      .delete(`http://localhost:8080/users/quit`)
+      .delete(`${BACKHOST}/users/quit`)
       .then((response) => {
         console.log(response.data);
         alert("성공적으로 탈퇴되었습니다.");

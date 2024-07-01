@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { RevdbProps } from '../types/reviewtypes';
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 export default function ReviewPage() {
   const revIndex = window.location.pathname.split('/')[2];
   const [review, setReview] = useState<RevdbProps>(Object);
@@ -14,7 +16,7 @@ export default function ReviewPage() {
   useEffect(() => {
     async function getAdmin() {
       try {
-        const admin = await axios.get('http://localhost:8080/auth/adminCheck');
+        const admin = await axios.get(`${BACKHOST}/auth/adminCheck`);
         setAdmin(admin.data.data.isAdmin);
         console.log(admin.data.data.isAdmin);
       } catch (err) {
@@ -35,11 +37,11 @@ export default function ReviewPage() {
       try {
         let response;
         if (isAdmin) {
-          response = await axios.get(`http://localhost:8080/admin/${revIndex}`);
+          response = await axios.get(`${BACKHOST}/admin/${revIndex}`);
           setReview(response.data.data);
           console.log("admin", response.data.data);
         } else {
-          response = await axios.get(`http://localhost:8080/reviews/${revIndex}`);
+          response = await axios.get(`${BACKHOST}/reviews/${revIndex}`);
           setReview(response.data.data.review);
           console.log("user", response.data.data.review);
         }

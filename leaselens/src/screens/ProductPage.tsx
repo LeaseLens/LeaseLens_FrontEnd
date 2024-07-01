@@ -9,36 +9,44 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import { ProProps } from "../types/types";
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 export default function ProductPage() {
+  const [allProducts, setAllProducts] = useState<ProProps[]>([]);
   const [products, setProducts] = useState<ProProps[]>([]);
   const [categorySelect, setCategory] = useState<String>("");
-  const [bannertxt, setBannerTxt] = useState(String);
+  const [bannertxt, setBannerTxt] = useState<string>("");
+
   const Prods = (category: String) => {
     setCategory(category);
   };
-  
+
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/products${categorySelect}`)
+      .get(`${BACKHOST}/products${categorySelect}`)
       .then((response) => {
         console.log(response.data.data.products);
+        setAllProducts(response.data.data.products);
         setProducts(response.data.data.products);
       })
       .catch((error) => {
-        console.error("Error fetching products:", error);
+        console.error("제품을 가져오는 중 오류가 발생했습니다:", error);
       });
   }, [categorySelect]);
 
-  let Text = categorySelect.split("=");
-  useEffect(() => {
-    Text = categorySelect.split("=");
-    setBannerTxt(Text[1]);
-  }, [categorySelect]);
-
-  const Search1 = () => {
-    
+  const Search1 = (val: string) => {
+    if (val === "") {
+      setProducts(allProducts);
+    } else {
+      setProducts(allProducts.filter((e) => e?.prod_name?.includes(val)));
+    }
   }
-
+  
+  useEffect(() => {
+    const Text = categorySelect.split("=");
+    setBannerTxt(Text[1] || "");
+  }, [categorySelect]);
+  
   return (
     <>
       <Header />

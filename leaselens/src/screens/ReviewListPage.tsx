@@ -7,8 +7,9 @@ import PostTable from "../components/PostTable";
 import Search from "../components/Search";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { PostTableProps } from "../types/types";
 import { RevdbProps } from "../types/reviewtypes";
+
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
 
 export default function ReviewListPage() {
   const [reviewArr, setReviews] = useState<RevdbProps[]>([]);
@@ -17,7 +18,7 @@ export default function ReviewListPage() {
 
   useEffect(() => {
     async function getAdmin() {
-      const adminRes = await axios.get('http://localhost:8080/auth/adminCheck');
+      const adminRes = await axios.get(`${BACKHOST}/auth/adminCheck`);
       console.log(adminRes.data)
       setAdmin(adminRes.data.data.isAdmin);
       console.log(isAdmin)
@@ -29,7 +30,7 @@ export default function ReviewListPage() {
     async function fetchReviews() {
       if(isAdmin === false) {
         try {
-          const response = await axios.get('http://localhost:8080/reviews');
+          const response = await axios.get(`${BACKHOST}/reviews`);
           setReviews(response.data.data.reviews);
           console.log("notAdmin",response.data.data.reviews)
         } catch (err) {
@@ -38,7 +39,7 @@ export default function ReviewListPage() {
       }
       else {
         try {
-          const response = await axios.get('http://localhost:8080/admin');
+          const response = await axios.get(`${BACKHOST}/admin`);
           setReviews(response.data.data);
           console.log("Admin",response.data.data)
         } catch (err) {

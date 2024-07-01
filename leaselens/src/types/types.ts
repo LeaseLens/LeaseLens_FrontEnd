@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { ProddbProps } from "./productstypes";
-import { RevTabledbProps, RevdbProps } from "./reviewtypes";
+import { RevdbProps } from "./reviewtypes";
 
 export interface BannerProps {
     bannerTxt: string;
@@ -18,7 +18,7 @@ export interface ProProps {
 
 export interface SearchProps {
     searchOpt: string;
-    search: (Val: string) => void;
+    search: (val: string) => void;
 }
 
 export interface PostTableProps {

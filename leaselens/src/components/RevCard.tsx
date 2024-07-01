@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export default function RevCard({ width, height, rev_idx, review }: RevProps) {
+export default function RevCard({ width, height, review }: RevProps) {
   const rev_rat = review.rev_rating;
   const innerText = review?.rev_text !== undefined ? review?.rev_text : "본문내용이 없습니다.";
   const imgSrc = review.rev_img?.split(',')

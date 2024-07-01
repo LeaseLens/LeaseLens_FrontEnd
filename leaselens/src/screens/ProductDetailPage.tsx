@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { RevdbProps } from "../types/reviewtypes";
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 export default function ProductDetailPage() {
   const productAPI = window.location.pathname;
   const [productInfo, setProduct] = useState(Object);
@@ -14,7 +16,7 @@ export default function ProductDetailPage() {
 
   useEffect(() => {
     axios
-    .get(`http://localhost:8080${productAPI}`)
+    .get(`${BACKHOST}${productAPI}`)
     .then((response) => {
       console.log(response.data.data);
       setProduct(response.data.data.productDetail)

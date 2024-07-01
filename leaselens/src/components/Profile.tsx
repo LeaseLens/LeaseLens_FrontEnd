@@ -3,6 +3,8 @@ import { Button, Modal } from "react-bootstrap";
 import { UserdbProps } from "../types/logintypes";
 import axios from "axios";
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 export default function Profile({ user_name, user_ID, user_points }: UserdbProps) {
   const [show, setShow] = useState(false);
 
@@ -11,7 +13,7 @@ export default function Profile({ user_name, user_ID, user_points }: UserdbProps
 
   const userDel = () => {
     axios
-      .delete(`http://localhost:8080/users/quit`)
+      .delete(`${BACKHOST}/users/quit`)
       .then((response) => {
         console.log(response.data);
         alert("성공적으로 탈퇴되었습니다.");

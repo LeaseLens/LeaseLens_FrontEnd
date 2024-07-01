@@ -1,4 +1,3 @@
-import "../assets/scss/LJG.scss";
 import ReactQuill from "react-quill";
 
 export default function PostPage() {
