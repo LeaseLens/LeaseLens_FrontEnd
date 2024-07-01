@@ -39,13 +39,12 @@ export default function MyPage() {
           window.location.pathname = "/main";
         }
       });
-  }, [userInfo]);
+  }, []);
 
   const userDel = () => {
     axios
       .delete(`${BACKHOST}/users/quit`)
       .then((response) => {
-        console.log(response.data);
         alert("성공적으로 탈퇴되었습니다.");
         window.location.pathname = "/main";
       })
