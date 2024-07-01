@@ -39,7 +39,7 @@ export default function ProductPage() {
     Text = categorySelect.split("=");
     setBannerTxt(Text[1]);
   }, [categorySelect]);
-
+  
   return (
     <>
       <Header />

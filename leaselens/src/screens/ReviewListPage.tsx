@@ -8,9 +8,11 @@ import Search from "../components/Search";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { PostTableProps } from "../types/types";
+import { RevdbProps } from "../types/reviewtypes";
 
 export default function ReviewListPage() {
-  const [reviewArr, setReviews] = useState<PostTableProps[]>([]);
+  const [reviewArr, setReviews] = useState<RevdbProps[]>([]);
+  const [filteredReviews, setFilteredReviews] = useState<RevdbProps[]>([]);
   const [isAdmin, setAdmin] = useState(Boolean);
 
   useEffect(() => {
@@ -48,6 +50,19 @@ export default function ReviewListPage() {
     fetchReviews();
   }, [isAdmin]);
 
+  const SearchValue = (value: string) => {
+    const filtered = reviewArr.filter(review => 
+      review.rev_title?.toLowerCase().includes(value.toLowerCase())
+    );
+    if (filtered.length === 0) {
+      setFilteredReviews([{
+        rev_title: '검색 결과가 없습니다'
+      }]);
+    } else {
+      setFilteredReviews(filtered);
+    }
+  }
+
   return (
     <>
       <Header />
@@ -59,7 +74,7 @@ export default function ReviewListPage() {
           <div className="revPage_table">
             <div className="revPage_table_header">
               <div>
-                <Search searchOpt={"검색할 제목을 입력하세요."} />
+                <Search searchOpt={"검색할 제목을 입력하세요."} search={SearchValue} />
               </div>
               <div>
                 <Link to={'/reviews'}>
@@ -69,6 +84,7 @@ export default function ReviewListPage() {
             </div>
             <PostTable fontSize="32px" thTxt="인증"
               reviewArr={reviewArr}
+              filteredRevArr = {filteredReviews}
               thBtn={
                 <input
                   type="checkbox"

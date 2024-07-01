@@ -3,9 +3,16 @@ import { SearchProps } from "../types/types";
 
 export default function Search({searchOpt, search}: SearchProps) {
   const [searchVal, setSearchVal] = useState('');
+
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchVal(e.target.value)
+    setSearchVal(e.target.value);
   }
+
+  const handleSearch = () => {
+    search(searchVal);
+    setSearchVal('');
+  }
+
   return (
     <div className="search">
       <div className="search_inputBox">
@@ -13,9 +20,10 @@ export default function Search({searchOpt, search}: SearchProps) {
           type="text"
           className="search_input"
           placeholder={searchOpt}
+          value={searchVal}
           onChange={handleSearchChange}
         />
-        <button className="search_sendBtn" onClick={() => {search(searchVal)}}>
+        <button className="search_sendBtn" onClick={handleSearch}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"

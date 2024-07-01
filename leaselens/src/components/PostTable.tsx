@@ -8,6 +8,7 @@ export default function PostTable({
   fontSize,
   thTxt,
   reviewArr,
+  filteredRevArr = [],
 }: PostTableProps) {
   function deleteReview(rev_idx: number | undefined) {
     if(rev_idx !== undefined) {
@@ -17,6 +18,8 @@ export default function PostTable({
       alert("존재하지 않는 리뷰 입니다.");
     }
   }
+
+  const selectedReviewArr = filteredRevArr.length > 0 ? filteredRevArr : reviewArr;
 
   return (
     <div className="postTable">
@@ -32,8 +35,8 @@ export default function PostTable({
           </tr>
         </thead>
         <tbody className="postTable_tbody">
-          {reviewArr &&
-            reviewArr.map((review, idx) => {
+          {selectedReviewArr &&
+            selectedReviewArr.map((review, idx) => {
               return (
                 <tr className="postTable_body_tr" style={{ fontSize }}>
                   <th className="postTable_body_th">{idx+1}</th>
