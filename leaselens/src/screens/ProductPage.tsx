@@ -37,7 +37,7 @@ export default function ProductPage() {
     if (val === "") {
       setProducts(allProducts);
     } else {
-      setProducts(allProducts.filter((e) => e?.prod_name?.includes(val)));
+      setProducts(allProducts.filter((e) => e?.prod_name?.toLowerCase().includes(val.toLowerCase())));
     }
   }
   
