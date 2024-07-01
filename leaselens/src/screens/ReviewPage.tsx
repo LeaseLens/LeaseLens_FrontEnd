@@ -18,7 +18,6 @@ export default function ReviewPage() {
       try {
         const admin = await axios.get(`${BACKHOST}/auth/adminCheck`);
         setAdmin(admin.data.data.isAdmin);
-        console.log(admin.data.data.isAdmin);
       } catch (err) {
         console.log(err);
       }
@@ -39,11 +38,9 @@ export default function ReviewPage() {
         if (isAdmin) {
           response = await axios.get(`${BACKHOST}/admin/${revIndex}`);
           setReview(response.data.data);
-          console.log("admin", response.data.data);
         } else {
           response = await axios.get(`${BACKHOST}/reviews/${revIndex}`);
           setReview(response.data.data.review);
-          console.log("user", response.data.data.review);
         }
       } catch (err) {
         console.log(err);

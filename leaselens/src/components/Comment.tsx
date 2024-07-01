@@ -20,7 +20,6 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
       try {
         const response = await axios.get(`${BACKHOST}/auth/check`);
         if (response.data.data.isAuthenticated) {
-          console.log(response.data);
           setIsLoggedIn(true);
           setCurrentUser(response.data.data.currentUserId.user_ID);
         }
@@ -48,7 +47,6 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
     try {
       const response = await axios.get(`${BACKHOST}${revIndex}`);
       setRevComments(response.data.data.review.Comments);
-      console.log(response.data.data.review.Comments);
     } catch (err) {
       console.log(err);
     }

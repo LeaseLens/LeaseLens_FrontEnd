@@ -1,4 +1,3 @@
-import React from 'react'
 import github from '../assets/images/sns/icon _github.png'
 import figma from '../assets/images/sns/icon _figma.png'
 import notion from '../assets/images/sns/icon _notion.png'

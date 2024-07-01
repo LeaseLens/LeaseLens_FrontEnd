@@ -25,7 +25,6 @@ export default function ProductPage() {
     axios
       .get(`${BACKHOST}/products${categorySelect}`)
       .then((response) => {
-        console.log(response.data.data.products);
         setAllProducts(response.data.data.products);
         setProducts(response.data.data.products);
       })

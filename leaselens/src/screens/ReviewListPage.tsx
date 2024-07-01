@@ -19,9 +19,7 @@ export default function ReviewListPage() {
   useEffect(() => {
     async function getAdmin() {
       const adminRes = await axios.get(`${BACKHOST}/auth/adminCheck`);
-      console.log(adminRes.data)
       setAdmin(adminRes.data.data.isAdmin);
-      console.log(isAdmin)
     }
     getAdmin();
   }, [reviewArr]);
@@ -32,7 +30,6 @@ export default function ReviewListPage() {
         try {
           const response = await axios.get(`${BACKHOST}/reviews`);
           setReviews(response.data.data.reviews);
-          console.log("notAdmin",response.data.data.reviews)
         } catch (err) {
           console.log(err)
         }
@@ -41,7 +38,6 @@ export default function ReviewListPage() {
         try {
           const response = await axios.get(`${BACKHOST}/admin`);
           setReviews(response.data.data);
-          console.log("Admin",response.data.data)
         } catch (err) {
           console.log(err)
         }

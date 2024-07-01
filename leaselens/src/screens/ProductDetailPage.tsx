@@ -18,7 +18,6 @@ export default function ProductDetailPage() {
     axios
     .get(`${BACKHOST}${productAPI}`)
     .then((response) => {
-      console.log(response.data.data);
       setProduct(response.data.data.productDetail)
       setReview(response.data.data.reviews);
     })
@@ -26,10 +25,7 @@ export default function ProductDetailPage() {
       console.error("Error fetching products:", error);
     });
   }, []);
-
-  console.log(productInfo);
-  console.log(review);
-
+  
   return (
     <>
       <Header />

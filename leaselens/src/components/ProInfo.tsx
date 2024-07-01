@@ -19,7 +19,6 @@ export default function ProInfo({ product }: ProProps) {
     axios
       .get(`${BACKHOST}${prod_idx}`)
       .then((response) => {
-        console.log("ProInfo",response.data.data.productDetail);
         setProduct(response.data.data.productDetail);
         setIsLiked(response.data.data.isLiked);
       })

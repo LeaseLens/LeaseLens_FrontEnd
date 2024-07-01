@@ -1,4 +1,3 @@
-import '../assets/scss/LJG.scss'
 import logoImg from '../assets/images/Logo/leaselens_imgsm_logo.png'
 import logoText from '../assets/images/Logo/leaselens_text_logo.png'
 import { useNavigate } from 'react-router-dom';

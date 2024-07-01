@@ -98,7 +98,6 @@ export default function ReviewPostPage() {
     axios
       .get(`${BACKHOST}/products?category=${categorySelect}`)
       .then((response) => {
-        console.log(response.data.data.products);
         setProducts(response.data.data.products);
       })
       .catch((error) => {
@@ -141,10 +140,8 @@ export default function ReviewPostPage() {
     formData.append('prod_idx', selectedProduct);
 
     if (files && files.length > 0) {
-      console.log(files)
       for (let i = 0; i < files.length; i++) {
         formData.append('rev_img', files[i]);
-        console.log(files[i])
       }
     }
 
@@ -159,7 +156,6 @@ export default function ReviewPostPage() {
         },
       })
       .then((response) => {
-        console.log('Review submitted successfully:', response.data);
         alert(response.data.message)
         navigate('/reviewlist');
       })

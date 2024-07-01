@@ -30,7 +30,6 @@ export default function MainPage() {
     axios
       .get(`${BACKHOST}/main`)
       .then((response) => {
-        console.log(response.data.data);
         setProducts(response.data.data.products);
         setReviews(response.data.data.reviews);
       })
