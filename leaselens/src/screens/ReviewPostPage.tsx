@@ -7,6 +7,8 @@ import axios from 'axios';
 import { ProProps } from '../types/types';
 import { useNavigate } from 'react-router-dom';
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 Quill.register("modules/ImageResize", ImageResize);
 
 export default function ReviewPostPage() {
@@ -31,7 +33,7 @@ export default function ReviewPostPage() {
       const range = quillObj?.getSelection();
       if (!range) return;
       try {
-        const res = await axios.post('http://localhost:8080/reviews/img', formData, {
+        const res = await axios.post(`${BACKHOST}/reviews/img`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -94,7 +96,7 @@ export default function ReviewPostPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/products?category=${categorySelect}`)
+      .get(`${BACKHOST}/products?category=${categorySelect}`)
       .then((response) => {
         console.log(response.data.data.products);
         setProducts(response.data.data.products);
@@ -151,7 +153,7 @@ export default function ReviewPostPage() {
     }
 
     axios
-      .post('http://localhost:8080/reviews', formData, {
+      .post(`${BACKHOST}/reviews`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

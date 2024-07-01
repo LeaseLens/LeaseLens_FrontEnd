@@ -20,13 +20,15 @@ import axios from "axios";
 import { ProddbProps } from "../types/productstypes";
 import { RevdbProps } from "../types/reviewtypes";
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 export default function MainPage() {
   const [products, setProducts] = useState<ProddbProps[]>([]);
   const [reviews, setReviews] = useState<RevdbProps[]>([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/main")
+      .get(`${BACKHOST}/main`)
       .then((response) => {
         console.log(response.data.data);
         setProducts(response.data.data.products);

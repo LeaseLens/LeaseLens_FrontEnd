@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import "../assets/scss/LJG.scss";
 import type { PostTableProps } from "../types/types";
 import { Button } from 'react-bootstrap';
 import axios from "axios";
+
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
 
 export default function PostTable({
   fontSize,
@@ -12,7 +13,7 @@ export default function PostTable({
 }: PostTableProps) {
   function deleteReview(rev_idx: number | undefined) {
     if(rev_idx !== undefined) {
-      axios.delete(`http://localhost:8080/reviews/${rev_idx}`);
+      axios.delete(`${BACKHOST}/reviews/${rev_idx}`);
     }
     else {
       alert("존재하지 않는 리뷰 입니다.");

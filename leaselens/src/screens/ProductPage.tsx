@@ -9,6 +9,8 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import { ProProps } from "../types/types";
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 export default function ProductPage() {
   const [allProducts, setAllProducts] = useState<ProProps[]>([]);
   const [products, setProducts] = useState<ProProps[]>([]);
@@ -21,7 +23,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/products${categorySelect}`)
+      .get(`${BACKHOST}/products${categorySelect}`)
       .then((response) => {
         console.log(response.data.data.products);
         setAllProducts(response.data.data.products);

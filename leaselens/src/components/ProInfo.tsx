@@ -1,9 +1,9 @@
-import "../assets/scss/LJG.scss";
 import { BsHeartFill } from "react-icons/bs";
 import { ProProps } from "../types/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { RevdbProps } from "../types/reviewtypes";
+
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
 
 export default function ProInfo({ product }: ProProps) {
   const prod_idx = window.location.pathname;
@@ -11,13 +11,13 @@ export default function ProInfo({ product }: ProProps) {
   const [isLiked, setIsLiked] = useState(Boolean);
 
   const handleLikeClick = () => {
-    axios.post(`http://localhost:8080${prod_idx}/like`);
+    axios.post(`${BACKHOST}${prod_idx}/like`);
     setIsLiked(!isLiked);
   }
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080${prod_idx}`)
+      .get(`${BACKHOST}${prod_idx}`)
       .then((response) => {
         console.log("ProInfo",response.data.data.productDetail);
         setProduct(response.data.data.productDetail);

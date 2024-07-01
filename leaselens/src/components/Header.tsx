@@ -7,6 +7,8 @@ import Login from './Login';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 axios.defaults.withCredentials = true;
 
 export default function Header() {
@@ -19,7 +21,7 @@ export default function Header() {
     useEffect(() => {
         const checkLoginStatus = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/auth/check');
+                const response = await axios.get(`${BACKHOST}/auth/check`);
                 if (response.data.data.isAuthenticated) {
                     setIsLoggedIn(true);
                 }
@@ -52,7 +54,7 @@ export default function Header() {
 
     const handleLogoutClick = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/users/logout');
+            const response = await axios.get(`${BACKHOST}/users/logout`);
             alert(response.data.message)
             window.location.replace(currentLocation);
         } catch (error) {

@@ -3,6 +3,8 @@ import { BsXLg } from "react-icons/bs";
 import type { LoginProps } from "../types/types";
 import axios from 'axios';
 
+const BACKHOST = process.env.REACT_APP_BACK_HOST;
+
 axios.defaults.withCredentials = true;
 
 export default function Login({ onClose }: LoginProps) {
@@ -40,7 +42,7 @@ export default function Login({ onClose }: LoginProps) {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/users/login', {
+      const response = await axios.post(`${BACKHOST}/users/login`, {
         user_ID: formData.id,
         user_pw: formData.password
       });
@@ -84,7 +86,7 @@ export default function Login({ onClose }: LoginProps) {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8080/users/register', {
+      const response = await axios.post(`${BACKHOST}/users/register`, {
         user_name: formData.name,
         user_ID: formData.id,
         user_pw: formData.password,
