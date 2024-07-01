@@ -55,7 +55,7 @@ export default function ReviewPage() {
       <Header />
       <div className='reviewPage_Info'>
         <span className='reviewPage_proname'>{review.Product?.prod_name}</span>
-        <span className='reviewPage_Id'>{review.User?.user_ID}</span>
+        <span className='reviewPage_Id'>작성자 : {review.User?.user_ID}</span>
       </div>
       <main className="reviewPage_main">
         <div className="reviewPage_revCard">
