@@ -11,6 +11,7 @@ export default function PostTable({
   reviewArr,
   filteredRevArr = [],
 }: PostTableProps) {
+
   function deleteReview(rev_idx: number | undefined) {
     if(rev_idx !== undefined) {
       axios.delete(`${BACKHOST}/reviews/${rev_idx}`);
@@ -21,7 +22,7 @@ export default function PostTable({
   }
 
   const selectedReviewArr = filteredRevArr.length > 0 ? filteredRevArr : reviewArr;
-
+  
   return (
     <div className="postTable">
       <table className="postTable_table">
