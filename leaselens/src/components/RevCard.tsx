@@ -50,7 +50,7 @@ export default function RevCard({ width, height, review }: RevProps) {
                   key={index}
                   className='rev_card_swiper_item'
                 >
-                  {imgSrc === undefined ? <p>등록된 이미지가 없습니다.</p> : <img src={imgsrc} alt="제품 리뷰 사진" />}
+                  {imgSrc === null ? <p>등록된 이미지가 없습니다.</p> : <img src={imgsrc} alt="제품 리뷰 사진" />}
                 </SwiperSlide>
               );
             })}
