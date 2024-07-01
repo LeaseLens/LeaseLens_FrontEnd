@@ -13,6 +13,8 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [commentToDelete, setCommentToDelete] = useState<number | null>(null);
 
+  const priviousLocation = document.referrer;
+
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
@@ -126,6 +128,7 @@ export default function Comment({ isAdmin, rev_authImg }: CommentdbProps) {
       .post(`${BACKHOST}/admin/${rev_idx}/auth`)
       .then((response) => {
         alert(response.data.message);
+        window.location.replace(priviousLocation);
       });
   }
 
