@@ -1,17 +1,34 @@
 import { useState } from "react";
 import { SearchProps } from "../types/types";
 
-export default function Search({searchOpt, search}: SearchProps) {
-  const [searchVal, setSearchVal] = useState<string>('');
+export default function Search({ searchOpt, search }: SearchProps) {
+  const [searchVal, setSearchVal] = useState<string>("");
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchVal(e.target.value);
-  }
+  };
 
   const handleSearch = () => {
-    search(searchVal);
-    setSearchVal('');
-  }
+    const searchValue = searchVal.toLowerCase();
+    let searchQuery = searchValue;
+    if (searchValue === "엘지") {
+      searchQuery = "lg";
+    }
+    else if (searchValue === "samsung") {
+      searchQuery = "삼성";
+    }
+    else if (searchValue === "coway") {
+      searchQuery = "코웨이";
+    }
+    else if (searchValue === "roborock") {
+      searchQuery = "로보락";
+    }
+    else if (searchValue === "에스케이") {
+      searchQuery = "sk";
+    }
+    search(searchQuery);
+    setSearchVal("");
+  };
 
   return (
     <div className="search">

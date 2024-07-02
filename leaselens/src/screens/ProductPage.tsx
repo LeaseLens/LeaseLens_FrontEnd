@@ -18,6 +18,10 @@ export default function ProductPage() {
   const [bannertxt, setBannerTxt] = useState<string>("");
 
   const Prods = (category: String) => {
+    if(category === "") {
+      setBannerTxt("전체 상품")
+      setProducts(allProducts);
+    }
     setCategory(category);
   };
 
@@ -35,15 +39,17 @@ export default function ProductPage() {
 
   const Search1 = (val: string) => {
     if (val === "") {
+      setBannerTxt("전체 상품");
       setProducts(allProducts);
     } else {
+      setBannerTxt(val.toUpperCase());
       setProducts(allProducts.filter((e) => e?.prod_name?.toLowerCase().includes(val.toLowerCase())));
     }
   }
   
   useEffect(() => {
     const Text = categorySelect.split("=");
-    setBannerTxt(Text[1] || "");
+    setBannerTxt(Text[1] || "전체 상품");
   }, [categorySelect]);
   
   return (
