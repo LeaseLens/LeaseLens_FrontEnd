@@ -3,14 +3,16 @@ import { SidebarProps } from "../types/types";
 
 export default function SideBar( { getProds }: SidebarProps ) {
   const [category, setCategory] = useState(String);
+  const [effect, setEffect] = useState(true);
 
   useEffect(() => {
+    console.log("category", category);
     getProds(category);
-  }, [category])
+  }, [category, effect])
 
   return (
     <div className="side_container">
-      <div className="side_all" onClick={() => {setCategory("")}}>전체 상품</div>
+      <div className="side_all" onClick={() => {console.log("WKr"); setCategory(""); setEffect(!effect)}}>전체 상품</div>
       <div className="side_hr"></div>
       <ul className="side_category">
         <li
