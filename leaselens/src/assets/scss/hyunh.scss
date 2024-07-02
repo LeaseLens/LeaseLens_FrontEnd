@@ -275,6 +275,11 @@
                     }
                 }
             }
+
+            .noRev_Img {
+                font-size: 30px;
+                margin: 0;
+            }
         }
     }
 
@@ -307,6 +312,9 @@
         font-weight: bold;
         padding: 20px;
         margin-left: 10px;
+    }
+    &:hover {
+        cursor: pointer;
     }
 
     .side_hr {

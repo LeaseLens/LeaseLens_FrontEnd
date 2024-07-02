@@ -1,17 +1,21 @@
 import { useState } from "react";
 import { SearchProps } from "../types/types";
 
-export default function Search({searchOpt, search}: SearchProps) {
-  const [searchVal, setSearchVal] = useState<string>('');
+export default function Search({ searchOpt, search }: SearchProps) {
+  const [searchVal, setSearchVal] = useState<string>("");
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchVal(e.target.value);
-  }
+  };
 
   const handleSearch = () => {
-    search(searchVal);
-    setSearchVal('');
-  }
+    let searchQuery = searchVal;
+    if (searchVal === "엘지") {
+      searchQuery = "lg";
+    }
+    search(searchQuery);
+    setSearchVal("");
+  };
 
   return (
     <div className="search">
