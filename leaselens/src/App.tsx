@@ -11,6 +11,7 @@ import ReviewListPage from "./screens/ReviewListPage";
 import ReviewPage from "./screens/ReviewPage";
 import ReviewPostPage from "./screens/ReviewPostPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProductPostPage from "./screens/ProductPostPage";
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,7 @@ function App() {
           <Route path="/reviews/:rev_idx" element={<ReviewPage />} />
           <Route path="/reviewlist" element={<ReviewListPage />} />
           <Route path="/events" element={<EventPage />} />
+          <Route path="/product/post" element={<ProductPostPage />} />
         </Routes>
       </BrowserRouter>
     </div>
